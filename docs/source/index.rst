@@ -25,12 +25,12 @@ let us begin
 Quick short introduction into python
 
 
-guide
-=====
+contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: guide:
+   :caption: contents:
    
    hello_world
    numbers
