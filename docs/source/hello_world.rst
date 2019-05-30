@@ -13,7 +13,7 @@ Python is a clean and powerful programming language.  You can use it to build we
 
 
 to begin
-========
+########
 
 * Check the installation in command prompt (Win+R then type `cmd`).
 
@@ -26,20 +26,20 @@ to begin
 * Go to the site [python.org](https://www.python.org/) and download the latest version.
 
 
-and now, let's acomplish the task
-=================================
+doing the task
+##############
 
 * open the python console and type `print("Hello world!")` and press Enter. Et voila:
 
-_TODO: add screenshots_
+TODO: add screenshots
 
-* Now we'll say 'hello' using a _python_ program instead of the _python interactive console_, so exit python by typing `quit()`
+* Now we'll say 'hello' using a python program instead of the python interactive console, so exit python by typing `quit()`
 
 * create a folder somewhere on your computer `i_am_learning_python`
 
 * open your favourite text editor and type in the same command we used earlier `print("Hello world!")`
 
-* save your file and call it `01_hello_world.py`; _python programs all end in_ `.py`  
+* save your file and call it `01_hello_world.py`; python programs all end in `.py`  
 
 * the `01_` at the beginning is so all our files created in this tutorial are nicely sorted in a single folder
 
