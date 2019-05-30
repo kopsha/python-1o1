@@ -25,8 +25,8 @@ let us begin
 Quick short introduction into python
 
 
-contents
-========
+guide
+=====
 
 .. toctree::
    :maxdepth: 2
