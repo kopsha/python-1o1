@@ -30,7 +30,7 @@ guide
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: guide:
    
    hello_world
    numbers
