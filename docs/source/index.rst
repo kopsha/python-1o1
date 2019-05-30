@@ -30,7 +30,6 @@ contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: contents:
    
    hello_world
    numbers
