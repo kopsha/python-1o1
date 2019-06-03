@@ -1,5 +1,5 @@
 hello world
-===========
+###########
 
 A way to show the world that we are civil.
 
@@ -11,7 +11,7 @@ It has become a programmer tradition that when you learn a new programming langu
 
 
 the console
-^^^^^^^^^^^
+***********
 
 First we need to verify if python is installed on our computer by opening the terminal application (for Windows users, type Win+R and then `cmd`).
 
@@ -58,7 +58,7 @@ Observe that python tries to *understand* what we type, be it numbers, arithmeti
 
 
 saying hello
-^^^^^^^^^^^^
+************
 
 Open the python console and type ``print("Hello world!")`` then enter:
 
@@ -109,4 +109,28 @@ And finally, execute this program by typing in *python* followed by the name of 
 
 
 You got lucky, you just wrote your first python program.
+
+
+the editor
+**********
+
+Now, that you've entered the world of python programming you may want to take it to the next level by using a text editor that was designed for editing python programs.
+
+Even though there are many options available, I recommend you these two:
+
+.. tip:: sublime text
+    is easy to use, it has all the features you may want and you don't event know them yet; it is light, fast and has a beautiful color theme.
+    Long story short: it is *sublime*.
+
+    You can get it from the `Sublime Text website <https://www.sublimetext.com/3>`_
+
+    And if you need any help have a look a this `video tutorial <https://www.youtube.com/watch?v=SVkR1ZkNusI>`_.
+
+
+.. note:: pycharm
+    is just bloated version of *sublime text* with the advantage that you could execute your programs directly in the editor or just line-by-line (read as *debug your code*) which could be useful when learning python to understand how complex structures are being executed.
+
+    You can get it from `jetbrains website <https://www.jetbrains.com/pycharm/>`_.
+
+    It also has an `educational version <https://www.jetbrains.com/education/#lang=python&role=learner>`_.
 
