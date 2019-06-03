@@ -118,17 +118,19 @@ Now, that you've entered the world of python programming you may want to take it
 
 Even though there are many options available, I recommend you these two:
 
-.. tip:: sublime text
-    is easy to use, it has all the features you may want and you don't event know them yet; it is light, fast and has a beautiful color theme.
+.. admonition::  sublime text
+
+    is easier to use, it has all the features you may want and you don't event know them yet; it is light, fast and has a beautiful color theme.
     Long story short: it is *sublime*.
 
-    You can get it from the `Sublime Text website <https://www.sublimetext.com/3>`_
+    You can get it from the `sublimetext website <https://www.sublimetext.com/3>`_
 
     And if you need any help have a look a this `video tutorial <https://www.youtube.com/watch?v=SVkR1ZkNusI>`_.
 
 
-.. note:: pycharm
-    is just bloated version of *sublime text* with the advantage that you could execute your programs directly in the editor or just line-by-line (read as *debug your code*) which could be useful when learning python to understand how complex structures are being executed.
+.. admonition::  pycharm
+
+    is just a bloated version of *sublime text* with the advantage that you could execute your programs directly in the editor or just line-by-line (read as *debug your code*) which could be useful when learning python to understand how complex structures are being executed.
 
     You can get it from `jetbrains website <https://www.jetbrains.com/pycharm/>`_.
 
