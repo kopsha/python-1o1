@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Python 101 - introduction
-=========================
+introduction
+############
 
 There is more to *python* than meets the eye.
 
@@ -38,17 +38,17 @@ There is more to *python* than meets the eye.
 
 
 lessons
-########
+#######
 
 .. toctree::
    :maxdepth: 2
    
    hello_world
+   strings
    numbers
 
 
 ..   decisions
-   strings
    datetime
    lists
    functions
@@ -61,3 +61,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
