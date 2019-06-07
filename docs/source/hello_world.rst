@@ -28,6 +28,31 @@ Type in `python` and see what happens
 If you see a version number and a prompt, you're good to go. But if you see an error, you need to download and install python. I recommend to visit the `python comunity website <http://www.python.org/>`_ and download the latest python3 version.
 
 Let's get more familiar with the python console. The easiest way you can interact with the python interpreter is through this console. Here you can *talk* directly to the core python and send your request.
+
+
+Python as an interactive calculator
+===================================
+
+To get your feet wet with Python you can use the Python interpreter as a
+calculator. You have the usual mathematical operators at your disposal, like
+
+:``+``: addition,
+:``-``: subtraction,
+:``*``: multiplication,
+:``/``: division,
+:``**``: exponent,
+:``//``: integer division, and
+:``%``: modulus.
+
+If you are not familiar with one of them just give it a try in the Python
+interpreter --- python does not limit you to integer numbers, feel free to
+try also floating point numbers or even strings.
+You can also use brackets as you would use them in mathematical expressions.
+
+Can you find out whether Python uses the proper mathematical rules with regards to the order of
+execution of the operators.
+
+
 For example:
 
 .. code-block:: console
@@ -54,7 +79,7 @@ For example:
     SyntaxError: invalid syntax
     >>> _
 
-Observe that python tries to *understand* what we type, be it numbers, arithmetic operations or strings, computes the result and prints it back for us. However, if we accidentally type something that doesn't make sense, *python* will do its best to point out the problem, but it will let us decide how and when we'll fix it.
+Observe that python tries to *understand* what we type, be it numbers, arithmetic operations or strings, computes the result and prints it back for us. However, if we accidentally type something that doesn't make sense, *Python* will do its best to point out the problem, but it will let us decide how and when we'll fix it.
 
 
 saying hello
@@ -75,10 +100,25 @@ Open the python console and type ``print("Hello world!")`` then enter:
     4
     >>> _
 
-Notice that print behaves the same as the interpreter, it looks at our expression, tries to understand it and then prints the result
 
 
-Now we'll say ``hello`` using a python program instead of the python interactive console, so exit python by typing ``quit()``
+The ``print`` function
+^^^^^^^^^^^^^^^^^^^^^^
+
+When you are typing expresions in the python interpreter (remember the `>>>` prompter?) they are evaluated and the result is being printed on the screen for us. But when you are running the python program (see below) you need to be explicit to python about when to display an actual value or an expression.
+
+The function you used in your first program, the :func:`print` function, behaves almost the same as the interpreter, it looks at our input, be it numbers, text, expression or even other functions, tries to understand it, evaluate it and then shows the result on the screen.
+
+
+
+your first python program
+*************************
+
+Besides the interactive Python interpreter you can also write Python programs (sometimes called scripts).
+A python program is a file that contains a list of python commands that can be executed from the command line interface.
+A script can be really simple e.g. searching a text inside a file or it could be as complex as a complete car crash simulation.
+
+Now we'll say *hello* using a python program instead of the interactive console, so exit python by typing ``quit()``
 
 .. code-block:: console
 
@@ -88,7 +128,7 @@ Now we'll say ``hello`` using a python program instead of the python interactive
 
 Create a folder somewhere on your computer ``python_lessons``, open your favourite text editor and type in the same command we used earlier ``print("Hello world!")`` then save your file and call it ``01_hello_world.py``
 
-All python programs all end in `.py`  
+All python programs all end in `.py`
 
 The `01_` at the beginning is so all our files created in this tutorial are nicely sorted in a single folder
 
@@ -100,6 +140,7 @@ The `01_` at the beginning is so all our files created in this tutorial are nice
 
 
 And finally, execute this program by typing in *python* followed by the name of our file *01_hello_world.py*.
+If you did everything correctly then your console should look like this:
 
 .. code-block:: console
 
