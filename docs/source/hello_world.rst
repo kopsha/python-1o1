@@ -177,3 +177,17 @@ Even though there are many options available, I recommend you these two:
 
     It also has an `educational version <https://www.jetbrains.com/education/#lang=python&role=learner>`_.
 
+
+exercise
+********
+
+Write a program that given the radius of a circle it computes the circumference and the area.
+You will need to use the :raw-latex:`$\pi$1`, so please define it as: 
+
+.. code-block:: python
+
+    pi = 3.141592653589793
+
+
+
+the end
