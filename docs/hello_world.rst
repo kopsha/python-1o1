@@ -182,7 +182,7 @@ exercise
 ********
 
 Write a program that given the radius of a circle it computes the circumference and the area.
-You will need to use the :raw-latex:`$\pi$1`, so please define it as: 
+You will need to use the ``pi``, so please define it as: 
 
 .. code-block:: python
 
