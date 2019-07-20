@@ -1,12 +1,14 @@
-Python 101
-##########
+*******************
+Python 1o1 tutorial
+*******************
 
 
-A collection of bite-sized lessons for learning python the easy way.
+A collection of bite-sized lessons for learning python programming even if you
+don't have any programming experience.
 
 
 Before anything
-***************
+###############
 
 There is more to *python* than meets the eye. It has its *zen*.
 
@@ -27,7 +29,7 @@ There is more to *python* than meets the eye. It has its *zen*.
     Errors should never pass silently.
     Unless explicitly silenced.
     In the face of ambiguity, refuse the temptation to guess.
-    There should be one-- and preferably only one --obvious way to do it.
+    There should be one -- and preferably only one -- obvious way to do it.
     Although that way may not be obvious at first unless you're Dutch.
     Now is better than never.
     Although never is often better than *right* now.
@@ -45,15 +47,21 @@ If you're a newcommer into the world of programming languages, you are either:
 
 * *lucky* that you chose the easiest way in
 * very well *documented* before making the right choice
-* or, you have *good friends* that care for you
+* or, you have *really good friends* that care for you
 
-In any case you just need to tackle these small lessons step by step and you enjoy the warm pleasant feeling of python programming.
+In any case you just need to tackle these small lessons step by step so you can
+enjoy the warm pleasant feeling of python programming.
 
+
+[ ] First steps
+    - Installation
+    - 
  
 
 .. toctree::
    :maxdepth: 2
    
+   about_python
    hello_world
    strings
    numbers
