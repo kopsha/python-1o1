@@ -51,20 +51,15 @@ If you're a newcommer into the world of programming languages, you are either:
 
 In any case you just need to tackle these small lessons step by step so you can
 enjoy the warm pleasant feeling of python programming.
-
-
-[ ] First steps
-    - Installation
-    - 
  
 
 .. toctree::
    :maxdepth: 2
    
    about_python
-   hello_world
-   strings
+   first_steps
    numbers
+   strings
 
 
 ..   decisions

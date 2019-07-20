@@ -84,11 +84,9 @@ iPhone, iPad, and Android.
 Interpreted
 ***********
 
-This requires a bit of explanation.
-
 A program written in a **compiled** language like C or C++ is converted from the
 source language i.e. C or C++ into a language that is spoken by your computer
-(*binary code* i.e. **0**s and **1**s) using a compiler with various flags and
+(binary code i.e. 0s and 1s) using a compiler with various flags and
 options. When you run the program, the linker/loader software copies the program
 from hard disk to memory and starts running it.
 
