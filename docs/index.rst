@@ -40,7 +40,7 @@ There is more to *python* than meets the eye. It has its *zen*.
 
 
 
-the plan
+The plan
 ********
 
 If you're a newcommer into the world of programming languages, you are either:
@@ -70,7 +70,7 @@ enjoy the warm pleasant feeling of python programming.
 
 
 Indices and tables
-******************
+^^^^^^^^^^^^^^^^^^
 
 * :ref:`genindex`
 * :ref:`modindex`
