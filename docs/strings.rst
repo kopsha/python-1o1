@@ -204,6 +204,7 @@ and False otherwise:
 There is also a not in operator, which does the opposite:
 
 .. code-block:: python
+
 	>>> 'z' not in 'abc'
 	True
 	>>> 'z' not in 'xyz'
@@ -230,6 +231,7 @@ Returns the length of a string.
 With **len()**, you can check Python string length. **len(s)** returns the number of characters in s:
 
 .. code-block:: python
+
 	>>> s = 'I am a programmer.'
 	>>> len(s)
 	18
