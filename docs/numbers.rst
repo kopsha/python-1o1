@@ -1,5 +1,7 @@
-numbers
-#######
+*******
+Numbers
+*******
+
 
 Among other many other things, Python understands numbers. Let's open the python interpretor console and try them out.
 
@@ -18,12 +20,13 @@ Among other many other things, Python understands numbers. Let's open the python
 
 In Python 3 there are three types of numbers, in Python 2 there are four types of number. And if you're using C++ then you will be glad that you're learning Python.
 
-You can inspect the type of any number, variable, string or even expressions by using the function ``type``.
+You can inspect the type of any number, variable, string or even expressions by using the function ``type()``.
 
 int
-***
+###
 
-The first type of numbers in python is ``int``, which is short for *integer*.
+The first type of numbers in python is ``int``, which is short for *integer* or
+numbers without a decimal point.
 
 .. code-block:: console
 
@@ -54,7 +57,7 @@ No size limits, no overflows, no worries.
 
 
 float
-*****
+#####
 
 The second type of numbers in Python 3 is *float*. This is how decimal values are stored. To make a float, just type in a number that has a decimal point. We'll use the famous number *e* which is approximately 2.718281828.
 
@@ -71,7 +74,7 @@ To confirm that this is a float, look at its type:
 
 
 complex
-*******
+#######
 
 The third type of numbers in python is *complex numbers*.
 
@@ -105,7 +108,6 @@ You can also display the real and imaginary parts separetely. To access the real
 
 Did you noticed that even that the real part is a float while we typed it as an integer. This is because Python stores the real and imaginary part of complex numbers as floats.
 
-
 Now that you know about ``int``, ``float`` and ``complex`` numbers you are ready to tackle arithmetic.
 
 Just remember:
@@ -114,3 +116,15 @@ Just remember:
 * complex numbers are made of *floats*
 * the ``type()``  function can tell you what type of numbers you really have
  
+
+Type conversion
+###############
+
+Whenever you write an arithmetic expression Python converts numbers internally
+in an expression containing mixed types to a common type for evaluation.
+But sometimes, you need to convert a number explicitly from one type to another:
+
+- type ``int(x)`` to convert x to a plain integer
+- type ``float(x)`` to convert x to a floating-point number
+- type ``complex(x)`` to convert x to a complex number with real part x and imaginary part zero
+- type ``complex(x, y)`` to convert x and y to a complex number with real part **x** and imaginary part **y**, where **x** and **y** can be numeric expressions
