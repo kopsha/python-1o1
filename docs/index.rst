@@ -60,6 +60,7 @@ enjoy the warm pleasant feeling of python programming.
    first_steps
    numbers
    strings
+   if_then_else
 
 
 ..   decisions
