@@ -79,7 +79,9 @@ and this is promptly printed to the screen.
 How to Quit the Interpreter Prompt
 **********************************
 
-If you are using a GNU/Linux or OS X shell, you can exit the interpreter prompt by pressing [ctrl + d] or entering exit() (note: remember to include the parentheses, ()) followed by the [enter] key.
+If you are using a GNU/Linux or OS X shell, you can exit the interpreter prompt
+by pressing [ctrl + d] or entering exit() (note: remember to include the
+parentheses, **()**) followed by the [enter] key.
 
 If you are using the Windows command prompt, press [ctrl + z] followed by the [enter] key.
 
@@ -91,13 +93,13 @@ Python as an interactive calculator
 To get your feet wet with Python you can use the Python interpreter as a
 calculator. You have the usual mathematical operators at your disposal, like
 
-:``+``: addition,
-:``-``: subtraction,
-:``*``: multiplication,
-:``/``: division,
-:``**``: exponent,
-:``//``: integer division, and
-:``%``: modulus.
+- ``+`` addition,
+- ``-`` subtraction,
+- ``*`` multiplication,
+- ``/`` division,
+- ``**`` exponent,
+- ``//`` integer division, and
+- ``%`` modulus.
 
 If you are not familiar with one of them just give it a try in the Python
 interpreter -- python does not limit you to integer numbers, feel free to
@@ -149,7 +151,7 @@ prompt?) they are evaluated and the result is being printed on the screen for us
 But when you are running the python program (see below) you need to be explicit
 to python about when to display an actual value or an expression.
 
-The function you used in your first program, the :func:``print(...)`` function,
+The function you used in your first program, the ``print(...)`` function,
 behaves almost the same as the interpreter, it looks at our input, be it
 numbers, text, expression or even other functions, tries to understand it,
 evaluates tem and then shows the result on the screen.
