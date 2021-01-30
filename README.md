@@ -1,7 +1,7 @@
 # python-101
 
 Read it online at
-[Python introduction for beginners](https://python-1o1-tutorial.readthedocs.io/en/latest/)
+[Python introduction for beginners](https://python-1o1-tutorial.readthedocs.io/)
 
 ### Publishing status
 

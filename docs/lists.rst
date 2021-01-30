@@ -171,7 +171,7 @@ list.
 Multiple data types
 ###################
 
-Lists can contain more than prime numbers. The can contain integers, booleans,
+Lists can contain more than prime numbers. They can contain integers, booleans,
 strings, floats, and even other lists.
 
 .. code-block:: python

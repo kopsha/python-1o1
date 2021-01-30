@@ -54,14 +54,14 @@ enjoy the warm pleasant feeling of python programming.
 
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   about_python
-   first_steps
-   numbers
-   strings
-   if_then_else
-   lists
+    about_python
+    first_steps
+    numbers
+    strings
+    if_then_else
+    lists
 
 
 
