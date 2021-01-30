@@ -16,7 +16,7 @@ There is more to *python* than meets the eye. It has its *zen*.
 
     macbook ~ $ python -m this
     The Zen of Python, by Tim Peters
-        
+
     Beautiful is better than ugly.
     Explicit is better than implicit.
     Simple is better than complex.
@@ -51,16 +51,17 @@ If you're a newcommer into the world of programming languages, you are either:
 
 In any case you just need to tackle these small lessons step by step so you can
 enjoy the warm pleasant feeling of python programming.
- 
+
 
 .. toctree::
    :maxdepth: 2
-   
+
    about_python
    first_steps
    numbers
    strings
    if_then_else
+   lists
 
 
 ..   decisions
