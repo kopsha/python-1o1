@@ -15,7 +15,7 @@ Create strings
 
 First, we create a string a store it in a variable:
 
-.. code-block:: python
+.. code-block:: console
 
 	message = "Meet me tonight."
 
@@ -24,7 +24,7 @@ not have a type a semicolon at the end like you do in many other languages like
 Java or C++. You can see the string stored in *message* by printing it:
 
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message = "Meet me tonight."
 	>>> print(message)
@@ -34,13 +34,13 @@ Java or C++. You can see the string stored in *message* by printing it:
 We've created our first string using quotation marks, but you can also create
 strings using single quotes:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> another_message = 'The clock strikes at midnight.'
 
 Let's verify the text stored in this new variable by printing it:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> print(another_message)
 	The clock strikes at midnight.
@@ -48,19 +48,19 @@ Let's verify the text stored in this new variable by printing it:
 So you can create strings using single quotes (**'**) or double quotes (**"**),
 we did not had to specify that *message* or *another_message* were strings, we
 just assign them strings and Python was smart enough to know that the variables
-should hold strings. But what's the point of this, to have more than one way to make a string? 
+should hold strings. But what's the point of this, to have more than one way to make a string?
 
 Well, suppose you want to make a string and one of the words had an apostrophe,
 if you try to make the string using single quotes you'll get a syntax error
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message2 = 'I'm looking for someone to share an adventure.'
 	  File "<stdin>", line 1
 	    message = 'I'm looking for someone to share an adventure.'
 	                 ^
 	SyntaxError: invalid syntax
-	>>> 
+	>>>
 
 Do you see the problem ?
 When Python encountered the apostrophe in the word *I'm* it thought that it was
@@ -69,39 +69,42 @@ to fix this.
 
 One way is to escape the apostrophe, by putting a backslash (\) in front of it.
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message2 = 'I\'m looking for someone to share an adventure.'
-	>>> 
+	>>>
+
 
 This tells Python that the single quote is to be treated as a single character
 and not the end of the string, but the savvy way is to create the string using
 quotation marks:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message3 = "I'm looking for someone to share an adventure."
-	>>> 
+	>>>
+
 
 No errors, no escape characters.
 
 If you make a string using double quotes but your text contains a quotation mark
 you get another error:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message4 = "The phrase "Beam me up, Scotty!" was never said on Star Trek."
 	  File "<stdin>", line 1
 	    message4 = "The phrase "Beam me up, Scotty!" was never said on Star Trek."
 	                               ^
 	SyntaxError: invalid syntax
-	>>> 
+	>>>
+
 
 This is because Python interprets the quotation mark before the word *Beam* as
 the end of the string. We can avoid this error by using single quotes to make
 the string.
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> message4 = 'The phrase "Beam me up, Scotty!" was never said on Star Trek.'
 	>>>
@@ -111,12 +114,12 @@ But how do you make more complicated strings, which may contain apostrophes and
 quotation marks? For this case you cand begin and end the string using triple quotes. You can use
 three double quotes or three single quotes. We'll use double quotes:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> movie_quote = """One of my favourite lines from The Godfather is:
 	... "I'm going to make him an offer he can't refuse."
 	... Do you know who said this?"""
-	>>> 
+	>>>
 
 This text has single quotes, double quotes and even new lines.
 
@@ -144,7 +147,7 @@ The + operator
 The + operator concatenates strings. It returns a string consisting of the
 operands joined together, as shown here:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = 'foo'
 	>>> t = 'bar'
@@ -164,7 +167,7 @@ The * operator creates multiple copies of a string. If s is a string and n is
 an integer, either of the following expressions returns a string consisting of
 n concatenated copies of s:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = 'foo.'
 	>>> s * 4
@@ -176,7 +179,7 @@ The multiplier operand n must be an integer. You’d think it would be required
 to be a positive integer, but amusingly, it can be zero or negative, in which
 case the result is an empty string:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> 'foo' * -8
 	''
@@ -193,7 +196,7 @@ Python also provides a membership operator that can be used with strings.
 The in operator returns True if the first operand is contained within the second,
 and False otherwise:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = 'foo'
 	>>> s in "That's food for thought."
@@ -203,7 +206,7 @@ and False otherwise:
 
 There is also a not in operator, which does the opposite:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> 'z' not in 'abc'
 	True
@@ -230,7 +233,7 @@ Returns the length of a string.
 
 With **len()**, you can check Python string length. **len(s)** returns the number of characters in s:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = 'I am a programmer.'
 	>>> len(s)
@@ -245,7 +248,7 @@ Returns a string representation of an object.
 Virtually any object in Python can be rendered as a string. **str(x)** returns
 the string representation of variable or expression **x**:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> str(49.2)
 	'49.2'
@@ -263,7 +266,7 @@ lower()
 Given a variable named s holding a string, by typing ``s.lower()`` you will get
 a copy of s with all alphabetic characters converted to lowercase:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = "NYSE News: What happened to Google stocks price?"
 	>>> s.lower()
@@ -275,11 +278,12 @@ upper()
 
 ``s.upper()`` returns a copy of **s** with all alphabetic characters converted to uppercase:
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> s = "I want an expresso."
 	>>> s.upper()
 	'I WANT AN EXPRESSO.'
+
 
 A line of text in all caps looks like someone is yelling.
 
@@ -293,11 +297,12 @@ will be replaced with their values.
 
 Here are some of the ways f-strings can make your life easier.
 
-.. code-block:: python
+.. code-block:: console
 
 	>>> name = "Eric"
 	>>> age = 24
 	>>> f"Hello, {name}. You are {age} years old or {age * 12} months old."
 	'Hello, Eric. You are 24 years old or 288 months old.'
+
 
 Look how easy it is to read or predict how it will look.
