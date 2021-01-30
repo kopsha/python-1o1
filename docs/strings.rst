@@ -45,6 +45,7 @@ Let's verify the text stored in this new variable by printing it:
 	>>> print(another_message)
 	The clock strikes at midnight.
 
+
 So you can create strings using single quotes (**'**) or double quotes (**"**),
 we did not had to specify that *message* or *another_message* were strings, we
 just assign them strings and Python was smart enough to know that the variables
@@ -61,6 +62,7 @@ if you try to make the string using single quotes you'll get a syntax error
 	                 ^
 	SyntaxError: invalid syntax
 	>>>
+
 
 Do you see the problem ?
 When Python encountered the apostrophe in the word *I'm* it thought that it was

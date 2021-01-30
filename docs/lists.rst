@@ -18,11 +18,11 @@ do so in a linear and orderly fashion.
 - lists comprehension
 
 
-Create and use simple lists
-###########################
+Simple uses
+###########
 
-There are two ways to create a list. One way is to use the list *constructor*.
-But a simpler and more common way is to use *brackets*.
+There are two ways to create a list. One way is to use the ``list()``
+*constructor*. But a simpler and more common way is to use *brackets*.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ In sets, the order is not important. In lists order is everything.
 You do not have to view the entire list. If you want to see a specific value,
 you can access it by its index.
 
-.. note :: Remember
+.. note ::
 
     In computer science, we start counting indexes with 0, not 1. So in our
     list *prime numbers* are indexed 0, 1, 2, 3...
@@ -66,7 +66,7 @@ you can access it by its index.
 
 .. code-block:: python
 
-    [ 2,  3,  5,  7, 11, 13, 17, 19]
+    [ 2,  3,  5,  7, 11, 13, 17, 19 ]
       ^
       0   1   2   3   4   5   6   7
 
@@ -168,6 +168,9 @@ list.
     [17, 19]
 
 
+Multiple data types
+###################
+
 Lists can contain more than prime numbers. The can contain integers, booleans,
 strings, floats, and even other lists.
 
@@ -233,7 +236,7 @@ help text gives full details on what it does and how to use it.
 
 For now, you can ignore the methods starting with double underscores.
 
-.. note :: Remember
+.. note ::
 
     Lists start at 0 and they end precisely when you are finished. You can
     slice them, you can concatenate them, you can reverse them. You can even

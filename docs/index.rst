@@ -64,11 +64,6 @@ enjoy the warm pleasant feeling of python programming.
    lists
 
 
-..   decisions
-   datetime
-   functions
-
-
 
 Indices and tables
 ^^^^^^^^^^^^^^^^^^
