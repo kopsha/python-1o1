@@ -66,7 +66,6 @@ enjoy the warm pleasant feeling of python programming.
 
 ..   decisions
    datetime
-   lists
    functions
 
 
