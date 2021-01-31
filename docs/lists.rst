@@ -234,13 +234,227 @@ help text gives full details on what it does and how to use it.
         Reverse *IN PLACE*.
 
 
-For now, you can ignore the methods starting with double underscores.
+For now, you can ignore the methods starting with double underscores. Feel free
+to try them out.
+
+
+Lists comprehension
+###################
+
+When coding you spend a lot of time making lists, in many languages this can be
+tedious: create an empty list, set up a for loop, then add the items to the
+list one by one. Python cares about your sanity and gives you a tool to
+simplify this process: *list comprehension*. In most cases let you construct
+a new list in a single line of code. It's now time for Python to shine and
+save time with a single line.
+
+We will cover many examples of lists comprehensions, but first let's talk about
+them generally. In Python lists are a collection of data surounded by brckets
+and the elements are separated by commas. A list comprehension is also
+surounded by brackets but instead of a list of data inside you enter an
+expression followed by for loops and if clauses. Here is the most basic form
+for a list comprehension:
+
+    [ *expr* for *value* in *collection*]
+
+The first *expression* generates the elements in the list and you follow this
+with a for loop over some *collection* of data. This will evaluate the
+expression for every item in the collection. If you want to include the
+expression for certain pieces of data you can add on an if clause after the
+for loop. The expression will be added to the list only if clause its true.
+
+    [ *expr* for *value* in *collection* if *condition*]
+
+You can even have more than one if clause and the expression will be added
+to the list only if all the clauses are true.
+
+    [ *expr* for *value* in *collection* if *condition1* and *condition2*]
+
+And you can even loop over more than one collection.
+
+    [ *expr* for *val1* in *collection1* for *val2* in *collection2*]
+
+Let's now see some examples. For our first example, let's create a list of the
+squares of the first 10 pozitive integers. Let's first do this without list
+comprehensions.
+
+To begin you might create an empty list called ``squares``, next you would loop
+over the first 10 positive integers. You would then append the square of each
+to the list of squares.
+
+.. code-block:: python
+
+    squares = []
+    for i in range(1, 11):
+        squares.append(i**2)
+    print(squares)
+
+    # this is the output
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+
+Notice that an exponent in Python is represented by double asterisks. Why oh why
+do they not used the intergalactic mathematical notation for exponents ? To see
+that this works print list *squares*.
+
+Let's do this once more using list comprehensions:
+
+    squares2 = [i**2 for i in range(1,11)]
+
+If you print this, you get the exact same list, but we only needed one line of
+code instead of three. Let's now look at a slightly more complex example. We'll
+create a list of remainders when you divide the first 10 squares by 5.
+
+    To find the remainder when you divide by 5 use the ``%`` operator.
+
+.. code-block:: python
+
+    remainders = [ (x ** 2) % 5 for x in range(1,11) ]
+    print(remainders)
+
+    # this is the output
+    [1, 4, 4, 1, 0, 1, 4, 4, 1, 0]
+
+If you print the list, you'll see that there are only three perfect squares mod
+5: 0, 1 and 4. This example shows you that the expressions in the list
+comprehensions can be complex. By the way, if you look at the remainders when
+you divide by a prime number *p* you'll notice an interesting pattern: the
+number of remainders is (p+1)/2. The problem of finding which number appear in
+the list is a comple puzzle from number theory known as *quadratic reciprocity*
+and was first proved by Gauss.
+
+Next, let's create a list comprehension that has an if clause. Suppose we have
+a list of movies and we want to find those movies that start with the letter G.
+Let's see how to do this with and without lists comprehensions.
+
+If you're not using list comprehensions you'd start by making an empty list, next
+loop over the list of movies. We can use the ``startswith()`` method to see if
+the title starts with the letter G. If it does, then append it to out list.
+
+.. code-block:: python
+
+    movies = [
+        "Star Wars", "Ghandi", "Casablanca", "Shawshank Redemption",
+        "Toy Story", "Gone with the wind", "Citizen Kane", "It's a wonderful life",
+        "The Wizard of Oz", "Gattaca", "Rear Window", "Ghostbusters",
+        "To Kill a Mockingbird", "Good Will Hunting", "2001: A Space Odissey",
+        "Riders of the Lost Ark", "Groundhog Day",
+        "Close Encounters of the Third King", "Scent of a Woman",
+    ]
+
+    g_movies = []
+    for title in movies:
+        if title.startswith("G"):
+            g_movies.append(title)
+
+
+Print the list to make sure that it worked. But this four line routine can be
+done in a single line with a list comprehension. The expression we want to
+appear in our list is simply the title, next loop over the movies, but also
+check that the title starts with the letter G.
+
+.. code-block:: python
+
+    g_movies = [title for title in movies if title.startswith("G")]
+
+
+Print and observe: we get the same answer with a single line of code.
+
+    ["Ghandi", "Gone with the wind", "Gattaca", "Ghostbusters", "Good Will Hunting", "Groundhog Day"]
+
+Let's complicate this example a bit more. Suppose our list of movies is a list
+of tuples containing both the title of the movie and the year it was released.
+What if we want a list of titles of all movies that were released before the year
+2000. How would you do this using lists comprehensions.
+
+As before we want our list to only contain the titles, but this time when we
+write the *for-loop* each element is a tuple. Next we select the movies released
+before 2000 using an *if* clause on the year.
+
+.. code-block:: python
+
+    movies = [
+        ("Citizen Kane", 1941), ("Spirited Away", 2001),
+        ("It's a wonderful life", 1946), ("Gattaca", 1997),
+        ("No Country for Old Men", 2007), ("Rear Window", 1954),
+        ("The Lord of the Rings: The Fellowship of the Ring", 2001),
+        ("Groundhog Day", 1993), ("Close Encounters of the Third King", 1977),
+        ("The Aviator", 2004), ("Riders of the Lost Ark", 1981),
+    ]
+
+    pre2k = [title for title, year in movies if year < 2000]
+
+If you print the list, you can see that it worked. In this example the if clause
+used the *year* but the *year* was not included in the list, only the title is
+included.
+
+Let's see a mathematical example, suppose you use a list to represent a vector,
+how would you perform scalar multiplication on this vector?
+
+    ``v = [2, -3, 1]``
+
+That is what if we want to multiply each number by 4. You might be tempted to
+try ``4 * v`` but look what happens, this is unusual:
+
+.. code-block:: console
+
+    >>> v = [2, -3, 1]
+    >>> 4 * v
+    [2, -3, 1, 2, -3, 1, 2, -3, 1, 2, -3, 1]
+
+
+What happened here is **4** times **v** is the same as **v + v + v + v** and in
+Python if you add two lists it concatenates them rather than adding them
+component wise. For example if you add ``[2, 4, 6]`` and ``[1, 3]`` you get the
+list ``[2, 4, 6, 1, 3]``, so ``4 * v`` is just a list containing 4 copies of
+``v``. This is not what we want. We can achieve scalar multiplication with a list
+comprehension where we multiply each component by 4.
+
+.. code-block:: python
+
+    v = [2, -3, 1]
+    result = [4 * x for x in v]
+
+If you print this vector you can see we get the desired result.
+
+
+For our final example let's use list comprehensions to compute the cartesian
+product of sets. The cartesian product is named after the French scholar Rene
+Descartes. Recall that if you have two sets A and B is the set of pairs where the
+first component is in A and the second component is in B.
+
+.. math::
+
+    A × B  = { (a, b) | a ∈ A, b ∈ B }
+
+For example if **A = {1, 3}** and **B = {x, y}** then
+
+.. math::
+
+    A × B  = { (1, x), (1, y), (3, x), (3, y) }
+
+Now let's compute the cartesian product of two sets in Python using lists
+comprehensions.
+
+.. code-block::
+
+    A = [1, 3, 5, 7]
+    B = [2, 4, 6, 8]
+
+    cartesian_product = [(a, b) for a in A for b in B]
+
+
+If you print the product, you can see the list contains all 16 possible pairs.
+Using this technique you can even compute the cartesian product of three or more
+sets.
+
 
 .. note ::
 
     Lists start at 0 and they end precisely when you are finished. You can
-    slice them, you can concatenate them, you can reverse them. You can even
-    clear them. If I were to make a list of all uses of lists, I would have
-    a very, VERY long list.
+    slice them, you can concatenate them, you can reverse them, you can sort
+    them, *comprehend* them. You can even clear them.
 
+    If I were to make a list of all uses of lists, I would have a very, VERY
+    long list.
 
