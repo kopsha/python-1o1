@@ -458,3 +458,47 @@ sets.
     If I were to make a list of all uses of lists, I would have a very, VERY
     long list.
 
+
+Exercises
+########
+
+
+1. Given a Python list you should be able to display Python list in the
+   following order
+
+.. code-block:: python
+
+    given = [100, 200, 300, 400, 500]
+    expected = [500, 400, 300, 200, 100]
+
+
+#. Remove empty strings from the list of strings
+
+.. code-block:: python
+
+    given = ["Mike", "", "Emma", "Kelly", "", "Brad"]
+    expected = ["Mike", "Emma", "Kelly", "Brad"]
+
+#. Given a Python list, find value 20 in the list, and if it is present, replace
+   it with 200. Only update the first occurrence of the value.
+
+.. code-block:: python
+
+    given = [5, 10, 15, 20, 25, 50, 20]
+    expected = [5, 10, 15, 200, 25, 50, 20]
+
+#. Given a Python list, remove all occurrence of 20 from the list.
+
+.. code-block:: python
+
+    given = [5, 20, 15, 20, 25, 50, 20]
+    expected = [5, 15, 25, 50]
+
+#. Concatenate two lists index-wise
+
+.. code-block:: python
+
+    list1 = ["M", "na", "i", "Ri"]
+    list2 = ["y", "me", "s", "ck"]
+    expected = ["My", "name", "is", "Rick"]
+
