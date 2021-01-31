@@ -7,16 +7,6 @@ are a builtin data structure for storing and accessing objects which belong in
 a specific sequence. We will now learn how to create and use lists, and we will
 do so in a linear and orderly fashion.
 
-- create simple lists
-- lists can hold any kind of values (even other lists)
-- accessing list contents by index
-- slicing lists
-- adding, removing items to lists
-- finding items in lists
-- walking through lists
-- ordering items in a list
-- lists comprehension
-
 
 Simple uses
 ###########
@@ -255,7 +245,7 @@ surounded by brackets but instead of a list of data inside you enter an
 expression followed by for loops and if clauses. Here is the most basic form
 for a list comprehension:
 
-    [ *expr* for *value* in *collection*]
+    [ *expr* for *value* in *collection* ]
 
 The first *expression* generates the elements in the list and you follow this
 with a for loop over some *collection* of data. This will evaluate the
@@ -263,16 +253,16 @@ expression for every item in the collection. If you want to include the
 expression for certain pieces of data you can add on an if clause after the
 for loop. The expression will be added to the list only if clause its true.
 
-    [ *expr* for *value* in *collection* if *condition*]
+    [ *expr* for *value* in *collection* if *condition* ]
 
 You can even have more than one if clause and the expression will be added
 to the list only if all the clauses are true.
 
-    [ *expr* for *value* in *collection* if *condition1* and *condition2*]
+    [ *expr* for *value* in *collection* if *condition1* and *condition2* ]
 
 And you can even loop over more than one collection.
 
-    [ *expr* for *val1* in *collection1* for *val2* in *collection2*]
+    [ *expr* for *val1* in *collection1* for *val2* in *collection2* ]
 
 Let's now see some examples. For our first example, let's create a list of the
 squares of the first 10 pozitive integers. Let's first do this without list
@@ -293,13 +283,15 @@ to the list of squares.
     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 
-Notice that an exponent in Python is represented by double asterisks. Why oh why
-do they not used the intergalactic mathematical notation for exponents ? To see
+Notice that an exponent in Python is represented by double asterisks. To see
 that this works print list *squares*.
 
 Let's do this once more using list comprehensions:
 
+.. code-block:: python
+
     squares2 = [i**2 for i in range(1,11)]
+
 
 If you print this, you get the exact same list, but we only needed one line of
 code instead of three. Let's now look at a slightly more complex example. We'll
@@ -309,7 +301,7 @@ create a list of remainders when you divide the first 10 squares by 5.
 
 .. code-block:: python
 
-    remainders = [ (x ** 2) % 5 for x in range(1,11) ]
+    remainders = [(x ** 2) % 5 for x in range(1,11)]
     print(remainders)
 
     # this is the output
@@ -360,7 +352,8 @@ check that the title starts with the letter G.
 
 Print and observe: we get the same answer with a single line of code.
 
-    ["Ghandi", "Gone with the wind", "Gattaca", "Ghostbusters", "Good Will Hunting", "Groundhog Day"]
+    ``["Ghandi", "Gone with the wind", "Gattaca", "Ghostbusters",
+    "Good Will Hunting", "Groundhog Day"]``
 
 Let's complicate this example a bit more. Suppose our list of movies is a list
 of tuples containing both the title of the movie and the year it was released.
@@ -391,7 +384,10 @@ included.
 Let's see a mathematical example, suppose you use a list to represent a vector,
 how would you perform scalar multiplication on this vector?
 
-    ``v = [2, -3, 1]``
+.. code-block:: python
+
+    v = [2, -3, 1]
+
 
 That is what if we want to multiply each number by 4. You might be tempted to
 try ``4 * v`` but look what happens, this is unusual:
@@ -405,9 +401,9 @@ try ``4 * v`` but look what happens, this is unusual:
 
 What happened here is **4** times **v** is the same as **v + v + v + v** and in
 Python if you add two lists it concatenates them rather than adding them
-component wise. For example if you add ``[2, 4, 6]`` and ``[1, 3]`` you get the
-list ``[2, 4, 6, 1, 3]``, so ``4 * v`` is just a list containing 4 copies of
-``v``. This is not what we want. We can achieve scalar multiplication with a list
+component wise. For example if you add **[2, 4, 6]** and **[1, 3]** you get the
+list **[2, 4, 6, 1, 3]**, so **4 * v** is just a list containing 4 copies of
+**v**. This is not what we want. We can achieve scalar multiplication with a list
 comprehension where we multiply each component by 4.
 
 .. code-block:: python
@@ -425,7 +421,7 @@ first component is in A and the second component is in B.
 
 .. math::
 
-    A × B  = { (a, b) | a ∈ A, b ∈ B }
+    A × B  = \{ (a, b) | a \epsilon A, b ∈ B \}
 
 For example if **A = {1, 3}** and **B = {x, y}** then
 
