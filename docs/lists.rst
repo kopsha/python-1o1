@@ -421,13 +421,13 @@ first component is in A and the second component is in B.
 
 .. math::
 
-    A × B  = \{ (a, b) | a \epsilon A, b ∈ B \}
+    A × B  = \{ (a, b) | a \in A, b \in B \}
 
 For example if **A = {1, 3}** and **B = {x, y}** then
 
 .. math::
 
-    A × B  = { (1, x), (1, y), (3, x), (3, y) }
+    A × B  = \{ (1, x), (1, y), (3, x), (3, y) \}
 
 Now let's compute the cartesian product of two sets in Python using lists
 comprehensions.
