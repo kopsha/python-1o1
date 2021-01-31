@@ -427,7 +427,8 @@ For example
 
 .. math::
 
-    given A = \{ 1, 3 \} and B = \{ x, y \}
+    A = \{ 1, 3 \}
+    B = \{ x, y \}
 
     A \times B  = \{ (1, x), (1, y), (3, x), (3, y) \}
 
