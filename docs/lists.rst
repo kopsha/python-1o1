@@ -432,7 +432,7 @@ For example if **A = {1, 3}** and **B = {x, y}** then
 Now let's compute the cartesian product of two sets in Python using lists
 comprehensions.
 
-.. code-block::
+.. code-block:: python
 
     A = [1, 3, 5, 7]
     B = [2, 4, 6, 8]
@@ -456,7 +456,7 @@ sets.
 
 
 Exercises
-########
+#########
 
 
 1. Given a Python list you should be able to display Python list in the
@@ -469,31 +469,31 @@ Exercises
 
 #. Remove empty strings from the list of strings
 
-.. code-block:: python
+    .. code-block:: python
 
-    given = ["Mike", "", "Emma", "Kelly", "", "Brad"]
-    expected = ["Mike", "Emma", "Kelly", "Brad"]
+        given = ["Mike", "", "Emma", "Kelly", "", "Brad"]
+        expected = ["Mike", "Emma", "Kelly", "Brad"]
 
 #. Given a Python list, find value 20 in the list, and if it is present, replace
    it with 200. Only update the first occurrence of the value.
 
-.. code-block:: python
+    .. code-block:: python
 
-    given = [5, 10, 15, 20, 25, 50, 20]
-    expected = [5, 10, 15, 200, 25, 50, 20]
+        given = [5, 10, 15, 20, 25, 50, 20]
+        expected = [5, 10, 15, 200, 25, 50, 20]
 
 #. Given a Python list, remove all occurrence of 20 from the list.
 
-.. code-block:: python
+    .. code-block:: python
 
-    given = [5, 20, 15, 20, 25, 50, 20]
-    expected = [5, 15, 25, 50]
+        given = [5, 20, 15, 20, 25, 50, 20]
+        expected = [5, 15, 25, 50]
 
 #. Concatenate two lists index-wise
 
-.. code-block:: python
+    .. code-block:: python
 
-    list1 = ["M", "na", "i", "Ri"]
-    list2 = ["y", "me", "s", "ck"]
-    expected = ["My", "name", "is", "Rick"]
+        list1 = ["M", "na", "i", "Ri"]
+        list2 = ["y", "me", "s", "ck"]
+        expected = ["My", "name", "is", "Rick"]
 
