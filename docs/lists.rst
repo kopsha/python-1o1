@@ -423,9 +423,11 @@ first component is in A and the second component is in B.
 
     A \times B  = \{ (a, b) \mid a \in A, b \in B \}
 
-For example if **A = {1, 3}** and **B = {x, y}** then
+For example
 
 .. math::
+
+    given A = \{ 1, 3 \} and B = \{ x, y \}
 
     A \times B  = \{ (1, x), (1, y), (3, x), (3, y) \}
 
