@@ -462,11 +462,10 @@ Exercises
 1. Given a Python list you should be able to display Python list in the
    following order
 
-.. code-block:: python
+    .. code-block:: python
 
-    given = [100, 200, 300, 400, 500]
-    expected = [500, 400, 300, 200, 100]
-
+        given = [100, 200, 300, 400, 500]
+        expected = [500, 400, 300, 200, 100]
 
 #. Remove empty strings from the list of strings
 
