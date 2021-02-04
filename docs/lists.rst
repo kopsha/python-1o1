@@ -2,7 +2,7 @@
 Lists
 *****
 
-Order... matters. And python lists make it easy to work with ordered data. Lists
+Order matters. And python lists make it easy to work with ordered data. Lists
 are a builtin data structure for storing and accessing objects which belong in
 a specific sequence. We will now learn how to create and use lists, and we will
 do so in a linear and orderly fashion.
@@ -42,8 +42,7 @@ of the list. Let's append the next two prime numbers: 17 and 19.
 
 
 If you display the list, you will see it contains the new values.
-Notice how lists preserve the order of the data; this is different from sets.
-In sets, the order is not important. In lists order is everything.
+Notice how lists preserve the order of the data, in lists order is everything.
 
 You do not have to view the entire list. If you want to see a specific value,
 you can access it by its index.
@@ -67,13 +66,13 @@ item is 3. And so on.
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[0]
+    >>> prime_numbers[0]
     2
-    >>> primes[1]
+    >>> prime_numbers[1]
     3
-    >>> primes[2]
+    >>> prime_numbers[2]
     5
 
 
@@ -85,13 +84,13 @@ to last -2, and so on.
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[-1]
+    >>> prime_numbers[-1]
     19
-    >>> primes[-2]
+    >>> prime_numbers[-2]
     17
-    >>> primes[-8]
+    >>> prime_numbers[-8]
     2
 
 
@@ -101,9 +100,9 @@ the beginning of the list with index -8. Be careful, you can only wrap around on
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[-9]
+    >>> prime_numbers[-9]
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     IndexError: list index out of range
@@ -141,7 +140,7 @@ One more slice...
 
 This will start at the beginning, which is index 0, and continue to index 6,
 which is 17. It will not include the final number, so this slice includes the
-primes from 2 through 13, in other words: the first 5 values.
+primes from 2 through 13, in other words: the first 6 values.
 
 Notice, that if you start from the beginning, you can ommit the 0 completely
 and the slice will assume that you want to start from index 0. Similarly, if
@@ -174,7 +173,7 @@ Many languages require lists to contain values of the same type, but not
 Python. With Python you are free to insert multiple data types in the same
 list. Lists can also contain duplicate values. Here is another way lists
 are different from sets. For example, suppose you want to record the
-numbers you roll on a pair of dice. Pretent you roll a 4, 7, 2, 7, 12, 4 and 7.
+numbers you roll on a pair of dice. Pretend you roll a 4, 7, 2, 7, 12, 4 and 7.
 
 .. code-block:: console
 
@@ -210,22 +209,9 @@ Observe. The list of numbers and the list of letters are unchanged.
     ['a', 'b', 'c']
 
 
-There are many other methods for working with lists. To see them all, pass any list to the directory function. To learn how to use one of these methods, use the help function. For example, there is a method for reversing the list. The
-help text gives full details on what it does and how to use it.
-
-.. code-block:: console
-
-    >>> dir(numbers)
-    ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
-    >>> help(numbers.reverse)
-    Help on built-in function reverse:
-
-    reverse() method of builtins.list instance
-        Reverse *IN PLACE*.
-
-
-For now, you can ignore the methods starting with double underscores. Feel free
-to try them out.
+There are many other methods for working with lists. To see them all, please
+read the official Python
+`list documentation <https://docs.python.org/3/tutorial/datastructures.html>`_.
 
 
 Lists comprehension
@@ -239,7 +225,7 @@ a new list in a single line of code. It's now time for Python to shine and
 save time with a single line.
 
 We will cover many examples of lists comprehensions, but first let's talk about
-them generally. In Python lists are a collection of data surounded by brckets
+them generally. In Python lists are a collection of data surounded by brackets
 and the elements are separated by commas. A list comprehension is also
 surounded by brackets but instead of a list of data inside you enter an
 expression followed by for loops and if clauses. Here is the most basic form
@@ -312,7 +298,7 @@ If you print the list, you'll see that there are only three perfect squares mod
 comprehensions can be complex. By the way, if you look at the remainders when
 you divide by a prime number *p* you'll notice an interesting pattern: the
 number of remainders is (p+1)/2. The problem of finding which number appear in
-the list is a comple puzzle from number theory known as *quadratic reciprocity*
+the list is a complex puzzle from number theory known as *quadratic reciprocity*
 and was first proved by Gauss.
 
 Next, let's create a list comprehension that has an if clause. Suppose we have
@@ -356,7 +342,7 @@ Print and observe: we get the same answer with a single line of code.
     "Good Will Hunting", "Groundhog Day"]``
 
 Let's complicate this example a bit more. Suppose our list of movies is a list
-of tuples containing both the title of the movie and the year it was released.
+of pairs containing both the title of the movie and the year it was released.
 What if we want a list of titles of all movies that were released before the year
 2000. How would you do this using lists comprehensions.
 
@@ -428,6 +414,7 @@ For example
 .. math::
 
     A = \{ 1, 3 \}
+
     B = \{ x, y \}
 
     A \times B  = \{ (1, x), (1, y), (3, x), (3, y) \}
