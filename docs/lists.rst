@@ -118,9 +118,9 @@ colon, *a stopping index*, then a closing bracket.
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[2:5]
+    >>> prime_numbers[2:5]
     [5, 7, 11]
 
 
@@ -132,9 +132,9 @@ One more slice...
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[0:6]
+    >>> prime_numbers[0:6]
     [2, 3, 5, 7, 11, 13]
 
 
@@ -149,11 +149,11 @@ list.
 
 .. code-block:: console
 
-    >>> primes
+    >>> prime_numbers
     [2, 3, 5, 7, 11, 13, 17, 19]
-    >>> primes[:6]
+    >>> prime_numbers[:6]
     [2, 3, 5, 7, 11, 13]
-    >>> primes[6:]
+    >>> prime_numbers[6:]
     [17, 19]
 
 
