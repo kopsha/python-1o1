@@ -62,6 +62,7 @@ enjoy the warm pleasant feeling of python programming.
     strings
     if_then_else
     lists
+    sets
 
 
 
