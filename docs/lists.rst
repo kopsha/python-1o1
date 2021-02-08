@@ -8,8 +8,8 @@ a specific sequence. We will now learn how to create and use lists, and we will
 do so in a linear and orderly fashion.
 
 
-Simple uses
-###########
+Create
+######
 
 There are two ways to create a list. One way is to use the ``list()``
 *constructor*. But a simpler and more common way is to use *brackets*.
@@ -43,6 +43,64 @@ of the list. Let's append the next two prime numbers: 17 and 19.
 
 If you display the list, you will see it contains the new values.
 Notice how lists preserve the order of the data, in lists order is everything.
+
+
+Lists can contain more than prime numbers. They can contain integers, booleans,
+strings, floats, and even other lists.
+
+.. code-block:: python
+
+    examples = [128, True, "Alphabet", 3.14, [32, 64, False]]
+    print(examples)
+
+
+Many languages require lists to contain values of the same type, but not
+Python. With Python you are free to insert multiple data types in the same
+list. Lists can also contain duplicate values. Here is another way lists
+are different from sets. For example, suppose you want to record the
+numbers you roll on a pair of dice. Pretend you roll a 4, 7, 2, 7, 12, 4 and 7.
+
+.. code-block:: console
+
+    >>> rolls = [4, 7, 2, 7, 12, 4, 7]
+    >>> rolls
+    [4, 7, 2, 7, 12, 4, 7]
+
+
+If you look at the list, all the values are there, even the repeated rolls.
+
+
+Concatenate
+###########
+
+You can also combine lists. To see how, create two separate lists: a list of
+numbers and a list of letters... To combine these two lists into a single list
+use the plus sign.
+
+.. code-block:: console
+
+    >>> numbers = [1, 2, 3]
+    >>> letters = ["a", "b", "c"]
+    >>> numbers + letters
+    [1, 2, 3, 'a', 'b', 'c']
+
+
+But order matters, if you reverse this and compute ``letters + numbers`` you
+get ``'a', 'b', 'c', 1, 2, 3``. Combining lists is called concatenation.
+Observe. The list of numbers and the list of letters are unchanged.
+
+.. code-block:: console
+
+    >>> letters + numbers
+    ['a', 'b', 'c', 1, 2, 3]
+    >>> numbers
+    [1, 2, 3]
+    >>> letters
+    ['a', 'b', 'c']
+
+
+Access
+######
 
 You do not have to view the entire list. If you want to see a specific value,
 you can access it by its index.
@@ -155,58 +213,6 @@ list.
     [2, 3, 5, 7, 11, 13]
     >>> prime_numbers[6:]
     [17, 19]
-
-
-Multiple data types
-###################
-
-Lists can contain more than prime numbers. They can contain integers, booleans,
-strings, floats, and even other lists.
-
-.. code-block:: python
-
-    examples = [128, True, "Alphabet", 3.14, [32, 64, False]]
-    print(examples)
-
-
-Many languages require lists to contain values of the same type, but not
-Python. With Python you are free to insert multiple data types in the same
-list. Lists can also contain duplicate values. Here is another way lists
-are different from sets. For example, suppose you want to record the
-numbers you roll on a pair of dice. Pretend you roll a 4, 7, 2, 7, 12, 4 and 7.
-
-.. code-block:: console
-
-    >>> rolls = [4, 7, 2, 7, 12, 4, 7]
-    >>> rolls
-    [4, 7, 2, 7, 12, 4, 7]
-
-
-If you look at the list, all the values are there, even the repeated rolls. You
-can also combine lists. To see how, create two separate lists: a list of
-numbers and a list of letters... To combine these two lists into a single list
-use the plus sign.
-
-.. code-block:: console
-
-    >>> numbers = [1, 2, 3]
-    >>> letters = ["a", "b", "c"]
-    >>> numbers + letters
-    [1, 2, 3, 'a', 'b', 'c']
-
-
-But order matters, if you reverse this and compute ``letters + numbers`` you
-get ``'a', 'b', 'c', 1, 2, 3``. Combining lists is called concatenation.
-Observe. The list of numbers and the list of letters are unchanged.
-
-.. code-block:: console
-
-    >>> letters + numbers
-    ['a', 'b', 'c', 1, 2, 3]
-    >>> numbers
-    [1, 2, 3]
-    >>> letters
-    ['a', 'b', 'c']
 
 
 There are many other methods for working with lists. To see them all, please
