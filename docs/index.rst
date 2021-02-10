@@ -3,19 +3,23 @@ Python 1o1 tutorial
 *******************
 
 
-Our world is changing.
-We're not alone anymore.
-We work with a new intelligence.
-We have the technology.
+| Our world is changing.
+| We're not alone anymore.
+| We work with a new intelligence.
+| We have the technology.
+|
+| Machines work faster than we do.
+| They don't sleep.
+| They don't make mistakes.
+|
+| I can talk to machines.
+| I tell them what to do.
+| I speak their language.
+| I code.
 
-Machines work faster than we do.
-They don't sleep.
-They don't make mistakes.
 
-I can talk to machines.
-I tell them what to do.
-I speak their language.
-I code.
+
+----
 
 
 Before anything
