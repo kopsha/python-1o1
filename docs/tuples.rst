@@ -57,7 +57,8 @@ enables Python to make significant optimizations.
 For example, tuples can be made more quickly than lists.
 
 
-# Essentials
+Create
+######
 
 Tuples use parentheses. To make an empty tuple you simply type a pair of
 parentheses. Let's quickly make a few test tuples.
