@@ -63,6 +63,7 @@ enjoy the warm pleasant feeling of python programming.
     if_then_else
     lists
     sets
+    tuples
 
 
 
