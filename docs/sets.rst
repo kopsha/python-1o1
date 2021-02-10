@@ -8,7 +8,7 @@ we'll focus on sets.
 
 
 Sets are useful when you are working with data and the order or frequency of the
-values do not matter. Get ready to become an element of the set of people who
+values does not matter. Get ready to become an element of the set of people who
 understand sets.
 
 
@@ -23,7 +23,7 @@ We will begin by creating an empty set.
 
 
 Now we want to add things to our set, and the ``add()`` function does exactly
-what we expect. Duplicates are not stored: if you try to add the same element
+what we expect. Duplicates are not stored: if you try to add the same item
 twice, the set will store it the first time and ignore it the second time. We
 will use this method to add several objects to this set.
 
@@ -64,7 +64,7 @@ time.
 
 The set still contains just one copy of the number **42**. Sets do not contain
 duplicate elements. To see the number of elements in a set, use the length
-function, which is shortened to *len*: ``len(exmaple)``.
+function, which is shortened to : **len(exmaple)**.
 
 
 There is a second way to create a set, which can be faster in some instances.
@@ -74,7 +74,7 @@ When creating the set you can pre-populate the set with a collection of elements
 .. code-block:: python
 
     example2 = set([False, 42, 3.141592653589793, 'Thorium'])
-    print(example)
+    print(example2)
     # Output
     {False, 42, 3.141592653589793, 'Thorium'}
 
@@ -82,7 +82,7 @@ When creating the set you can pre-populate the set with a collection of elements
 Remove
 ######
 
-To remove an element from this sset, use the **remove** method. Beware, if you
+To remove an element from this set, use the **remove** method. Beware, if you
 attempt to remove an element that is not in the set you will get an error. To
 test this method, let's remove the number **42**.
 
@@ -126,7 +126,7 @@ your code tries to remove an element not in the set, use **remove()**.
 Otherwise, discard provides a convenient alternative.
 
 
-There is also a fastser way to remove elements. To empty out the set and remove
+There is also a faster way to remove elements. To empty out the set and remove
 all elements, use the **clear()** method.
 
 .. code-block:: console
@@ -148,7 +148,7 @@ Now that we know how to create and modity a set, let's learn how to evaluate the
 union and intersection of two sets. If you have two sets **A** and **B**, then
 the union is the combination of all elements from the two sets and in math is
 denoted as :math:`A \bigcup B`.
-The intersection is the sets of elements inside both A and B, and is denoted as
+The intersection is the set of elements inside both A and B, and is denoted as
 :math:`A \bigcap B`.
 
 
