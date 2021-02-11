@@ -35,7 +35,7 @@ brackets, while the tuple contains a sequence of data surrounded by parentheses.
         print("Square: ", n)
 
 
-Other than notation there seems to be little differenceb between these two. In
+Other than notation there seems to be little difference between these two. In
 both cases you can use the **len()** function to display the number of elements
 in the sequence, or you can iterate over the sequences and get identical
 behavior.
@@ -205,10 +205,7 @@ elements in the tuple Python will raise a *value error*.
 
     x, y, z = (1, 2)
 
-There is no room for sloppy behavior when we're working with typles.
-
-If you know a student who is reluctant to use this data structure please show
-them this lesson, it will cure them of their pupil tuple scruples.
+There is no room for sloppy behavior when we're working with tuples.
 
 
 Exercises
@@ -221,4 +218,3 @@ Exercises
 #. Find the repeated items of a tuple.
 
 #. Print out all pair combinations of two tuples.
-
