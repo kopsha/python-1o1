@@ -74,6 +74,7 @@ parentheses. Let's quickly make a few test tuples.
 Next, let's print these four tuples:
 
 .. code-block:: python
+    :emphasize-lines: 8
 
     print(empty_tuple)
     print(test1)
