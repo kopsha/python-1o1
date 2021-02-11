@@ -54,6 +54,7 @@ The plan
     lists
     sets
     tuples
+    functions
 
 
 
