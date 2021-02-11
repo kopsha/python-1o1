@@ -64,7 +64,7 @@ time.
 
 The set still contains just one copy of the number **42**. Sets do not contain
 duplicate elements. To see the number of elements in a set, use the length
-function, which is shortened to : **len(exmaple)**.
+function, which is shortened to : **len(example)**.
 
 
 There is a second way to create a set, which can be faster in some instances.
