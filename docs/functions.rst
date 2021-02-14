@@ -164,7 +164,7 @@ triangle is
 
 .. math::
 
-    V &= \frac{1}{2} base \times height
+    V = \frac{1}{2} base \times height
 
 Our previous function was named *volume*, which was somewhat vague. The name
 does not tell you what shape is being considered. This time we will be more
