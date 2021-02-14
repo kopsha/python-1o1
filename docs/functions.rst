@@ -11,7 +11,7 @@ repeating yourself. This is especially helpful to avoid moments of deja vu.
 
 A better solution is to write a *function*. Functions enable you to reuse logic
 an infinite number of times without repeating yourself. This is especially
-helpful to avoid moments... of deja vu.
+helpful... to avoid...  moments of deja vu.
 
 
 Define
@@ -108,7 +108,7 @@ For our next example, recall that the volume of a sphere is
 
 Where *r* is the radius of the sphere. We will write a function which will
 return the volume of a sphere when given the radius. To do this, we will need
-to use the number *pi* (:math: `\pi`). This is available in Python, but first
+to use the number *pi* (:math:`\pi`). This is available in Python, but first
 you must import the *math* module.
 
 We will call this function *volume*. This function will have a single argument:
@@ -160,7 +160,7 @@ to see how to use the volume function.
 We have created functions with no arguments and with one argument. We will now
 throw caution into the vacuum of space and write a function with two arguments.
 Our function will compute the area of a triangle. Recall that the area of a
-triangle is :math: `\frac{1}{2} base \times height`.
+triangle is :math:`\frac{1}{2} base \times height`.
 
 Our previous function was named *volume*, which was somewhat vague. The name
 does not tell you what shape is being considered. This time we will be more
@@ -196,7 +196,7 @@ arguments*. To show how to use these kinds of arguments, we will write a
 function which convers a person's height from imperial units, feet and inches to
 centimeters.
 
-Recall that :math: `1 inch = 2.54 cm` and :math: `1 foot = 12 inches`.
+Recall that :math:`1 inch = 2.54 cm` and :math:`1 foot = 12 inches`.
 
 We'll name this function **cm**, for centimeters. This function will accept two
 arguments: **feet** and **inches**. Next, add a *docstring* describing the

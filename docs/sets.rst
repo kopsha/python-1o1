@@ -117,6 +117,7 @@ without making a change. Watch what happens when we discard the integer **50**,
 which is not in the set.
 
 .. code-block:: console
+
     >>> example.discard(50)
     >>>
 
@@ -130,6 +131,7 @@ There is also a faster way to remove elements. To empty out the set and remove
 all elements, use the **clear()** method.
 
 .. code-block:: console
+
     >>> print(example)
     {False, 3.141592653589793, 'Thorium'}
     >>> example.clear()
