@@ -160,7 +160,11 @@ to see how to use the volume function.
 We have created functions with no arguments and with one argument. We will now
 throw caution into the vacuum of space and write a function with two arguments.
 Our function will compute the area of a triangle. Recall that the area of a
-triangle is :math:`\frac{1}{2} base \times height`.
+triangle is
+
+.. math::
+
+    V &= \frac{1}{2} base \times height
 
 Our previous function was named *volume*, which was somewhat vague. The name
 does not tell you what shape is being considered. This time we will be more
