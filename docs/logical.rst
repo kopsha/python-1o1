@@ -1,6 +1,168 @@
-**************
-If, then, else
-**************
+******************
+Logical operations
+******************
+
+Computers are funny creatures. They think in terms of *1*s and *0*s, *True* and
+*False*. While Python has several numeric types, there is only one logical type:
+*boolean*. A boolean can only take two values: **True** or **False**. And this
+is all you need, **if** you are logical...
+
+
+Bool type
+#########
+
+Booleans are a built-in data type in Python. Take care to note that *True* and
+*False* are both capitalized.
+
+.. code-block:: console
+
+    >>> True
+    True
+    >>> true
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'true' is not defined
+    >>>
+
+
+If you type it incorrectly, you will receive a name error.
+
+Booleans are commonly encountered when comparing two objects. For example, to
+compare two numbers use the *double equals* (``==``) operator:
+
+.. code-block:: console
+
+    >>> a = 3
+    >>> b = 5
+    >>> a == b
+    False
+    >>>
+
+We get *False* since **a** and **b** are different integers. Notice that you use
+one equal sign to assign numbers to a variabla, and a *double equal* sign to
+compare them. In addition to testing if two numbers are the same you can test if
+they are different usint the *not equal* operator.
+
+.. code-block:: console
+
+    >>> a != b
+    True
+    >>>
+
+This comparison return *True* because it is true that *a does not equal b*. By
+the way, the exclamation mark is commonly used as a logical **not** symbol in
+programming languages. So this symbol literally reads as **not equal**.
+
+And finally, in addition to comparing two numbers for equality or inequality,
+you can test to see if one is larger than the other.
+
+.. code-block:: console
+
+    >>> a > b
+    False
+    >>> a < b
+    True
+
+    >>>
+
+Is *a* greater than *b* ? No. This is a false statement.
+
+Is *a* less than *b* ? Yes. This is a true statement.
+
+
+Falsy values
+^^^^^^^^^^^^
+
+If you inspect the type of *True* and *False*:
+
+.. code-block:: console
+
+    >>> type(True)
+    <class 'bool'>
+    >>> type(False)
+    <class 'bool'>
+    >>>
+
+You see the type is **bool**. This suggests another way to create booleans: by
+passing values to the boolean constructor. For example, let's convert some
+numbers to booleans:
+
+.. code-block:: console
+
+    >>> bool(28)
+    True
+    >>> bool(-2.71828)
+    True
+    >>> bool(0)
+    False
+    >>>
+
+In Python, 0 is converted to *False*, while every other number is converted to
+*True*.
+
+We can also convert strings to booleans. For example,
+
+.. code-block:: console
+
+    >>> bool("Turing")
+    True
+    >>> bool(" ")
+    True
+    >>> bool("")
+    False
+    >>>
+
+In Python, the empty string is converted to *False*, while every other string is
+converted to *True*.
+
+This is a general principle in Python. When converting a value to a boolean,
+trivial values are converted to *False*, while non-trivial values are converted
+to *True*.
+
+Just as you can convert objects to booleans you can convert booleans to other
+types of objects:
+
+.. code-block:: console
+
+    >>> str(True)
+    'True'
+    >>> str(False)
+    'False'
+
+If you convert *True* to a string, it returns **"True"**, but notice this is
+surrounded by quotes, so it is a string. The boolean value does not have quotes.
+
+You can also convert booleans to numbers. If you convert *True* to an integer,
+you get **1** and if you convert *False* to an integer you get **0**.
+
+.. code-block:: console
+
+    >>> int(True)
+    1
+    >>> int(False)
+    0
+    >>> 5 + True
+    6
+    >>>
+
+Look what happens if you add a number and a boolean: Python recognizez that you
+are trying to add *True* to an integer, so it first converts it to an integer
+then adds. What do you think **10 * False** will be ?
+
+.. code-block:: console
+
+    >>> 10 * False
+    0
+    >>>
+
+Like before, Python recognizez you are trying to perform an arithmetic operation
+so it converts *False* to the number 0 then multiplies. Is this something you
+will use ? Probabily not. But it does highlight that Python treats 1 as True and
+0 as False, and vice-versa. In computer science, this is a fundamental fact.
+
+
+If statement
+############
 
 When coding in Python you will frequently encounter a fork in the road, depending
 on the values of certain data you may want to go in one direction or the other,
@@ -13,7 +175,7 @@ statements help you navigate these situations:
 
 
 if-then
-*******
+^^^^^^^
 
 In this example we will collect a string then test its length to see if it has
 at least 8 characters. This is something you may need to do when validating new
@@ -76,7 +238,7 @@ the following code-block is skipped.
 
 
 if-then-else
-************
+^^^^^^^^^^^^
 
 Let's see another example. Create a file called *if_then2.py*. This time we will
 prompt the user to enter a number and we will test to see if it is even or odd.
@@ -84,7 +246,7 @@ prompt the user to enter a number and we will test to see if it is even or odd.
 First, the ``input()`` function returns a string, so we want to convert it to
 an integer. We will do this using the ``int()`` constructor. If the user does
 not type an integer this will cause an error. We will learn how to handle errors
-in a future lesson.  
+in a future lesson.
 
 .. code-block:: python
 	:emphasize-lines: 4,6
@@ -127,7 +289,7 @@ Correct again.
 
 
 if-elif-else
-************
+^^^^^^^^^^^^
 
 For our final example we will create an if-then statement that
 handles more than two cases. Create a file called *if_then3.py*. We will prompt
@@ -182,8 +344,8 @@ and 5:
 
 .. code-block:: console
 
-	$ python3 if_then3.py 
-	The length of side a: 3 
+	$ python3 if_then3.py
+	The length of side a: 3
 	The length of side b: 4
 	The length of side c: 5
 	This is a scalene triangle.
@@ -194,8 +356,8 @@ again and enter: 5, 5 and 7:
 
 .. code-block:: console
 
-	$ python3 if_then3.py 
-	The length of side a: 5 
+	$ python3 if_then3.py
+	The length of side a: 5
 	The length of side b: 5
 	The length of side c: 7
 	This is an isosceles triangle.
@@ -206,7 +368,7 @@ program and enter: 4, 4, 4:
 
 .. code-block:: console
 
-	$ python3 if_then3.py 
+	$ python3 if_then3.py
 	The length of side a: 4
 	The length of side b: 4
 	The length of side c: 4
@@ -217,7 +379,8 @@ Perfect, these are the sides of an equilateral triangle. By the way, we did not
 test the three numbers to make sure that they make a valid triangle. For example
 you could enter negative integers and the program will still run.
 
-Here's a problem for you to think about: how do you test three numbers to see ifthey form a triangle?
+Here's a problem for you to think about: how do you test three numbers to see if
+they form a triangle?
 
 The ``if``, ``elif`` and ``else`` statements allow you to handle any number of
 cases in your code, they let you control the flow of your code.
@@ -225,3 +388,51 @@ cases in your code, they let you control the flow of your code.
 	| *If* you are serious about programming in Python
 	| *then* you should master these statements
 	| or *else* ...
+
+
+Conditional expressions
+#######################
+
+In Python, they are more commonly known as *ternary operators*. These operators
+evaluate something based on a condition being true or not. Here you can see a
+blueprint of using these conditional expressions:
+
+.. code-block:: python
+
+    value_for_true if condition else value_for_false
+
+This allows you to shorten a multi-line if statement to a single line, making
+your code compact but still readable. For example, let's determine whether the
+water is solid (frozen) or liquid based on a temperature reading from an
+external sensor and compare the :
+
+.. code-block:: python
+
+    temperature = -12  # external sensor reading
+
+    # Using an if statement
+    if temperature < 0:
+        water_state = "solid"
+    else:
+        water_state = "liquid"
+
+    # Using the ternary operator
+    water_state = "solid" if temperature < 0 else "liquid"
+
+
+Short-hand ternary
+^^^^^^^^^^^^^^^^^^
+
+In Python, there is also an even shorter version of the normal ternary operator
+you have seen above. Its blueprint looks like this *value* **or** *alternative
+value*, and this can allow you to easily provide a default value.
+
+.. code-block:: python
+
+    message = input() or "No data provided."
+    print(message)
+
+This is helpful in case you quickly want to check for the output of a function
+or the input provided by the user and give a useful message if the value is
+missing (actually if **bool(value) is False**).
+
