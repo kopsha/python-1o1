@@ -300,11 +300,7 @@ Exercises
 #########
 
 1. Calculate the factorial of a number (positive integer).
-
 #. Write a function that flattens a list. (Remember that a list may contain an
    element which is in fact another list)
-
 #. Generate a list with Fibonacci sequence up to a number.
-
 #. Generate a list with all prime numbers less than a number.
-
