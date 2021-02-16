@@ -50,10 +50,11 @@ The plan
     first_steps
     numbers
     strings
-    if_then_else
+    logical
     lists
     sets
     tuples
+    functions
 
 
 

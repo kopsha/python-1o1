@@ -7,16 +7,16 @@ Among other many other things, Python understands numbers. Let's open the python
 
 .. code-block:: console
 
-    Python 3.7.2 (default, Dec 27 2018, 07:35:52) 
+    Python 3.7.2 (default, Dec 27 2018, 07:35:52)
     [Clang 10.0.0 (clang-1000.11.45.5)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
     >>> 10
     10
-    >>> 10 + 5  
+    >>> 10 + 5
     15
     >>> 1.5 * 2
     3.0
-    >>> 
+    >>>
 
 In Python 3 there are three types of numbers, in Python 2 there are four types of number. And if you're using C++ then you will be glad that you're learning Python.
 
@@ -30,7 +30,7 @@ numbers without a decimal point.
 
 .. code-block:: console
 
-    Python 3.7.2 (default, Dec 27 2018, 07:35:52) 
+    Python 3.7.2 (default, Dec 27 2018, 07:35:52)
     [Clang 10.0.0 (clang-1000.11.45.5)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
     >>> 42 # is an integer
@@ -48,7 +48,7 @@ numbers without a decimal point.
     >>> _
 
 
-.. tip:: the hash tag
+.. tip:: The hash-tag (**#**)
     is how your write comments in Python. Everything after a hashtag ``#`` is ignored by the interpreter. This can be extremely useful to explain something in your code which may not be obvious for your colleagues.
 
 In Python 3 you don't have to worry about the size of an integer. You can create integers of any size provided your computer is large enough store it.
@@ -70,7 +70,7 @@ To confirm that this is a float, look at its type:
     <class 'float'>
     >>> e
     2.718281828
-    >>> 
+    >>>
 
 
 complex
@@ -89,7 +89,7 @@ Again, you can confirm that this is a complex number by checking its type:
 .. code-block:: console
 
     >>> z = 2 + 3j
-    >>> z    
+    >>> z
     (2+3j)
     >>> type(z)
     <class 'complex'>
@@ -115,7 +115,7 @@ Just remember:
 * the mathematical *i* is called *j*,
 * complex numbers are made of *floats*
 * the ``type()``  function can tell you what type of numbers you really have
- 
+
 
 Type conversion
 ###############
