@@ -39,7 +39,7 @@ compare two numbers use the *double equals* (``==``) operator:
     >>>
 
 We get *False* since **a** and **b** are different integers. Notice that you use
-one equal sign to assign numbers to a variabla, and a *double equal* sign to
+one equal sign to assign numbers to a variable, and a *double equal* sign to
 compare them. In addition to testing if two numbers are the same you can test if
 they are different usint the *not equal* operator.
 
@@ -49,7 +49,7 @@ they are different usint the *not equal* operator.
     True
     >>>
 
-This comparison return *True* because it is true that *a does not equal b*. By
+This comparison returns *True* because it is true that *a does not equal b*. By
 the way, the exclamation mark is commonly used as a logical **not** symbol in
 programming languages. So this symbol literally reads as **not equal**.
 
