@@ -1,5 +1,4 @@
 print("Calculate the factorial of a number (positive integer).")
-
 def factorial (n):
     if n > 0:
         result = n * factorial(n-1)
@@ -10,9 +9,12 @@ value = int(input("Please enter a numeric value:\n"))
 print("Factorial of",value,"is",factorial(value))
 
 print("Write a function that flattens a list.")
+def flat (lista):
+	return [val for sublist in lista for val in sublist]
+given_list = [[18.0], [13.8], [16.2], [56.5], [147], [18.2]]
+print (flat(given_list))
 
 print("Generate a list with Fibonacci sequence up to a number.")
-
 from math import sqrt
 def fibonacci (n):
     result = []
@@ -36,7 +38,6 @@ def isPerfectSquare(n):
         sr = sqrt(n)
         return (int(sr + 0.5) ** 2 == n)
     return False
-
 print("Fibonacci list up to",value,"is",fibonacci(value))
 
 def fib2(n):
@@ -46,11 +47,9 @@ def fib2(n):
 		if suma <= value:
 		    lista.append(suma)
 	return lista
-
 print("fibbonaci ver2",fib2(value))
 
 print("Generate a list with all prime numbers less than a number.")
-
 def primes(num):
     primes_list = []
     for num in range(2,num):
@@ -61,5 +60,4 @@ def primes(num):
         if prime:
             primes_list.append(num)
     return primes_list
-
 print("Primes list up to",value,"is",primes(value))
