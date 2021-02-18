@@ -24,7 +24,7 @@ print("output set is: ",intersection_set)
 print("exercise 3")
 
 given = "Understanding sets is easy."
-vowels = "a,e,i,o,u"
+vowels = "aeiou"
 all_vowels = [letter for letter in given.lower() if letter in vowels]
 vowels_counter = len(all_vowels)
 print("The given string has ", vowels_counter, " vowels")
