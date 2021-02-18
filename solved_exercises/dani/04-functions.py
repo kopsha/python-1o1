@@ -9,8 +9,7 @@ value = int(input("Please enter a numeric value:\n"))
 print('Factorial of',value,'is',factorial(value))
 
 #Write a function that flattens a list.
-flat_list = []
-def flat (raw_list):
+def flat (raw_list, flat_list=[]):
     for elm in raw_list:
         if type(elm) == list:
             flat(elm)
@@ -18,7 +17,7 @@ def flat (raw_list):
             flat_list.append(elm)
     return flat_list
 
-given_list = ['a',13, [16], [56.5], [147], [18.2], [18.0,[14,15]]]
+given_list = ['a', 13, [16], [56.5], [147], [18.2], [18.0,[14,15]]]
 print ('Flatten list',flat(given_list))
 
 #Generate a list with Fibonacci sequence up to a number.
