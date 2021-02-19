@@ -1,6 +1,5 @@
 # Functions exercises 1 and 3
 
-
 def calculate_factorial(x):
     """ Calculates the factorial of a number (positive integer) """
     if type(x) is not int:
@@ -15,9 +14,6 @@ def calculate_factorial(x):
             factorial *= i
 
     return factorial
-
-
-print(calculate_factorial(5))
 
 
 def fibonacci(n):
@@ -35,6 +31,12 @@ def fibonacci(n):
 
     return fibo_list
 
-print(fibonacci(54))
-print(fibonacci(55))
-print(fibonacci(56))
+
+def main():
+    """all executable code in this module lives here"""
+    print(calculate_factorial(5))
+    print(fibonacci(54))
+    print(fibonacci(55))
+    print(fibonacci(56))
+
+main()
