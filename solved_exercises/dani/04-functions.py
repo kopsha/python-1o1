@@ -54,20 +54,17 @@ def fibonacci2(n):
 print('v2 Fibbonaci list up to', value, 'is', fibonacci2(value))
 
 # Generate a list with all prime numbers less than a number.
-def primes(num):
-    if num < 2:
-        return []
-    primes_list = [2]
-    for i in range(2, num):
+def primes(number):
+    primes_list = []
+    for i in range(2, number + 1):
         if is_prime(i):
             primes_list.append(i)
     return primes_list
 
-def is_prime(i):
-    for j in range(2, i):
-        if (i % j == 0):
-            return False
-        else:
-            return True
+def is_prime(number):
+    all_mod_multiplied = 1
+    for i in range(2, number):
+        all_mod_multiplied *= number % i
+    return all_mod_multiplied > 0
 
 print("Primes list up to", value, "is", primes(value))
