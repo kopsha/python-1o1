@@ -4,7 +4,7 @@ some_items = ["Blue", "Green", "Red"]
 expected = {"Green", "Yellow", "Black", "Orange", "Red", "Blue"}
 
 union_set = given.union(some_items)
-print("output set is: ",union_set)
+print("output set is: ", union_set)
 
 print("exercise 2")
 given_a = {10, 20, 30, 40, 50}
@@ -12,14 +12,14 @@ given_b = {30, 40, 50, 60, 70}
 expected = {70, 40, 10, 50, 20, 60, 30}
 
 union_set = given_a.union(given_b)
-print("output set is: ",union_set)
+print("output set is: ", union_set)
 
 print("exercise 3")
 given_a = {10, 20, 30, 40, 50}
 expected = {40, 50}
 
 intersection_set = given_a.intersection(expected)
-print("output set is: ",intersection_set)
+print("output set is: ", intersection_set)
 
 print("exercise 3")
 
