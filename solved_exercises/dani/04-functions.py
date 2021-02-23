@@ -16,7 +16,7 @@ def flatten(raw_list):
         flat_list = []
     else:
         for element in raw_list:
-            if type(element) == list:
+            if isinstance(element, list):
                 flat_list.extend(flatten(element))
             else:
                 flat_list.append(element)
