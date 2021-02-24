@@ -1,5 +1,8 @@
 from math import sqrt
 
+from datetime import datetime
+import timeit
+
 
 def primes_fast(number):
     dropped = set()
@@ -49,9 +52,9 @@ def test_prime_factorization():
         (4, [(2, 2)]),
         (7, [(7, 1)]),
         (15, [(3, 1), (5, 1)]),
-        (10999, [(17, 1), (647, 1)]),
-        (109999, [(317, 1), (347, 1)]),
-        (1099999, [(29, 1), (83, 1), (457, 1)]),
+        (10_999, [(17, 1), (647, 1)]),
+        (109_999, [(317, 1), (347, 1)]),
+        (10_099_999, [(29, 1), (83, 1), (457, 1)]),
         (
             8547,
             [(3, 1), (7, 1), (11, 1), (37, 1)],
@@ -81,4 +84,6 @@ def main():
     test_prime_factorization()
 
 
-main()
+duration = timeit.timeit(main, number=1)
+now = datetime.now().strftime('%H:%M:%S')
+print(f'[{now}] Finished in {duration:.2f} seconds.')
