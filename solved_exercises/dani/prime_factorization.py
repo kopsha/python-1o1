@@ -8,12 +8,12 @@ def prime_factorization_sieve(number):
     [(prime_1,prime_pow_1), prime_2,prime_pow_2), ... prime_n,prime_pow_n)]
     """
     factors = []
-    limit = number
+    original_number = number
     exponent = 0
     number_is_prime = True
-    
+
     iterator = 2
-    while iterator <= limit:
+    while iterator <= original_number:
         if (number % iterator) == 0:
             number //= iterator
             exponent += 1
@@ -23,7 +23,7 @@ def prime_factorization_sieve(number):
             exponent = 0
             number_is_prime = False
             if iterator > number:
-                iterator = limit + 1
+                break
         iterator += 1
 
     if number_is_prime:
@@ -50,11 +50,12 @@ def test_prime_factorization():
         (10_999, [(17, 1), (647, 1)]),
         (109_999, [(317, 1), (347, 1)]),
         (10_099_999, [(7, 1), (13, 1), (110989, 1)]),
-        (
-            8547,
-            [(3, 1), (7, 1), (11, 1), (37, 1)],
-        ),
+        (8547, [(3, 1), (7, 1), (11, 1), (37, 1)]),
         (1_000_000_000_000, [(2, 12), (5, 12)]),
+        (
+            999_999_999_999,
+            [(3, 3), (7, 1), (11, 1), (13, 1), (37, 1), (101, 1), (9901, 1)],
+        ),
     ]
 
     fail_count = 0
