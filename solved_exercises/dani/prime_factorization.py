@@ -1,33 +1,35 @@
+"""The fastest prime factorization I could come up with"""
+
 from datetime import datetime
 import timeit
 
 
-def prime_factorization_sieve(number):
+def prime_factorization(number):
     """This function calculates the primes factors for
     a positive integer number and return a list of tuples as:
     [(prime_1,prime_pow_1), prime_2,prime_pow_2), ... prime_n,prime_pow_n)]
     """
     factors = []
-    original_number = number
+    dividend = number
     exponent = 0
-    number_is_prime = True
+    is_prime = True
 
-    iterator = 2
-    while iterator <= original_number:
-        if (number % iterator) == 0:
-            number //= iterator
+    divisor = 2
+    while divisor <= number:
+        if (dividend % divisor) == 0:
+            dividend //= divisor
             exponent += 1
-            iterator -= 1
-        elif exponent > 0:
-            factors.append((iterator, exponent))
+            continue  # we want to attempt this divisor again
+        if exponent > 0:
+            factors.append((divisor, exponent))
             exponent = 0
-            number_is_prime = False
-            if iterator > number:
-                break
-        iterator += 1
+            is_prime = False
+            if divisor > dividend:
+                break  # there is no need to explore further
+        divisor += 1
 
-    if number_is_prime:
-        factors.append((number, 1))
+    if is_prime:
+        factors.append((dividend, 1))
 
     return factors
 
@@ -60,7 +62,7 @@ def test_prime_factorization():
 
     fail_count = 0
     for value, expected in test_data:
-        actual = prime_factorization_sieve(value)
+        actual = prime_factorization(value)
         result = "passed" if actual == expected else "failed"
 
         if result == "failed":
@@ -76,7 +78,7 @@ def test_prime_factorization():
 
 
 def main():
-    # self checking part
+    """self checking part"""
     test_prime_factorization()
 
 
