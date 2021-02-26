@@ -56,12 +56,12 @@ def generate_primes(nr):
     return primes
 
 
-def list_flatten(given_list):
+def flatten(given_list):
     """This function flattens a given list"""
     new_list = []
     for elem in given_list:
         if isinstance(elem, list):
-            temp_list = list_flatten(elem)
+            temp_list = flatten(elem)
             new_list.extend(temp_list)
         else:
             new_list.append(elem)
@@ -155,7 +155,7 @@ def test_generate_primes():
         f" and {fail_count} did failed."
     )
 
-def test_list_flatten():
+def test_flatten():
     """we'll test the correctness of list_flatten function"""
 
     print("Testing list_flatten() function...")
@@ -173,7 +173,7 @@ def test_list_flatten():
 
     fail_count = 0
     for value, expected in test_data:
-        actual = list_flatten(value)
+        actual = flatten(value)
         result = "passed" if actual == expected else "failed"
 
         if result == "failed":
@@ -195,7 +195,7 @@ def main():
     test_factorial()
     test_fibonacci()
     test_generate_primes()
-    test_list_flatten()
+    test_flatten()
 
 
 main()
