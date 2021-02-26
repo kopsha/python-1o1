@@ -44,6 +44,7 @@ def is_prime(nr):
 
 def generate_primes(nr):
     """Generates a list with all prime numbers less than a number"""
+    # TODO: try to reuse the list of primes already calculated
     if not isinstance(nr, int):
         raise TypeError("Expected a positive integer.")
     if nr < 2:
@@ -54,12 +55,14 @@ def generate_primes(nr):
             primes.append(i)
     return primes
 
-new_list = []
+
 def list_flatten(given_list):
     """This function flattens a given list"""
+    new_list = []
     for elem in given_list:
         if isinstance(elem, list):
-            list_flatten(elem)
+            temp_list = list_flatten(elem)
+            new_list.extend(temp_list)
         else:
             new_list.append(elem)
     return new_list
@@ -133,6 +136,7 @@ def test_generate_primes():
         (2, []),
         (3, [2]),
         (43, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]),
+        (8, [2, 3, 5, 7])
     ]
 
     fail_count = 0
@@ -160,6 +164,10 @@ def test_list_flatten():
         # (value, expected)
         ([1, 6, [6, 32, "a", 17], 19, 17, 25, [20, 19]], [1, 6, 6, 32, "a", 17, 19, 17, 25, 20, 19]),
         ([[0, 3], [0, 3], [19, 17, 25, [20, 19]]], [0, 3, 0, 3, 19, 17, 25, 20, 19]),
+        ([1, 5, 7], [1, 5, 7]),
+        ([], []),
+        ([[[1, 2, 3]]], [1, 2, 3]),
+        ([1, 2, 3, []], [1, 2, 3]),
 
     ]
 
