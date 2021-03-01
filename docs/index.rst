@@ -55,6 +55,7 @@ The plan
     sets
     tuples
     functions
+    dictionaries
 
 
 
