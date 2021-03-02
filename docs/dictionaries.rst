@@ -8,7 +8,7 @@ Dictionaries are used when you have *key / value* pairs of data -- an input
 which is mapped to an output, with the requirement that the keys are unique
 (within the same dictionary of course).
 
-Unlinke sequences, which are indexed by a range of numbers, dictionaries are
+Unlike sequences, which are indexed by a range of numbers, dictionaries are
 indexed by keys, which can be any immutable type (strings, numbers, booleans,
 tuples). You can't use lists as keys, since lists can be modified in place.
 
