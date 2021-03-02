@@ -198,7 +198,6 @@ Exercises
         # Expected output
         {'name': 'Mike', 'phone': '+40791882123', 'email': 'michael@yahoo.com'}
 
-
 #. Given a dictionary describing a car attributes, print the model and the year
 of the car or the string **N/A** if the value is not present.
 
