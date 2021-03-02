@@ -199,7 +199,7 @@ Exercises
         {'name': 'Mike', 'phone': '+40791882123', 'email': 'michael@yahoo.com'}
 
 #. Given a dictionary describing a car attributes, print the model and the year
-of the car or the string **N/A** if the value is not present.
+   of the car or the string **N/A** if the value is not present.
 
     .. code-block:: python
 
@@ -210,7 +210,7 @@ of the car or the string **N/A** if the value is not present.
         }
 
 #. Print all the key value pairs of any dictionary, but make sure they are shown
-in the same order every time (order the keys alphabetically).
+   in the same order every time (order the keys alphabetically).
 
 #. Count the frequency of all words in the given text:
 
