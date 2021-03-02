@@ -203,11 +203,11 @@ of the car or the string **N/A** if the value is not present.
 
     .. code-block:: python
 
-    car = {
-        "brand": "Ford",
-        "model": "Mustang",
-        "year": 1964
-    }
+        car = {
+            "brand": "Ford",
+            "model": "Mustang",
+            "year": 1964
+        }
 
 #. Print all the key value pairs of any dictionary, but make sure they are shown
 in the same order every time (order the keys alphabetically).
