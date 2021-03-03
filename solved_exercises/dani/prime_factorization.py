@@ -12,11 +12,13 @@ def prime_factorization(number):
     """
     factors = []
     dividend = number
+    divisor_limit = dividend
     exponent = 0
     is_prime = True
     gap = 1
     divisor = 2
     while divisor <= number:
+        divisor_limit = int(sqrt(dividend))
         if divisor == 3:
             gap = 2
         if (dividend % divisor) == 0:
@@ -25,12 +27,11 @@ def prime_factorization(number):
             continue  # we want to attempt this divisor again
         if exponent > 0:
             factors.append((divisor, exponent))
-
             exponent = 0
             is_prime = False
-            if divisor > dividend:
-                break  # there is no need to explore further
-        if divisor > int(sqrt(dividend)):
+            if divisor > dividend or divisor > divisor_limit:
+                break  # there is no need to explore furthers
+        if divisor > divisor_limit:
             factors.append((dividend, 1))
             break  # there is no need to explore further
         divisor += gap
@@ -67,7 +68,10 @@ def test_prime_factorization():
         #    10_099_999_999_999_999_999,
         #    [(7, 1), (13, 1), (317, 1), (1051, 1), (33409, 1), (9971363, 1)],
         # ),  # ~1.3s
-        # (100_099_999_999_999_999_999, [(31, 1), (2029, 1), (1591440245472901, 1)]), #before sqrt(n) not ending, after ~13s
+        (
+            100_099_999_999_999_999_999,
+            [(31, 1), (2029, 1), (1591440245472901, 1)],
+        ),  # before sqrt(n) not ending, after ~13s
         # (9_971_363, [(9971363, 1)]),  # before sqrt(n) ~1.2s, after 0
         # (17_051_887, [(17051887, 1)]),  # before sqrt(n) ~2.2s after 0
         # (122_164_969, [(122164969, 1)]),  # before sqrt(n) ~15s after 0
@@ -76,7 +80,7 @@ def test_prime_factorization():
         # (1_346_294_311_331, [(1346294311331, 1)]), # after sqrt(n) 0.41s
         # (7_177_162_612_387, [(7177162612387, 1)]),  # 13 digits after sqrt(n) 1.07s
         # (999_998_727_899_999, [(999998727899999, 1)]), # 15 digits prime ~10s
-        # (9_957_969_395_462_467, [(9957969395462467, 1)]), # oesis 4162 16 digits ~40s
+        (9_957_969_395_462_467, [(9957969395462467, 1)]),  # oesis 4162 16 digits ~40s
         # (99_957_969_395_462_467, [(99957969395462467, 1)]), # oesis 4204 17 digits ~100s
         # (992_429_121_339_693_967, [(992429121339693967, 1)]), # oesis 4228 18 digits prime ~333s
         # (8_963_315_421_273_233_617, [(8963315421273233617, 1)]), # oesis 4241 19 digits prime ~1184s
