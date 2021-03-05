@@ -11,34 +11,33 @@ def calc_factorial(n):
     fact = 1
     for i in range(1, n + 1):
         fact *= i
-    # TODO add test functions
     # values for test: 1,5,1000
     return fact
 
 
-#print(calc_factorial(7))
 
 """Generate a list with Fibonacci sequence up to a number."""
 
 
 def fibonacci(n):
     """function generates Fibonacci list until a given input - to be refactored"""
-    if n < 2:
-        raise ValueError("Invalid number; input number must be at least equal to 2")
+    if n < 0:
+        raise ValueError("Invalid number; input number must be at least equal to 1")
     a, b = 0, 1
-    fib_list = [a, b]
-    while b < n - a:
-        a, b = b, a + b
-        fib_list.append(b)
-    # TODO add tests
+    fib_list = [a]
+
+    if n > 0:
+        while b <= n:
+            a, b = b, a + b
+            fib_list.append(a)
+
     return fib_list
 
 
 # TODO refactor and use classical recursive function
-flat = lambda given_list: [elem for item in given_list for elem in flat(item)] if isinstance(given_list, list) else [
-    given_list]
+#flat = lambda given_list: [elem for item in given_list for elem in flat(item)] if isinstance(given_list, list) else [
+#    given_list]
 
-#print(flat([[1, 2, 3], [3, 6, 7], [7, 5, 4], 7]))
 
 
 def is_prime(n):
@@ -52,6 +51,7 @@ def is_prime(n):
             return False
     return True
 
+
 def get_primes(n):
     """Return a list with all prime numbers until given n number"""
     if n < 2:
@@ -63,6 +63,27 @@ def get_primes(n):
         if is_prime(i):
             list_primes.append(i)
     return list_primes
+
+def pasareasca(snt):
+    pas_lang = ""
+    add_char = "p"
+    lst_vowels = ["a", "e", "i", "o", "u"]
+    for i in snt:
+        pas_lang += i + add_char + i.lower() if i.lower() in lst_vowels else i
+    return pas_lang
+
+def flatten(given_list):
+    """This function flattens a given list"""
+    new_list = []
+    for elem in given_list:
+        if isinstance(elem, list):
+            temp_list = flatten(elem)
+            new_list.extend(temp_list)
+        else:
+            new_list.append(elem)
+    return new_list
+
+#test functions
 
 def test_get_primes():
     """test the correctness of get_primes function"""
@@ -91,6 +112,35 @@ def test_get_primes():
         f"Ran {total_count} tests out of with {passed_count} were successful"
         f" and {fail_count} did failed."
     )
+
+def test_calc_factorial():
+    """we'll test the correctness of list_flatten function"""
+
+    print("Testing list_flatten() function...")
+
+    test_data = [
+        # (value, expected)
+        (1, 1),
+        (2, 2),
+        (9, 362880),
+    ]
+
+    fail_count = 0
+    for value, expected in test_data:
+        actual = calc_factorial(value)
+        result = "passed" if actual == expected else "failed"
+
+        if result == "failed":
+            print(f"\t -> Actual {actual} is different from {expected}.")
+            fail_count += 1
+
+    total_count = len(test_data)
+    passed_count = total_count - fail_count
+    print(
+        f"Ran {total_count} tests out of with {passed_count} were successful"
+        f" and {fail_count} did failed."
+    )
+
 
 def test_flatten():
     """we'll test the correctness of list_flatten function"""
@@ -124,8 +174,68 @@ def test_flatten():
         f" and {fail_count} did failed."
     )
 
+
+def test_pasareasca():
+    """we'll test the correctness of list_flatten function"""
+
+    print("Testing pasareasca() function...")
+
+    test_data = [
+        # (value, expected)
+        ("Azi ai treaba?", "Apazipi apaipi trepeapabapa?"),
+        ("", ""),
+
+    ]
+
+    fail_count = 0
+    for value, expected in test_data:
+        actual = pasareasca(value)
+        result = "passed" if actual == expected else "failed"
+
+        if result == "failed":
+            print(f"\t -> Actual {actual} is different from {expected}.")
+            fail_count += 1
+
+    total_count = len(test_data)
+    passed_count = total_count - fail_count
+    print(
+        f"Ran {total_count} tests out of with {passed_count} were successful"
+        f" and {fail_count} did failed."
+    )
+
+def test_fibonacci():
+    """we'll test the correctness of fibonacci function"""
+
+    print("Testing fibonacci() function...")
+
+    test_data = [
+        # (value, expected)
+        (54, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]),
+        (55, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]),
+        (120, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]),
+    ]
+
+    fail_count = 0
+    for value, expected in test_data:
+        actual = fibonacci(value)
+        result = "passed" if actual == expected else "failed"
+
+        if result == "failed":
+            print(f"\t -> Actual {actual} is different from {expected}.")
+            fail_count += 1
+
+    total_count = len(test_data)
+    passed_count = total_count - fail_count
+    print(
+        f"Ran {total_count} tests out of with {passed_count} were successful"
+        f" and {fail_count} did failed."
+    )
+
 def main():
     test_get_primes()
-
+    test_pasareasca()
+    test_calc_factorial()
+    test_flatten()
+    test_fibonacci()
 
 main()
