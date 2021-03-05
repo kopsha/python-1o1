@@ -64,13 +64,15 @@ def get_primes(n):
             list_primes.append(i)
     return list_primes
 
-def pasareasca(snt):
-    pas_lang = ""
-    add_char = "p"
-    lst_vowels = ["a", "e", "i", "o", "u"]
-    for i in snt:
-        pas_lang += i + add_char + i.lower() if i.lower() in lst_vowels else i
-    return pas_lang
+def gibberish_translate(text):
+    translated_text = ""
+    extra_char = "p"
+    vowels = ["a", "e", "i", "o", "u"]
+    for letter in text:
+        translated_text += letter
+        if letter.lower() in vowels:
+            translated_text += extra_char + letter.lower()
+    return translated_text
 
 def flatten(given_list):
     """This function flattens a given list"""
@@ -175,21 +177,24 @@ def test_flatten():
     )
 
 
-def test_pasareasca():
+def test_gibberish_translate():
     """we'll test the correctness of list_flatten function"""
 
-    print("Testing pasareasca() function...")
+    print("Testing gibberish_translate() function...")
 
     test_data = [
         # (value, expected)
-        ("Azi ai treaba?", "Apazipi apaipi trepeapabapa?"),
         ("", ""),
-
+        ("e!", "epe!"),
+        ("ctrl", "ctrl"),
+        ("Pe mine ma cheama Ion", "Pepe mipinepe mapa chepeapamapa Ipiopon"),
+        ("Pe mine ma cheama Don", "Pepe mipinepe mapa chepeapamapa Dopon"),
+        ("Azi ai treaba?", "Apazipi apaipi trepeapabapa?"),
     ]
 
     fail_count = 0
     for value, expected in test_data:
-        actual = pasareasca(value)
+        actual = gibberish_translate(value)
         result = "passed" if actual == expected else "failed"
 
         if result == "failed":
@@ -232,10 +237,10 @@ def test_fibonacci():
     )
 
 def main():
-    test_get_primes()
-    test_pasareasca()
-    test_calc_factorial()
-    test_flatten()
-    test_fibonacci()
+    #test_get_primes()
+    test_gibberish_translate()
+    #test_calc_factorial()
+    #test_flatten()
+    #test_fibonacci()
 
 main()
