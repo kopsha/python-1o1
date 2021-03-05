@@ -5,18 +5,19 @@ import timeit
 
 
 def pasareasca(text):
+    # TODO change the code without modifing parsed text
     """This function adds after each vowel is added "p" + that vowel
-    In case the word is ending with a consonat ipi is added
+    In case the word is ending with a consonat îpî is added
     """
     vowels = "aăâeiîou"
     i = 0
     while i < len(text):
         if text[i].lower() in vowels:
-            text = text[: i + 1] + "p" + text[i:].lower()
+            if i == 0:
+                text = text[: i + 1] + "p" + text[i:].lower()
+            else:
+                text = text[: i + 1] + "p" + text[i:]
             i += 2  # increment iterator to exclude p and the vowel inserted above
-        if text[i] in " " and text[i - 1].lower() not in vowels:
-            text = text[:i] + "î" + text[i:].lower()
-            i -= 1  # re-evaluate same iterator to include consider i inserted above
         i += 1
     return text
 
@@ -28,10 +29,14 @@ def test_pasareasca():
 
     test_data = [
         # (value, expected)
+        ("", ""),
         ("Câine", "Câpâipinepe"),
         ("Ce mai faci?", "Cepe mapaipi fapacipi?"),
         ("Unde mergi?", "Upundepe mepergipi?"),
-        ("Îmi este dor de tine.", "Îpîmipi epestepe doporîpî depe tipinepe."),
+        ("Îmi este dor de tine.", "Îpîmipi epestepe dopor depe tipinepe."),
+        ("Pe mine mă cheamă Daniel", "Pepe mipinepe măpă chepeapamăpă Dapanipiepel"),
+        ("Pisică", "Pipisipicăpă"),
+        ("Pe mine ma cheama, Daniel", "Pepe mipinepe mapa chepeapamapa, Dapanipiepel"),
     ]
 
     fail_count = 0
