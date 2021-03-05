@@ -66,7 +66,21 @@ def flatten(given_list):
         else:
             new_list.append(elem)
     return new_list
+# TODO: add tests and remove here the given_string and the print
+given_string = "Unde esti, Bucuresti? Buna seara! "
+def gibberish(given_string):
+    """ Adds after each vowel in a string the letter 'p' followed by that vowel """
+    vowels = "aeiouAEIOU"
+    new_string = ""
+    extra_letter = "p"
+    for letter in given_string:
+        if letter in vowels:
+            new_string += letter + extra_letter + letter.lower()
+        else:
+            new_string += letter
+    return new_string
 
+print(gibberish(given_string))
 
 def test_factorial():
     """we'll test the correctness of factorial function"""
