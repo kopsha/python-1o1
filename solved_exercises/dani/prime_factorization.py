@@ -27,6 +27,7 @@ def prime_factorization(number):
             continue  # we want to attempt this divisor again
         if exponent > 0:
             factors.append((divisor, exponent))
+
             exponent = 0
             is_prime = False
             if divisor > dividend or divisor > divisor_limit:
