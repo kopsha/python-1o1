@@ -4,25 +4,18 @@ from datetime import datetime
 import timeit
 
 
-def pasareasca(text):
-    # TODO change the code without modifing parsed text
+def translate_pasareasca(text):
     """This function adds after each vowel is added "p" + that vowel
-    In case the word is ending with a consonat îpî is added
     """
     vowels = "aăâeiîou"
-    i = 0
-    while i < len(text):
-        if text[i].lower() in vowels:
-            if i == 0:
-                text = text[: i + 1] + "p" + text[i:].lower()
-            else:
-                text = text[: i + 1] + "p" + text[i:]
-            i += 2  # increment iterator to exclude p and the vowel inserted above
-        i += 1
-    return text
+    result = ""
+    for letter in text:
+        result += letter
+        if letter.lower() in vowels:
+            result += "p" + letter.lower()
+    return result
 
-
-def test_pasareasca():
+def test_translate_pasareasca():
     """we'll test the correctnes of pasareasca function"""
 
     print("Testing test_pasareasca() function...")
@@ -37,11 +30,13 @@ def test_pasareasca():
         ("Pe mine mă cheamă Daniel", "Pepe mipinepe măpă chepeapamăpă Dapanipiepel"),
         ("Pisică", "Pipisipicăpă"),
         ("Pe mine ma cheama, Daniel", "Pepe mipinepe mapa chepeapamapa, Dapanipiepel"),
+        ("Salut! Ce mai faci?", "Sapaluput! Cepe mapaipi fapacipi?"),
+        ("Salut! Ai mere?", "Sapaluput! Apaipi meperepe?"),
     ]
 
     fail_count = 0
     for value, expected in test_data:
-        actual = pasareasca(value)
+        actual = translate_pasareasca(value)
         result = "passed" if actual == expected else "failed"
 
         if result == "failed":
@@ -58,7 +53,7 @@ def test_pasareasca():
 
 def main():
     """self checking part"""
-    test_pasareasca()
+    test_translate_pasareasca()
 
 
 duration = timeit.timeit(main, number=1)
