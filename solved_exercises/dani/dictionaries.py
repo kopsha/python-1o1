@@ -2,7 +2,7 @@
 
 from datetime import datetime
 import timeit
-from math import sqrt
+import string
 
 
 def create_dict(my_keys, my_values):
@@ -46,9 +46,12 @@ def order_dictionary(my_dictionary):
 def count_frequency(text):
     """This function Count the frequency of all words in the given text."""
     result = {}
-    words = text.lower().split()
+    text_no_punctuation = text.translate(str.maketrans("", "", string.punctuation))
+    words = text_no_punctuation.lower().split()
     word_dictionary = {word: words.count(word) for word in words}
-    result = dict(reversed(sorted(word_dictionary.items(), key=lambda item: item[1])))
+    result = dict(
+        sorted(word_dictionary.items(), key=lambda item: item[1], reverse=True)
+    )
     return result
 
 
@@ -185,59 +188,59 @@ def test_count_frequency():
             {
                 "the": 6,
                 "he": 4,
-                "be": 3,
-                "would": 3,
-                "to": 3,
-                "of": 3,
                 "two": 3,
-                "that": 2,
-                "was": 2,
-                "something": 2,
-                "added": 2,
-                "day": 2,
-                "this": 2,
-                "if": 2,
-                "and": 2,
+                "of": 3,
+                "to": 3,
+                "would": 3,
+                "be": 3,
                 "ordered": 2,
-                "years.": 1,
-                "past": 1,
-                "for": 1,
-                "every": 1,
-                "had": 1,
-                "meal": 1,
-                "exact": 1,
-                "same": 1,
-                "it": 1,
-                "all.": 1,
-                "saying": 1,
-                "demuring": 1,
-                "before": 1,
-                "order": 1,
-                "else": 1,
-                "see": 1,
-                "hesitation": 1,
-                "seconds": 1,
-                "few": 1,
-                "a": 1,
-                "routine.": 1,
-                "part": 1,
-                "also": 1,
-                "new.": 1,
-                "wondering": 1,
-                "menu": 1,
-                "at": 1,
-                "look": 1,
-                "continued": 1,
-                "bacon.": 1,
-                "strips": 1,
-                "browns,": 1,
-                "hash": 1,
-                "up,": 1,
-                "sunnyside": 1,
-                "eggs": 1,
-                "breakfast.": 1,
-                "regular": 1,
+                "and": 2,
+                "if": 2,
+                "this": 2,
+                "day": 2,
+                "added": 2,
+                "something": 2,
+                "was": 2,
+                "that": 2,
                 "his": 1,
+                "regular": 1,
+                "breakfast": 1,
+                "eggs": 1,
+                "sunnyside": 1,
+                "up": 1,
+                "hash": 1,
+                "browns": 1,
+                "strips": 1,
+                "bacon": 1,
+                "continued": 1,
+                "look": 1,
+                "at": 1,
+                "menu": 1,
+                "wondering": 1,
+                "new": 1,
+                "also": 1,
+                "part": 1,
+                "routine": 1,
+                "a": 1,
+                "few": 1,
+                "seconds": 1,
+                "hesitation": 1,
+                "see": 1,
+                "else": 1,
+                "order": 1,
+                "before": 1,
+                "demuring": 1,
+                "saying": 1,
+                "all": 1,
+                "it": 1,
+                "same": 1,
+                "exact": 1,
+                "meal": 1,
+                "had": 1,
+                "every": 1,
+                "for": 1,
+                "past": 1,
+                "years": 1,
             },
         ),
     ]
