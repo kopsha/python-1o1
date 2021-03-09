@@ -49,7 +49,7 @@ def count_frequency(text):
 
     for word in words:
         words_count = result.get(word, 0)
-        result.update({word: words_count + 1})
+        result[word] = words_count + 1
 
     return result
 
@@ -263,12 +263,12 @@ def test_count_frequency():
 
 def main():
     """self checking part"""
-    # test_create_dict()
-    # test_find_model_and_year()
-    # test_order_dictionary()
+    test_create_dict()
+    test_find_model_and_year()
+    test_order_dictionary()
     test_count_frequency()
 
 
-duration = timeit.timeit(main, number=10000)
+duration = timeit.timeit(main, number=1)
 now = datetime.now().strftime("%H:%M:%S")
 print(f"[{now}] Finished in {duration:.2f} seconds.")
