@@ -22,12 +22,8 @@ def find_model_and_year(car):
     return the model and the year of the car or the string N/A if the value
     is not present.
     """
-    model = car.get("model")
-    year = car.get("year")
-    if model is None:
-        model = "N/A"
-    if year is None:
-        year = "N/A"
+    model = car.get("model", "N/A")
+    year = car.get("year", "N/A")
     result = (model, year)
     return result
 
@@ -46,12 +42,15 @@ def order_dictionary(my_dictionary):
 def count_frequency(text):
     """This function Count the frequency of all words in the given text."""
     result = {}
+    words_count = 0
+
     text_no_punctuation = text.translate(str.maketrans("", "", string.punctuation))
     words = text_no_punctuation.lower().split()
-    word_dictionary = {word: words.count(word) for word in words}
-    result = dict(
-        sorted(word_dictionary.items(), key=lambda item: item[1], reverse=True)
-    )
+
+    for word in words:
+        words_count = result.get(word, 0)
+        result.update({word: words_count + 1})
+
     return result
 
 
@@ -264,12 +263,12 @@ def test_count_frequency():
 
 def main():
     """self checking part"""
-    test_create_dict()
-    test_find_model_and_year()
-    test_order_dictionary()
+    # test_create_dict()
+    # test_find_model_and_year()
+    # test_order_dictionary()
     test_count_frequency()
 
 
-duration = timeit.timeit(main, number=1)
+duration = timeit.timeit(main, number=10000)
 now = datetime.now().strftime("%H:%M:%S")
 print(f"[{now}] Finished in {duration:.2f} seconds.")
