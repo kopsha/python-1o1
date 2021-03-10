@@ -42,14 +42,12 @@ def order_dictionary(my_dictionary):
 def count_frequency(text):
     """This function Count the frequency of all words in the given text."""
     result = {}
-    words_count = 0
 
     text_no_punctuation = text.translate(str.maketrans("", "", string.punctuation))
     words = text_no_punctuation.lower().split()
 
     for word in words:
-        words_count = result.get(word, 0)
-        result[word] = words_count + 1
+        result[word] = result.get(word, 0) + 1
 
     return result
 
