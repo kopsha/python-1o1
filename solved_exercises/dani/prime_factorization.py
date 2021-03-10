@@ -14,7 +14,6 @@ def prime_factorization(number):
     dividend = number
     divisor_limit = dividend
     exponent = 0
-    is_prime = True
     gap = 1
     divisor = 2
     while divisor <= number:
@@ -29,7 +28,6 @@ def prime_factorization(number):
             factors.append((divisor, exponent))
 
             exponent = 0
-            is_prime = False
             if divisor > dividend or divisor > divisor_limit:
                 break  # there is no need to explore furthers
         if divisor > divisor_limit:
@@ -81,7 +79,7 @@ def test_prime_factorization():
         # (1_346_294_311_331, [(1346294311331, 1)]), # after sqrt(n) 0.41s
         # (7_177_162_612_387, [(7177162612387, 1)]),  # 13 digits after sqrt(n) 1.07s
         # (999_998_727_899_999, [(999998727899999, 1)]), # 15 digits prime ~10s
-        (9_957_969_395_462_467, [(9957969395462467, 1)]),  # oesis 4162 16 digits ~40s
+        # (9_957_969_395_462_467, [(9957969395462467, 1)]),  # oesis 4162 16 digits ~40s
         # (99_957_969_395_462_467, [(99957969395462467, 1)]), # oesis 4204 17 digits ~100s
         # (992_429_121_339_693_967, [(992429121339693967, 1)]), # oesis 4228 18 digits prime ~333s
         # (8_963_315_421_273_233_617, [(8963315421273233617, 1)]), # oesis 4241 19 digits prime ~1184s
