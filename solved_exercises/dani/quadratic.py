@@ -8,10 +8,10 @@ def polynome(a, b, c):
     x2 = -b - sqrt(b^2 - 4ac)
     """
     if not all(isinstance(i, (int, complex, float)) for i in [a, b, c]):
-        raise TypeError()
+        raise TypeError("Use numbers as input")
 
     if a == 0:
-        raise ZeroDivisionError(a)
+        raise ZeroDivisionError("a cannot be ", a)
 
     factor = b ** 2 - (4 * a * c)
     print(factor)
@@ -21,10 +21,10 @@ def polynome(a, b, c):
 
 
 def test_polynome_valid_inputs():
-    assert polynome(1, 4, 3) == ((-1), (-3))
-    assert polynome(1, -4, 3) == ((3), (1))
-    assert polynome(1, 2, 2) == ((-1 + 1j), (-1 - 1j))
-    assert polynome(1, 2j, -2) == ((-1j + 1), (-1j - 1))
+    assert polynome(1, 4, 3) == (-1, -3)
+    assert polynome(1, -4, 3) == (3, 1)
+    assert polynome(1, 2, 2) == (-1 + 1j, -1 - 1j)
+    assert polynome(1, 2j, -2) == (-1j + 1, -1j - 1)
 
 
 def test_polynome_zero_division():
