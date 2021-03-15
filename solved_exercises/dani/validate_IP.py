@@ -73,7 +73,6 @@ def test_is_valid_IPv4():
 
 
 def test_is_valid_IPv6():
-
     assert is_valid_IPv6("") == False
     assert is_valid_IPv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334") == True
     assert is_valid_IPv6(":2001:0db8:85a3:0000:0000:8a2e:0370:7334:") == False
