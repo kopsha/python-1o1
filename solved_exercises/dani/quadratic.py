@@ -13,15 +13,15 @@ def polynome(a, b, c):
     if a == 0:
         raise ZeroDivisionError("a cannot be ", a)
 
-    factor = b ** 2 - (4 * a * c)
-    print(factor)
-    x = (-b + sqrt(factor)) / 2
-    y = (-b - sqrt(factor)) / 2
+    factor = pow(b, 2) - (4 * a * c)
+    x = (-b + sqrt(factor)) / (2 * a)
+    y = (-b - sqrt(factor)) / (2 * a)
     return x, y
 
 
 def test_polynome_valid_inputs():
     assert polynome(1, 4, 3) == (-1, -3)
+    assert polynome(4, -1, 0) == (0.25, 0)
     assert polynome(1, -4, 3) == (3, 1)
     assert polynome(1, 2, 2) == (-1 + 1j, -1 - 1j)
     assert polynome(1, 2j, -2) == (-1j + 1, -1j - 1)
