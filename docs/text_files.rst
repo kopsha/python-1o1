@@ -29,7 +29,7 @@ example than a brief biography of Guido van Rossum, the creator of Python. This
 text file will be named ``guido_bio.txt``. To save time, I am pasting the text
 from Guido's personal web site:
 
-:: guido_bio.txt
+.. code-block:: text
 
     Guido van Rossum is the creator of the Python programming language. He grew
     up in the Netherlands and studied at the University of Amsterdam, where he
@@ -48,6 +48,7 @@ from Guido's personal web site:
 
     Guido's home on the web is http://www.python.org/~guido/.
 
+s
 Now save and let's start python and read it. One way to open a file is to call
 the **open** function with the name or path to the file. Without any other
 arguments, it will open the file in read mode and return a file object which we
