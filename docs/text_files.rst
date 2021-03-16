@@ -45,10 +45,9 @@ from Guido's personal web site:
     (Benevolent Dictator For Life), and he is still deeply involved in the
     Python community. Guido, his wife and their teenager live in Silicon Valley,
     where they love hiking, biking and birding.
-
     Guido's home on the web is http://www.python.org/~guido/.
 
-s
+
 Now save and let's start python and read it. One way to open a file is to call
 the **open** function with the name or path to the file. Without any other
 arguments, it will open the file in read mode and return a file object which we
@@ -73,7 +72,6 @@ will return all the text in the file. Finally, close the file.
     (Benevolent Dictator For Life), and he is still deeply involved in the
     Python community. Guido, his wife and their teenager live in Silicon Valley,
     where they love hiking, biking and birding.
-
     Guido's home on the web is http://www.python.org/~guido/.
     >>>
 
