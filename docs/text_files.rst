@@ -171,7 +171,19 @@ this is two write a new line after writing the name of each ocean.
             f.write("\n")
 
 Now, if you run the code, and then open the file, you will see each name is on
-a separate line. There is another way to ensure that each string is on a separate
+a separate line.
+
+.. code-block:: text
+    :caption: oceans.txt
+
+    Pacific
+    Atlantic
+    Indian
+    Arctic
+    Southern
+
+
+There is another way to ensure that each string is on a separate
 line. You can use the **print()** function and have it to print to the file by
 using the *file* keyword argument.
 
@@ -185,6 +197,15 @@ using the *file* keyword argument.
 If you run this, and look at the file, you get the same result. Each name is on
 a separate line.
 
+.. code-block:: text
+    :caption: oceans.txt
+
+    Pacific
+    Atlantic
+    Indian
+    Arctic
+    Southern
+
 
 Append
 ######
@@ -196,8 +217,7 @@ write to a file without overwriting any existing text?
 For this, you open the file in *append mode* by using an **"a"** after the file
 name. Append mode will create the file if it does not exist, but if the file does
 exist, then Python will append your text *to the end*. It will not overwrite any
-existing text. Let us see that this is the case.
-
+existing text.
 
 .. code-block:: python
 
@@ -209,4 +229,18 @@ existing text. Let us see that this is the case.
     with open("oceans.txt", "a") as f:
         print("=======================", file=f)
         print("These are the 5 oceans.", file=f)
+
+
+Let us see that this is the case.
+
+.. code-block:: text
+    :caption: oceans.txt
+
+    Pacific
+    Atlantic
+    Indian
+    Arctic
+    Southern
+    =======================
+    These are the 5 oceans.
 
