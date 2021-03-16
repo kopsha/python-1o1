@@ -143,10 +143,10 @@ automatically close the files for you.
 
 .. code-block:: python
 
-oceans = ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
-with open ("oceans.txt", "w") as f:
-    for ocean in oceans:
-        f.write(ocean)
+    oceans = ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
+    with open ("oceans.txt", "w") as f:
+        for ocean in oceans:
+            f.write(ocean)
 
 Here, if the file *oceans.txt* does not exist, Python will create it. And if the
 file already exists, Python will overwrite it. So be careful.
