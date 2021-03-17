@@ -134,7 +134,7 @@ entire content of the file in memory. Typically, for text files this is the
 recommended method. But if you know you need to handle huge files (larger than
 your computer memory for example) you may want to read and process the text file
 line by line. Luckily Python file objects already have a couple of methods,
-please have a look at the `official documentation
+please have a look at the official `file documentation
 <https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files>`_.
 
 For reading lines from a file, you can loop over the file object. This is memory
