@@ -129,6 +129,35 @@ If you run this it displays *None*, since the file was not found. And if you
 replace the file name with the one we created earlier ("guido_bio.txt"), it
 successfully reads the existing file.
 
+If you don't provide any argument to the **read()** method, it will read the
+entire content of the file in memory. Typically, for text files this is the
+recommended method. But if you know you need to handle huge files (larger than
+your computer memory for example) you may want to read and process the text file
+line by line. Luckily Python file objects already have a couple of methods,
+please have a look at the `official documentation
+<https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files>`_.
+
+For reading lines from a file, you can loop over the file object. This is memory
+efficient, fast, and leads to simple code:
+
+    >>> for line in f:
+    ...     print(line, end='')
+    ...
+    This is the first line of the file.
+    Second line of the file
+    >>>
+
+If you want to read all the lines of a file in a list you can also use the
+**list()** constructor:
+
+    >>> all_lines = list(f)
+    >>>
+
+or the **readlines()** method:
+
+    >>> all_lines = f.readlines()
+    >>>
+
 
 Write
 #####
