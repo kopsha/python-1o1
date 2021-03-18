@@ -1,158 +1,55 @@
-# Functions exercises 1, 2, 3 and 4
-import re
-import operator
-import math
+# Dictionary Functions exercises 1, 2, 3 and 4
+import string
+import pytest
 
-"""Create a dictionary out of the lists below:
-
-keys = ["name", "phone", "email"]
-values = ["Mike", "+40791882123", "michael@yahoo.com"]
-
-# Expected output
-{'name': 'Mike', 'phone': '+40791882123', 'email': 'michael@yahoo.com'}"""
-
-def create_dict(list_keys, list_values):
+def create_dict(keys, values):
     """ Creates a dictionary out of two lists """
-    if len(list_keys) != len(list_values):
+    if len(keys) != len(values):
         raise ValueError("Keys input list and values input list must have same length.")
-    dict_new = dict(zip(list_keys, list_values))
-    return dict_new
+    dictionary = dict(zip(keys, values))
+    return dictionary
 
-"""Given a dictionary describing a car attributes, print the model and the year of the car or the string N/A if the value is not present.
-
-car = {
-    "brand": "Ford",
-    "model": "Mustang",
-    "year": 1964
-}"""
 
 def print_car_model(car_info):
     """ print car model and year based on input dictionary with information """
     if not isinstance(car_info, dict):
         raise TypeError("Expected input is a dictionary with car/'s information")
-    car_brand = car_info.get("brand", "N/A")
     car_model = car_info.get("model", "N/A")
     year_model = car_info.get("year", "N/A")
-    return f"This car is a {year_model} {car_brand} {car_model}."
+    return f"This car is a {year_model} {car_model}."
 
-"""Print all the key value pairs of any dictionary, but make sure they are shown in the same order every time (order the keys alphabetically)."""
 
 def print_dict_sorted(input_dict):
     """ Creates a sorted dictionary based on a given dictionary"""
     sorted_dict = dict(sorted(input_dict.items()))
     return sorted_dict
 
-"""Count the frequency of all words in the given text:"""
+
 def count_freq_words(text):
-    all_words = re.findall(r"[\w']+", text)
-    new_dict = {word: all_words.count(word) for word in all_words}
-    sorted_dict = dict(sorted(new_dict.items(), key=operator.itemgetter(1), reverse=True))
-    return sorted_dict
-text = "He ordered his regular breakfast. Two eggs sunnyside up, hash browns, and two strips of bacon. He continued to look at the menu wondering if this would be the day he added something new. This was also part of the routine. A few seconds of hesitation to see if something else would be added to the order before demuring and saying that would be all. It was the same exact meal that he had ordered every day for the past two years."
-print(count_freq_words(text))
-
-def calculate_polynom_second_grade(xtwo, xone, xzero):
-    delta = xone**2 - 4*xtwo*xzero
-    if delta < 0:
-        raise ValueError("Solutions of this polynom are complex numbers")
-    solution1 = (-xone + math.sqrt(delta))/2*xzero
-    solution2 = (-xone - math.sqrt(delta))/2*xzero
-    return solution1, solution2
-
-print(calculate_polynom_second_grade(2,-6,4))
-
+    """Count the frequency of all words in the given text:"""
+    if not isinstance(text, str):
+        raise TypeError("Expected input is a string.")
+    all_words = text.split()
+    freq_words = {}
+    for word in all_words:
+        clean_word = word.strip(string.punctuation).lower()
+        freq_words[clean_word] = freq_words.get(clean_word, 0) + 1
+    return freq_words
 
 def test_create_dict():
-    """we'll test the correctness of dict function"""
-
-    print("Testing dict const() function...")
-
-    test_data = [
-        # (value, expected)
-        ([["name", "phone", "email"], ["Mike", "+40791882123", "michael@yahoo.com"]], {'name': 'Mike', 'phone': '+40791882123', 'email': 'michael@yahoo.com'}),
-
-    ]
-
-    fail_count = 0
-    for value, expected in test_data:
-        actual = create_dict(value, )
-        result = "passed" if actual == expected else "failed"
-
-        if result == "failed":
-            print(f"\t -> Actual {actual} is different from {expected}.")
-            fail_count += 1
-
-    total_count = len(test_data)
-    passed_count = total_count - fail_count
-    print(
-        f"Ran {total_count} tests out of with {passed_count} were successful"
-        f" and {fail_count} did failed."
-    )
+    assert create_dict(["name", "phone", "email"], ["Mike", "+40791882123", "michael@yahoo.com"]) == {'email': 'michael@yahoo.com', 'name': 'Mike', 'phone': '+40791882123'}
 
 def test_print_car_model():
-    """we'll test the correctness of print_car_model function"""
+    assert print_car_model({'brand': 'Ford', 'model': 'Mustang', 'year': '1964'}) == "This car is a 1964 Mustang."
+    assert print_car_model({'sun': 'warm', 'sleep': 'good', 'weekend': 'perfect'}) == "This car is a N/A N/A."
+    assert print_car_model({'brand': 'Ford', 'result': 'ok', 'year': '1964'}) == "This car is a 1964 N/A."
 
-    print("Testing print_car_model() function...")
+def test_dict_sorted():
+    assert print_dict_sorted({'name': 'zoe', 'age': '47', 'drug1': 'algifor','50ml': 'dosage'}) == {'50ml': 'dosage', 'age': '47', 'drug1': 'algifor', 'name': 'zoe'}
+    assert print_dict_sorted({'weekend': 'perfect', 'sleep': 'good', 'sun': 'warm'}) == {'sun': 'warm', 'sleep': 'good', 'weekend': 'perfect'}
+    assert print_dict_sorted({'Xplane': 'Madrid', 'Uplane': 'Roma', 'JPlane': 'France','Cplane': 'London'}) == {'Cplane': 'London', 'JPlane': 'France', 'Uplane': 'Roma', 'Xplane': 'Madrid'}
 
-    test_data = [
-        # (value, expected)
-        ({'brand': 'Ford', 'model': 'Mustang', 'year': '1964'}, "This car is a 1964 Ford Mustang."),
-        ({'brand1': 'Ford', 'model1': 'Mustang', 'year1': '1964'}, "This car is a N/A N/A N/A."),
-        ({'brand1': 'Ford', 'model': 'Mustang', 'year': '1964'}, "This car is a 1964 N/A Mustang."),
-
-    ]
-
-    fail_count = 0
-    for value, expected in test_data:
-        actual = print_car_model(value)
-        result = "passed" if actual == expected else "failed"
-
-        if result == "failed":
-            print(f"\t -> Actual {actual} is different from {expected}.")
-            fail_count += 1
-
-    total_count = len(test_data)
-    passed_count = total_count - fail_count
-    print(
-        f"Ran {total_count} tests out of with {passed_count} were successful"
-        f" and {fail_count} did failed."
-    )
-
-def test_print_dict_sorted():
-    """we'll test the correctness of print_car_model function"""
-
-    print("Testing print_car_model() function...")
-
-    test_data = [
-        # (value, expected)
-        ({'name': 'Mike', 'phone': '+40791882123', 'email': 'michael@yahoo.com'}, {'email': 'michael@yahoo.com', 'name': 'Mike', 'phone': '+40791882123'}),
-
-    ]
-
-    fail_count = 0
-    for value, expected in test_data:
-        actual = print_dict_sorted(value)
-        result = "passed" if actual == expected else "failed"
-
-        if result == "failed":
-            print(f"\t -> Actual {actual} is different from {expected}.")
-            fail_count += 1
-
-    total_count = len(test_data)
-    passed_count = total_count - fail_count
-    print(
-        f"Ran {total_count} tests out of with {passed_count} were successful"
-        f" and {fail_count} did failed."
-    )
-
-def main():
-    """all executable code in this module lives here"""
-
-    # self checking part
-    #test_create_dict()
-    #print(create_dict(["name", "phone", "email"], ["Mike", "+40791882123", "michael@yahoo.com"]))
-    #test_print_car_model()
-    test_print_dict_sorted()
-
-
-main()
+def test_count_freq_words():
+    text = "He ordered his regular breakfast. Two eggs sunnyside up, hash browns, and two strips of bacon. He continued to look at the menu wondering if this would be the day he added something new. This was also part of the routine. A few seconds of hesitation to see if something else would be added to the order before demuring and saying that would be all. It was the same exact meal that he had ordered every day for the past two years."
+    assert count_freq_words(text) == {'he': 4, 'ordered': 2, 'his': 1, 'regular': 1, 'breakfast': 1, 'two': 3, 'eggs': 1, 'sunnyside': 1, 'up': 1, 'hash': 1, 'browns': 1, 'and': 2, 'strips': 1, 'of': 3, 'bacon': 1, 'continued': 1, 'to': 3, 'look': 1, 'at': 1, 'the': 6, 'menu': 1, 'wondering': 1, 'if': 2, 'this': 2, 'would': 3, 'be': 3, 'day': 2, 'added': 2, 'something': 2, 'new': 1, 'was': 2, 'also': 1, 'part': 1, 'routine': 1, 'a': 1, 'few': 1, 'seconds': 1, 'hesitation': 1, 'see': 1, 'else': 1, 'order': 1, 'before': 1, 'demuring': 1, 'saying': 1, 'that': 2, 'all': 1, 'it': 1, 'same': 1, 'exact': 1, 'meal': 1, 'had': 1, 'every': 1, 'for': 1, 'past': 1, 'years': 1}
+    assert count_freq_words("I love Python") == {'i': 1, 'love': 1, 'python': 1}
