@@ -6,11 +6,13 @@ import pytest
 
 def test_optimize_change():
     """positive tests"""
-    available_coins = [1, 5, 10, 25, 100]
-    assert optimize_change(available_coins, 1) == [1]
-    assert optimize_change(available_coins, 100) == [100]
-    assert optimize_change(available_coins, 15) == [5, 10]
-    assert optimize_change(available_coins, 40) == [5, 10, 25]
+    available_coins = [5, 10, 25, 100]
+    assert optimize_change(available_coins, 1) == []
+    assert optimize_change(available_coins, 100) == [(1, 100)]
+    assert optimize_change(available_coins, 15) == [(1, 10), (1, 5)]
+    assert optimize_change(available_coins, 40) == [(1, 25), (1, 10), (1, 5)]
+    assert optimize_change(available_coins, 400) == [(4, 100)]
+    assert optimize_change(available_coins, 401) == []
 
 
 def test_optimize_change_invalid_inputs():
@@ -19,6 +21,8 @@ def test_optimize_change_invalid_inputs():
 
     with pytest.raises(TypeError):
         optimize_change(available_coins, 12.34)
+
+    with pytest.raises(TypeError):
         optimize_change(available_coins, "42")
 
     with pytest.raises(ValueError):
