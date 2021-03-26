@@ -52,18 +52,59 @@ And this line:
 Means that the Dortmund and Chelsea tied.
 """
 
+import sys
+
+
+def sum_tuple(left, right):
+    """returns a new tuple with the sum of tuples element by element"""
+    return tuple(sum(value) for value in zip(left, right))
+
 
 def tally_tournament(text):
-    """given all lines, computes the tournament scores and returns a dict"""
-    return {}
+    """given all lines, computes the tournament scores and returns a dict
+        result dictionary:
+        "Dortmund": (3,  2,  1,  0,  7),
+    """
+    if not isinstance(text, str):
+        raise TypeError("Tournament data must be a string (text).")
+
+    lines = text.split()
+    stats = {}
+
+    for line in lines:
+        home_team, away_team, result  = line.split(";")
+
+        if result == "win":
+            current_home = (1, 1, 0, 0, 3)
+            current_away = (1, 0, 0, 1, 0)
+        elif result == "draw":
+            current_home = (1, 0, 1, 0, 1)
+            current_away = (1, 0, 1, 0, 1)
+        else:
+            current_home = (1, 0, 0, 1, 0)
+            current_away = (1, 1, 0, 0, 3)
+
+        stats[home_team] = sum_tuple(stats.get(home_team, (0, 0, 0, 0, 0)), current_home)
+        stats[away_team] = sum_tuple(stats.get(away_team, (0, 0, 0, 0, 0)), current_away)
+
+    return stats
+
 
 def pretty_tournament(scores):
     """given the scores, will format the tables"""
     return ''
 
+
 def main():
     file_name = "tournament_input.txt"
-    file_content = ''  # TODO: fill this in...
+    file_content = ''
+
+    try:
+        with open(file_name) as file:
+            file_content = file.read()
+    except FileNotFoundError as error:
+        print(error)
+        sys.exit(-1)
 
     print(" >> Given input file")
     print(file_content)
