@@ -101,12 +101,12 @@ def pretty_tournament(scores):
         raise TypeError("input data need to be given in a dictionary")
 
     result = "Team                           | MP |  W |  D |  L |  P\n"
-    for team in scores:
-        played, win, drawn, lose, points = scores[team]
+    sorted_scores = sorted(scores.items(), key=lambda x: x[1][4], reverse=True)
+    for team, values in sorted_scores:
+        plays, wins, drawns, losses, points = values
         result += (
-            f"{team.ljust(31)}|  {played} |  {win} |  {drawn} |  {lose} |  {points}\n"
+            f"{team:31}| {plays:^3}| {wins:^3}| {drawns:^3}| {losses:^3}| {points:^3}\n"
         )
-    print(result)
     return result
 
 
