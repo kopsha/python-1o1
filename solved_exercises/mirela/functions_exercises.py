@@ -66,8 +66,8 @@ def flatten(given_list):
         else:
             new_list.append(elem)
     return new_list
-# TODO: add tests and remove here the given_string and the print
-given_string = "Unde esti, Bucuresti? Buna seara! "
+
+
 def gibberish(given_string):
     """ Adds after each vowel in a string the letter 'p' followed by that vowel """
     vowels = "aeiouAEIOU"
@@ -80,7 +80,6 @@ def gibberish(given_string):
             new_string += letter
     return new_string
 
-print(gibberish(given_string))
 
 def test_factorial():
     """we'll test the correctness of factorial function"""
@@ -201,6 +200,37 @@ def test_flatten():
         f" and {fail_count} did failed."
     )
 
+def test_gibberish():
+    """we'll test the correctness of list_flatten function"""
+
+    print("Testing gibberish() function...")
+
+    test_data = [
+        # (value, expected)
+        ("", ""),
+        ("e!", "epe!"),
+        ("ctrl", "ctrl"),
+        ("Pe mine ma cheama Ion", "Pepe mipinepe mapa chepeapamapa Ipiopon"),
+        ("Pe mine ma cheama Don", "Pepe mipinepe mapa chepeapamapa Dopon"),
+        ("Azi ai treaba?", "Apazipi apaipi trepeapabapa?"),
+    ]
+
+    fail_count = 0
+    for value, expected in test_data:
+        actual = gibberish(value)
+        result = "passed" if actual == expected else "failed"
+
+        if result == "failed":
+            print(f"\t -> Actual {actual} is different from {expected}.")
+            fail_count += 1
+
+    total_count = len(test_data)
+    passed_count = total_count - fail_count
+    print(
+        f"Ran {total_count} tests out of with {passed_count} were successful"
+        f" and {fail_count} did failed."
+    )
+
 
 def main():
     """all executable code in this module lives here"""
@@ -209,6 +239,7 @@ def main():
     test_factorial()
     test_fibonacci()
     test_generate_primes()
+    test_gibberish()
     test_flatten()
 
 
