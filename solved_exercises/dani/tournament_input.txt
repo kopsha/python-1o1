@@ -1,0 +1,6 @@
+Barcelona;Juventus;win
+Dortmund;Chelsea;draw
+Dortmund;Barcelona;win
+Chelsea;Juventus;loss
+Juventus;Dortmund;loss
+Barcelona;Chelsea;win
