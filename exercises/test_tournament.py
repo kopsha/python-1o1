@@ -37,11 +37,11 @@ def test_pretty_tournament():
         "Juventus": (3,  1,  0,  2,  3),
         "Chelsea": (3,  0,  1,  2,  1),
     }
-    expected = """Team                           | MP |  W |  D |  L |  P
-Dortmund                       |  3 |  2 |  1 |  0 |  7
-Barcelona                      |  3 |  2 |  0 |  1 |  6
-Juventus                       |  3 |  1 |  0 |  2 |  3
-Chelsea                        |  3 |  0 |  1 |  2 |  1
+    expected = """Team                          | MP | W  | D  | L  | P  
+Dortmund                      | 3  | 2  | 1  | 0  | 7  
+Barcelona                     | 3  | 2  | 0  | 1  | 6  
+Juventus                      | 3  | 1  | 0  | 2  | 3  
+Chelsea                       | 3  | 0  | 1  | 2  | 1  
 """
     assert pretty_tournament(given) == expected
 

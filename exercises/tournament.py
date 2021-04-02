@@ -54,10 +54,26 @@ Means that the Dortmund and Chelsea tied.
 
 import sys
 
+text = """
+Barcelona;Juventus;win
+Dortmund;Chelsea;draw
+Dortmund;Barcelona;win
+Chelsea;Juventus;loss
+Juventus;Dortmund;loss
+Barcelona;Chelsea;win
+"""
 
 def sum_tuple(left, right):
     """returns a new tuple with the sum of tuples element by element"""
     return tuple(sum(value) for value in zip(left, right))
+
+
+def print_table(name_team, played_matches, won, draw, loss, points, separator="|"):
+    """composes a string for printing as a table"""
+    my_output = '{:<30}'.format(name_team) + separator + '{:^4}'.format(played_matches) + separator + \
+                '{:^4}'.format(won) + separator + '{:^4}'.format(draw) + separator + '{:^4}'.format(loss) \
+                + separator + '{:^4}'.format(points) + "\n"
+    return my_output
 
 
 def tally_tournament(text):
@@ -72,7 +88,7 @@ def tally_tournament(text):
     stats = {}
 
     for line in lines:
-        home_team, away_team, result  = line.split(";")
+        home_team, away_team, result = line.split(";")
 
         if result == "win":
             current_home = (1, 1, 0, 0, 3)
@@ -92,7 +108,16 @@ def tally_tournament(text):
 
 def pretty_tournament(scores):
     """given the scores, will format the tables"""
-    return ''
+    if not scores:
+        raise TypeError("Dictionary is empty")
+
+    composed_output = print_table("Team", "MP", "W", "D", "L", "P")
+    points_cumulus = {stats[-1]: team for team, stats in scores.items()}
+    for key in sorted(points_cumulus.keys(), reverse=True):
+        played_matches, won, draw, loss, points = scores[points_cumulus[key]]
+        composed_output += print_table(points_cumulus[key], played_matches, won, draw, loss, points)
+
+    return composed_output
 
 
 def main():
@@ -115,9 +140,17 @@ def main():
     print(" >> Tallied tournament data:", data)
     print(" >> Tournament table:")
     print(pretty_stats)
-    # TODO: also print to file
 
-    print("="*25)
+    file_output_name = "pretty_stats.txt"
+
+    try:
+        with open(file_output_name, "w") as file:
+            file.write(pretty_stats)
+    except FileNotFoundError as error:
+        print(error)
+        sys.exit(-1)
+
+    print("=" * 25)
 
 
 if __name__ == '__main__':
