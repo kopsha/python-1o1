@@ -7,18 +7,40 @@ import sys
 import random
 
 
-def division(number, divisor):
-    return number / divisor if divisor else 0
+PLAYER1 = 0
+PLAYER2 = 1
+TIE = 2
+valid_inputs = ["r", "s", "p"]
+evaluation = {
+    "pr": PLAYER1,
+    "rp": PLAYER2,
+    "ps": PLAYER2,
+    "sp": PLAYER1,
+    "rs": PLAYER1,
+    "sr": PLAYER2,
+}
 
 
-def rsp_game():
-    """given a value for r(ock), s(cissor) or p(aper) from keyboard
-    the function will generate a random value to be compared with user choice.
-    """
+def get_user_input():
+    user_input = ""
+    while user_input not in valid_inputs + ["q"]:
+        user_input = input("<< [r]ock [p]aper [s]cissor or [q]uit: ").lower()
 
-    player_input = ""
-    evaluation = {"pr": 1, "rp": -1, "ps": -1, "sp": 1, "rs": 1, "sr": -1}
+    return user_input
+
+
+def get_random_input():
+    return random.choice(valid_inputs)
+
+
+def calculate_winner(player1, player2):
+    return evaluation.get(player1 + player2, TIE)
+
+
+def print_result(winner, player1, player2, counters):
     full_choice = {"p": "paper", "r": "rock", "s": "scissors"}
+    display_winner = {PLAYER1: "player", PLAYER2: "computer", TIE: "nobody"}
+
     reasons = {
         "pr": "paper covers rock.",
         "rp": "paper covers rock.",
@@ -27,51 +49,39 @@ def rsp_game():
         "rs": "rock breaks scissors.",
         "sr": "rock breaks scissors.",
     }
-    rounds = 0
-    player_wins = 0
-    computer_wins = 0
-    ties = 0
-    while player_input.lower() != "q":
-        # Read Input
-        player_input = input("<< [r]ock [p]aper [s]cissor or q[uit]")
 
-        # Validate input
-        if player_input in ["q"]:
-            break
+    print(
+        f"[player]    {full_choice[player1]}   vs   {full_choice[player2]}     [computer] <<"
+    )
+    rounds = (counters[PLAYER1] + counters[PLAYER2]) or 1
 
-        if player_input not in full_choice.keys():
-            print("Please use only indicated letters")
-            continue
-        rounds += 1
-        # randomize
-        computer_input = random.choice(list(full_choice))
-        print(
-            f"[player]    {full_choice[player_input]}   vs   {full_choice[computer_input]}     [computer] <<"
-        )
+    p1_wins_percent = 100 * counters[PLAYER1] / rounds
+    p2_wins_percent = 100 * counters[PLAYER2] / rounds
 
-        result = evaluation.get(player_input + computer_input, 0)
-        if result > 0:
-            winner = "player"
-            player_wins += 1
-        elif result < 0:
-            winner = "computer"
-            computer_wins += 1
-        else:
-            winner = "nobody"
-            ties += 1
-        player_wins_percent = 100 * division(player_wins, rounds - ties)
-        computer_wins_percent = 100 * division(computer_wins, rounds - ties)
-        print(f"round {rounds}")
-        print(
-            f"..:: {winner} wins ::.. reason: {reasons.get(player_input + computer_input, 'its a draw')}"
-        )
-        print(
-            f">>   {player_wins} ({round(player_wins_percent, 2)}%)  --  ({round(computer_wins_percent, 2)} %)   {computer_wins}"
-        )
+    print(f"round {sum(counters)}")
+    print(
+        f"..:: {display_winner[winner]} wins ::.. reason: {reasons.get(player1 + player2, 'its a draw')}"
+    )
+    print(
+        f">>   {counters[PLAYER1]} ({p1_wins_percent:.2f}%)  --  ({p2_wins_percent:.2f}%)   {counters[PLAYER2]}"
+    )
 
 
 def main():
-    rsp_game()
+    player1 = ""
+    counters = [0, 0, 0]  # [player1_wins, player2_wins, ties]
+    while True:
+
+        player1 = get_user_input()
+        if player1 == "q":
+            break
+        
+        player2 = get_random_input()
+
+        winner = calculate_winner(player1, player2)
+        counters[winner] += 1
+
+        print_result(winner, player1, player2, counters)
 
 
 if __name__ == "__main__":
