@@ -35,3 +35,25 @@ poker_hand_ranking(["3h", "5h", "Qs", "9h", "Ad"]) ➞ "High Card"
 poker_hand_ranking(["10s", "10c", "8d", "10d", "10h"]) ➞ "Four of a Kind"
 
 """
+
+def poker_hand_ranking(hand):
+    return None
+
+def test_poker_hand_ranking():
+    assert poker_hand_ranking(["10h", "Jh", "Qh", "Ah", "Kh"]) == "Royal Flush"
+    assert poker_hand_ranking(["3h", "5h", "Qs", "9h", "Ad"]) == "High Card"
+    assert poker_hand_ranking(["10s", "10c", "8d", "10d", "10h"]) == "Four of a Kind"
+    assert poker_hand_ranking(["4h", "9s", "2s", "2d", "Ad"]) == "Pair"
+    assert poker_hand_ranking(["10s", "9s", "8s", "6s", "7s"]) == "Straight Flush"
+    assert poker_hand_ranking(["10c", "9c", "9s", "10s", "9h"]) == "Full House"
+    assert poker_hand_ranking(["8h", "2h", "8s", "3s", "3c"]) == "Two Pair"
+    assert poker_hand_ranking(["Jh", "9h", "7h", "5h", "2h"]) == "Flush"
+    assert poker_hand_ranking(["Ac", "Qc", "As", "Ah", "2d"]) == "Three of a Kind"
+    assert poker_hand_ranking(["Ad", "Kd", "Qd", "Jd", "9d"]) == "Flush"
+    assert poker_hand_ranking(["10h", "Jh", "Qs", "Ks", "Ac"]) == "Straight"
+    assert poker_hand_ranking(["3h", "8h", "2s", "3s", "3d"]) == "Three of a Kind"
+    assert poker_hand_ranking(["4h", "Ac", "4s", "4d", "4c"]) == "Four of a Kind"
+    assert poker_hand_ranking(["3h", "8h", "2s", "3s", "2d"]) == "Two Pair"
+    assert poker_hand_ranking(["8h", "8s", "As", "Qh", "Kh"]) == "Pair"
+    assert poker_hand_ranking(["Js", "Qs", "10s", "Ks", "As"]) == "Royal Flush"
+    assert poker_hand_ranking(["Ah", "3s", "4d", "Js", "Qd"]) == "High Card"
