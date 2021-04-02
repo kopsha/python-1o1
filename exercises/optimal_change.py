@@ -46,7 +46,7 @@ def optimize_change(available_coins, amount):
 def main():
     """local testing of optimal changes"""
 
-    print("-"*25)
+    print("-" * 25)
     print("runda noua")
 
     available_coins = [5, 10, 25, 100]
@@ -77,5 +77,5 @@ def main():
     print(" >> the amount", amount, "breaks down to", result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

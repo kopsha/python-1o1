@@ -36,8 +36,10 @@ poker_hand_ranking(["10s", "10c", "8d", "10d", "10h"]) ➞ "Four of a Kind"
 
 """
 
+
 def poker_hand_ranking(hand):
     return None
+
 
 def test_poker_hand_ranking():
     assert poker_hand_ranking(["10h", "Jh", "Qh", "Ah", "Kh"]) == "Royal Flush"

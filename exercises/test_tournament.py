@@ -15,10 +15,10 @@ Juventus;Dortmund;loss
 Barcelona;Chelsea;win
 """
     expected = {
-        "Dortmund": (3,  2,  1,  0,  7),
-        "Barcelona":  (3,  2,  0,  1,  6),
-        "Juventus": (3,  1,  0,  2,  3),
-        "Chelsea": (3,  0,  1,  2,  1),
+        "Dortmund": (3, 2, 1, 0, 7),
+        "Barcelona": (3, 2, 0, 1, 6),
+        "Juventus": (3, 1, 0, 2, 3),
+        "Chelsea": (3, 0, 1, 2, 1),
     }
 
     assert tally_tournament(text) == expected
@@ -29,13 +29,12 @@ def test_tally_tournament_invalid():
         tally_tournament(-1)
 
 
-
 def test_pretty_tournament():
     given = {
-        "Dortmund": (3,  2,  1,  0,  7),
-        "Barcelona":  (3,  2,  0,  1,  6),
-        "Juventus": (3,  1,  0,  2,  3),
-        "Chelsea": (3,  0,  1,  2,  1),
+        "Dortmund": (3, 2, 1, 0, 7),
+        "Barcelona": (3, 2, 0, 1, 6),
+        "Juventus": (3, 1, 0, 2, 3),
+        "Chelsea": (3, 0, 1, 2, 1),
     }
     expected = """Team                          | MP | W  | D  | L  | P  
 Dortmund                      | 3  | 2  | 1  | 0  | 7  
@@ -51,7 +50,7 @@ def test_pretty_tournament_invalid():
         pretty_tournament([])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_tally_tournament()
     test_tally_tournament_invalid()
     test_pretty_tournament()

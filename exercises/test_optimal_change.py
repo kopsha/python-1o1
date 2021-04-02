@@ -29,6 +29,6 @@ def test_optimize_change_invalid_inputs():
         optimize_change(available_coins, -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_optimize_change()
     test_optimize_change_invalid_inputs()
