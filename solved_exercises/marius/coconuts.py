@@ -36,19 +36,21 @@ def convert_char_as_binary(character):
 
 def convert_binary_to_coconuts(binary_code):
     """composes string based on coconut style"""
-    reference_translation = ['c', 'o', 'c', 'o', 'n', 'u', 't', 's']
-    new_coconut = [reference_translation[i].upper() if binary_code[i] == "1" else reference_translation[i] for i in range(0, len(binary_code))]
-    return "".join(new_coconut)
+    reference = "coconuts"
+    translation = [
+        reference[i].upper() if bit == "1" else reference[i]
+        for i, bit in enumerate(binary_code)
+    ]
+    return "".join(translation)
 
 
 def coconut_translator(text):
     """translates whole given string input in coconuts mode"""
-    final_translation = []
+    translations = []
     for character in text:
         bin_code = convert_char_as_binary(character)
-        #add translated characters in coconuts too list
-        final_translation.append(convert_binary_to_coconuts(bin_code))
-    return " ".join(final_translation)
+        translations.append(convert_binary_to_coconuts(bin_code))
+    return " ".join(translations)
 
 
 def main():
