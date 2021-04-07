@@ -28,26 +28,27 @@ Make sure to separate the coconuts with spaces.
 """
 
 
-def convert_char2binary(character):
+def convert_char_as_binary(character):
     """converts character to ascii and then to binary"""
     ascii_code = ord(character)
     return f"{ascii_code:08b}"
 
 
-def set_coconut_style(binary_code):
+def convert_binary_to_coconuts(binary_code):
     """composes string based on coconut style"""
-    ref_trans = ['c', 'o', 'c', 'o', 'n', 'u', 't', 's']
-    new_coco = [ref_trans[i].upper() if binary_code[i] == "1" else ref_trans[i] for i in range(0, len(binary_code))]
-    return "".join(new_coco)
+    reference_translation = ['c', 'o', 'c', 'o', 'n', 'u', 't', 's']
+    new_coconut = [reference_translation[i].upper() if binary_code[i] == "1" else reference_translation[i] for i in range(0, len(binary_code))]
+    return "".join(new_coconut)
 
 
 def coconut_translator(text):
     """translates whole given string input in coconuts mode"""
-    fin_trans = ""
+    final_translation = []
     for character in text:
-        bin_code = convert_char2binary(character)
-        fin_trans += set_coconut_style(bin_code) + " "
-    return fin_trans.rstrip()
+        bin_code = convert_char_as_binary(character)
+        #add translated characters in coconuts too list
+        final_translation.append(convert_binary_to_coconuts(bin_code))
+    return " ".join(final_translation)
 
 
 def main():
