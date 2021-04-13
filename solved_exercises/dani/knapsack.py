@@ -19,65 +19,47 @@ knapsack(0, items) ➞ {
   "value": 0
 }
 """
-item_id = []
 
-def calculate_optimal_value(W, wt, val, n):
- 
-    if n == 0 or W == 0 :
-        return 0
-    
-    if (wt[n-1] > W):
-        return calculate_optimal_value(W, wt, val, n-1)
 
-    else:
-        a = val[n-1] + calculate_optimal_value(W-wt[n-1], wt, val, n-1)
-        b = calculate_optimal_value(W, wt, val, n-1)
+def recursive_knapsak(capacity, items):
 
-        value = max(a, b)
-        if value > val[n-1]:
-            item_id.append(n-1)
- 
-    return value
+    max_value = 0
+    max_weight = 0
+    max_valued_packed = []
+
+    if len(items) == 0:
+        return max_value, max_valued_packed, max_weight
+
+    for i, item in enumerate(items):
+        if item["weight"] > capacity:
+            continue
+
+        value, packed, weight = recursive_knapsak(
+            capacity - item["weight"], items[i + 1 :]
+        )
+        if value + item["value"] >= max_value:
+            max_value = value + item   ["value"]
+            max_valued_packed = [item  ] + packed
+            max_weight = weight + item ["weight"]
+
+    return max_value, max_valued_packed, max_weight
 
 
 def knapsack(capacity, items):
     knapsack_items = []
-    items_weight_sum = 0
-    val = []
-    wt = []
-    n = len(items)
-    for item in items:
-        wt.append(item["weight"])
-        val.append(item["value"])
-        
-    items_value = calculate_optimal_value(capacity, wt, val, n)
-    print(items_value)
-    print(item_id)
+    items_weight = 0
+    items_value = 0
 
-    # #ordered_by_weight = sorted(items, key=lambda k: k["weight"])
-    # ordered_by_value = sorted(items, key=lambda k: k["value"], reverse=True)
-
-    # for item in ordered_by_value:
-    #     if items_weight_sum < capacity:
-    #         items_weight_sum += item["weight"]
-    #         items_value_sum += item["value"]
-    #         knapsack_items.append(item)
-    #         if items_weight_sum > capacity:
-    #             items_weight_sum -= item["weight"]
-    #             items_value_sum -= item["value"]
-    #             knapsack_items.pop()
-    # print("here",items_weight_sum, items_value_sum, knapsack_items)
-    
+    items_value, knapsack_items, items_weight = recursive_knapsak(capacity, items)
 
     return {
         "capacity": capacity,
         "items": knapsack_items,
-        "weight": items_weight_sum,
+        "weight": items_weight,
         "value": items_value,
     }
 
 
-                   
 def test_knapsack():
     items = [
         {"name": "desk lamp", "weight": 2, "value": 12},
@@ -95,13 +77,13 @@ def test_knapsack():
         {"name": "gold necklace", "weight": 1, "value": 2500},
         {"name": "toaster oven", "weight": 5, "value": 129},
     ]
-    assert knapsack(0, items) == {"capacity": 0, "items": [], "weight": 0, "value": 0}
-    # assert knapsack(1, items) == {
-    #     "capacity": 1,
-    #     "items": [{"name": "gold necklace", "weight": 1, "value": 2500}],
-    #     "weight": 1,
-    #     "value": 2500,
-    # }
+    # assert knapsack(0, items) == {"capacity": 0, "items": [], "weight": 0, "value": 0}
+    assert knapsack(1, items) == {
+        "capacity": 1,
+        "items": [{"name": "gold necklace", "weight": 1, "value": 2500}],
+        "weight": 1,
+        "value": 2500,
+    }
     assert knapsack(2, items) == {
         "capacity": 2,
         "items": [
