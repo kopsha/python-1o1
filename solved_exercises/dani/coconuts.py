@@ -32,15 +32,12 @@ def coconut_translator(text):
     eight_letters_word = "coconuts"
     translation = ""
     for letter in text:
-        # letter_bits = bin(ord(letter))[2:].zfill(8)
-        letter_bits = "{0:b}".format(ord(letter)).zfill(8)
-        i = 0
-        for bit in letter_bits:
+        letter_bits = "{0:08b}".format(ord(letter))
+        for i, bit in enumerate(letter_bits):
             if bit == "1":
                 translation += eight_letters_word[i].upper()
             else:
                 translation += eight_letters_word[i]
-            i += 1
         translation += " "
     translation = translation[:-1]
     return translation
