@@ -63,35 +63,23 @@ Juventus;Dortmund;loss
 Barcelona;Chelsea;win
 """
 
-
 def sum_tuple(left, right):
     """returns a new tuple with the sum of tuples element by element"""
     return tuple(sum(value) for value in zip(left, right))
 
 
-def print_table(name_team, played_matches, won, draw, loss, points, separator="|"):
+def print_table(name_team, played_matches, won, draw, loss, points, sep="|"):
     """composes a string for printing as a table"""
-    my_output = (
-        "{:<30}".format(name_team)
-        + separator
-        + "{:^4}".format(played_matches)
-        + separator
-        + "{:^4}".format(won)
-        + separator
-        + "{:^4}".format(draw)
-        + separator
-        + "{:^4}".format(loss)
-        + separator
-        + "{:^4}".format(points)
-        + "\n"
-    )
+    my_output = f"{name_team:29} {sep} {played_matches:^2} {sep} {won:^2} {sep} {draw:^2} {sep} " \
+                f"{loss:^2} {sep} {points:^2}\n"
     return my_output
 
 
+# f"{team:31}| {plays:^3}| {wins:^3}| {drawns:^3}| {losses:^3}| {points:^3}\n"
 def tally_tournament(text):
     """given all lines, computes the tournament scores and returns a dict
-    result dictionary:
-    "Dortmund": (3,  2,  1,  0,  7),
+        result dictionary:
+        "Dortmund": (3,  2,  1,  0,  7),
     """
     if not isinstance(text, str):
         raise TypeError("Tournament data must be a string (text).")
@@ -112,42 +100,31 @@ def tally_tournament(text):
             current_home = (1, 0, 0, 1, 0)
             current_away = (1, 1, 0, 0, 3)
 
-        stats[home_team] = sum_tuple(
-            stats.get(home_team, (0, 0, 0, 0, 0)), current_home
-        )
-        stats[away_team] = sum_tuple(
-            stats.get(away_team, (0, 0, 0, 0, 0)), current_away
-        )
+        stats[home_team] = sum_tuple(stats.get(home_team, (0, 0, 0, 0, 0)), current_home)
+        stats[away_team] = sum_tuple(stats.get(away_team, (0, 0, 0, 0, 0)), current_away)
 
     return stats
 
 
 def pretty_tournament(scores):
     """given the scores, will format the tables"""
-    if not scores:
-        raise TypeError("Dictionary is empty")
 
     composed_output = print_table("Team", "MP", "W", "D", "L", "P")
-    points_cumulus = {stats[-1]: team for team, stats in scores.items()}
-    for key in sorted(points_cumulus.keys(), reverse=True):
-        played_matches, won, draw, loss, points = scores[points_cumulus[key]]
-        composed_output += print_table(
-            points_cumulus[key], played_matches, won, draw, loss, points
-        )
+    points_cumulus = sorted(scores.items(), key=lambda x: x[1][4], reverse=True)
+    for key, values in points_cumulus:
+        team = key
+        played_matches, won, draw, loss, points = values
+        composed_output += print_table(team, played_matches, won, draw, loss, points)
 
     return composed_output
 
 
 def main():
     file_name = "tournament_input.txt"
-    file_content = ""
+    file_content = ''
 
-    try:
-        with open(file_name) as file:
-            file_content = file.read()
-    except FileNotFoundError as error:
-        print(error)
-        sys.exit(-1)
+    with open(file_name) as file:
+        file_content = file.read()
 
     print(" >> Given input file")
     print(file_content)
@@ -161,15 +138,10 @@ def main():
 
     file_output_name = "pretty_stats.txt"
 
-    try:
-        with open(file_output_name, "w") as file:
-            file.write(pretty_stats)
-    except FileNotFoundError as error:
-        print(error)
-        sys.exit(-1)
-
+    with open(file_output_name, "w") as file:
+        file.write(pretty_stats)
     print("=" * 25)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
