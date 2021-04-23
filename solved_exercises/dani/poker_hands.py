@@ -71,22 +71,22 @@ def poker_hand_ranking(raw_hand):
     is_straight = all(are_consecutive)
 
     # cards with same rank
-    cards = {}
+    unique_cards = {}
     for card in hand:
-        cards[card.rank] = cards.get(card.rank, 0) + 1
-    cards_same_rank = max(cards.values())
+        unique_cards[card.rank] = unique_cards.get(card.rank, 0) + 1
+    cards_same_rank = max(unique_cards.values())
 
     # final evaluation
-    if len(cards) == 5:
+    if len(unique_cards) == 5:
         result = "High Card"
-    elif len(cards) == 4:
+    elif len(unique_cards) == 4:
         result = "Pair"
-    elif len(cards) == 3:
+    elif len(unique_cards) == 3:
         if cards_same_rank == 3:
             result = "Three of a Kind"
         else:
             result = "Two Pair"
-    elif len(cards) == 2:
+    elif len(unique_cards) == 2:
         if cards_same_rank == 4:
             result = "Four of a Kind"
         else:
