@@ -24,7 +24,7 @@ knapsack(0, items) ➞ {
 from abc import abstractproperty
 
 
-def recursive_knapsak(capacity, items): 
+def recursive_knapsak(capacity, items):
     max_value = 0
     max_weight = 0
     max_valued_packed = []
@@ -40,59 +40,61 @@ def recursive_knapsak(capacity, items):
             capacity - item["weight"], items[i + 1 :]
         )
         if value + item["value"] >= max_value:
-            max_value = value + item   ["value"]
-            max_valued_packed = [item  ] + packed
-            max_weight = weight + item ["weight"]
+            max_value = value + item["value"]
+            max_valued_packed = [item] + packed
+            max_weight = weight + item["weight"]
 
     return max_value, max_valued_packed, max_weight
 
-def iterative_knapsack(capacity, items):
-    n = len(items)
-    weights = [item["weight"] for item in items]
-    values = [item["value"] for item in items]
-    items_value = 0
-    items_weight = 0
-    knapsack_items = []
 
-    process = [[0 for w in range(capacity+1)] for i in range(n+1)]
+# def iterative_knapsack(capacity, items):
+#     n = len(items)
+#     weights = [item["weight"] for item in items]
+#     values = [item["value"] for item in items]
+#     items_value = 0
+#     items_weight = 0
+#     knapsack_items = []
 
-    for i in range(1, n+1):
-        for w in range(1, capacity+1):
-            item_index = i-1
-            item_weight = weights[item_index]
-            item_value = values[item_index]
-            if item_weight <= w:
-                case1 = process[i-1][w]
-                case2 = item_value + process[i-1][w-item_weight]
-                if case1 >= case2:
-                    process[i][w] = case1
-                    items_value = item_value
-                    items_weight = item_weight
-                    knapsack_items = [items[i-1]]
-                    print("knapsack_items",knapsack_items)
-                else:
-                    process[i][w] = case2
-                    items_value = item_value
-                    items_weight = item_weight
-                    knapsack_items = [items[i-1]] #+ [item for item in knapsack_items]
-                    print("knapsack_items else",knapsack_items)
-            else:
-                process[i][w] = process[i-1][w]
-                
-    print(process)
+#     process = [[0 for w in range(capacity+1)] for i in range(n+1)]
 
-    items_value = process[n][capacity]
-    print(items_weight)
-    print(items_value)
-    print(knapsack_items)
-    return items_value, knapsack_items, items_weight
+#     for i in range(1, n+1):
+#         for w in range(1, capacity+1):
+#             item_index = i-1
+#             item_weight = weights[item_index]
+#             item_value = values[item_index]
+#             if item_weight <= w:
+#                 case1 = process[i-1][w]
+#                 case2 = item_value + process[i-1][w-item_weight]
+#                 if case1 >= case2:
+#                     process[i][w] = case1
+#                     items_value = item_value
+#                     items_weight = item_weight
+#                     knapsack_items = [items[i-1]]
+#                     print("knapsack_items",knapsack_items)
+#                 else:
+#                     process[i][w] = case2
+#                     items_value = item_value
+#                     items_weight = item_weight
+#                     knapsack_items = [items[i-1]] #+ [item for item in knapsack_items]
+#                     print("knapsack_items else",knapsack_items)
+#             else:
+#                 process[i][w] = process[i-1][w]
+
+#     print(process)
+
+#     items_value = process[n][capacity]
+#     print(items_weight)
+#     print(items_value)
+#     print(knapsack_items)
+#     return items_value, knapsack_items, items_weight
+
 
 def knapsack(capacity, items):
     knapsack_items = []
     items_weight = 0
     items_value = 0
-    # items_value, knapsack_items, items_weight = recursive_knapsak(capacity, items)
-    items_value, knapsack_items, items_weight = iterative_knapsack(capacity, items)
+    items_value, knapsack_items, items_weight = recursive_knapsak(capacity, items)
+    # items_value, knapsack_items, items_weight = iterative_knapsack(capacity, items)
 
     return {
         "capacity": capacity,
@@ -100,6 +102,7 @@ def knapsack(capacity, items):
         "weight": items_weight,
         "value": items_value,
     }
+
 
 def test_knapsack():
     items = [
@@ -233,4 +236,3 @@ def test_knapsack():
         "weight": 3,
         "value": 2749,
     }
-    
