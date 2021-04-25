@@ -49,48 +49,43 @@ def poker_hand_ranking(raw_hand):
         color = raw_card[-1]
         rank = int(high_cards.get(raw_card[:-1], raw_card[:-1]))
         hand.append(Card(rank, color))
-
     hand.sort(key=lambda x: x.rank)
-    print("hand", hand)
 
-    colors = {card.color for card in hand}
     # preparations
+    colors = {card.color for card in hand}
     is_flush = False
     if len(colors) == 1:
         is_flush = True
 
-    aces = {card.rank for card in hand if card.rank == 11}
+    aces = {card.rank for card in hand if card.rank == 14}
     is_ace = False
     if len(aces) > 0:
         is_ace = True
 
-    # are consecutive cards
     are_consecutive = [
         (right.rank - left.rank) == 1 for left, right in zip(hand[:-1], hand[1:])
     ]
     is_straight = all(are_consecutive)
 
-    # cards with same rank
-    unique_cards = {}
+    count_cards_by_rank = {}
     for card in hand:
-        unique_cards[card.rank] = unique_cards.get(card.rank, 0) + 1
-    cards_same_rank = max(unique_cards.values())
+        count_cards_by_rank[card.rank] = count_cards_by_rank.get(card.rank, 0) + 1
+    max_cards_same_rank = max(count_cards_by_rank.values())
+    unique_cards = len(count_cards_by_rank)
 
     # final evaluation
-    if len(unique_cards) == 5:
+    if max_cards_same_rank == 1:
         result = "High Card"
-    elif len(unique_cards) == 4:
+    elif max_cards_same_rank == 2 and unique_cards == 4:
         result = "Pair"
-    elif len(unique_cards) == 3:
-        if cards_same_rank == 3:
-            result = "Three of a Kind"
-        else:
-            result = "Two Pair"
-    elif len(unique_cards) == 2:
-        if cards_same_rank == 4:
-            result = "Four of a Kind"
-        else:
-            result = "Full House"
+    elif max_cards_same_rank == 2 and unique_cards == 3:
+        result = "Two Pair"
+    elif max_cards_same_rank == 3 and unique_cards == 3:
+        result = "Three of a Kind"
+    elif max_cards_same_rank == 3 and unique_cards == 2:
+        result = "Full House"
+    elif max_cards_same_rank == 4:
+        result = "Four of a Kind"
 
     if is_flush and is_straight and is_ace:
         result = "Royal Flush"
