@@ -50,20 +50,15 @@ There can be dead ends in a maze.
 One exit path is sufficient.
 """
 
-visited = []
 
-
-def find_exit(pos, maze):
-
-    last_row = len(maze) - 1
-    last_col = len(maze[0]) - 1
-    exit_pos = (last_row, last_col)
-
+def find_exit(pos, exit_pos, visited, maze):
+    last_row, last_col = exit_pos
     row, col = pos
     if maze[row][col] != 0:
         return False
 
-    if exit_pos == pos:
+    last_pos = (last_row - 1, last_col - 1)
+    if last_pos == pos:
         return True
 
     possible_neighb = [(row + 1, col), (row, col + 1), (row - 1, col), (row, col - 1)]
@@ -71,12 +66,12 @@ def find_exit(pos, maze):
     for next_pos in possible_neighb:
         r, c = next_pos
         if (
-            r in range(0, last_row + 1)
-            and c in range(0, last_col + 1)
+            r in range(0, last_row)
+            and c in range(0, last_col)
             and next_pos not in visited
         ):
             visited.append(next_pos)
-            if find_exit(next_pos, maze):
+            if find_exit(next_pos, exit_pos, visited, maze):
                 return True
 
     return False
@@ -84,8 +79,11 @@ def find_exit(pos, maze):
 
 def can_exit(maze):
 
-    visited.clear()
-    return find_exit((0, 0), maze)
+    last_row = len(maze)
+    last_col = len(maze[0])
+    exit_pos = (last_row, last_col)
+
+    return find_exit((0, 0), exit_pos, [], maze)
 
 
 def test_can_exit():
