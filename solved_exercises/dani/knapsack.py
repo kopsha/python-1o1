@@ -21,6 +21,7 @@ knapsack(0, items) ➞ {
 """
 
 
+
 def recursive_knapsak(capacity, items):
     max_value = 0
     max_weight = 0
@@ -43,7 +44,7 @@ def recursive_knapsak(capacity, items):
 
     return max_value, max_valued_packed, max_weight
 
-  
+
 # def iterative_knapsack(capacity, items):
 #     n = len(items)
 #     weights = [item["weight"] for item in items]
