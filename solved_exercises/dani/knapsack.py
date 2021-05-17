@@ -21,8 +21,6 @@ knapsack(0, items) ➞ {
 """
 
 
-from abc import abstractproperty
-
 
 def recursive_knapsak(capacity, items):
     max_value = 0
