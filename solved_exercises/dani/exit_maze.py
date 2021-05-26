@@ -52,24 +52,22 @@ One exit path is sufficient.
 
 
 def find_exit(pos, exit_pos, visited, maze):
-    last_row, last_col = exit_pos
     row, col = pos
     if maze[row][col] != 0:
         return False
 
-    last_pos = (last_row - 1, last_col - 1)
-    if last_pos == pos:
+    if exit_pos == pos:
         return True
 
-    possible_neighb = [(row + 1, col), (row, col + 1), (row - 1, col), (row, col - 1)]
-
-    for next_pos in possible_neighb:
+    possible_neighbours = [
+        (row + 1, col),
+        (row, col + 1),
+        (row - 1, col),
+        (row, col - 1),
+    ]
+    for next_pos in possible_neighbours:
         r, c = next_pos
-        if (
-            r in range(0, last_row)
-            and c in range(0, last_col)
-            and next_pos not in visited
-        ):
+        if 0 <= r <= exit_pos[0] and 0 <= c <= exit_pos[1] and next_pos not in visited:
             visited.append(next_pos)
             if find_exit(next_pos, exit_pos, visited, maze):
                 return True
@@ -78,11 +76,7 @@ def find_exit(pos, exit_pos, visited, maze):
 
 
 def can_exit(maze):
-
-    last_row = len(maze)
-    last_col = len(maze[0])
-    exit_pos = (last_row, last_col)
-
+    exit_pos = (len(maze) - 1, len(maze[0]) - 1)
     return find_exit((0, 0), exit_pos, [], maze)
 
 
