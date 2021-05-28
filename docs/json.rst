@@ -25,19 +25,11 @@ but that’s a whole other discussion.
 Naturally, *deserialization* is the reciprocal process of decoding data that has
 been stored or delivered in the JSON standard.
 
-    Yikes! That sounds pretty technical. Definitely. But in reality, all we’re
+    Yikes! This sounds pretty technical. Definitely. But in reality, all we’re
     talking about here is *reading* and *writing*. Think of it like this:
     encoding is for writing data to disk, while decoding is for reading data
     into memory.
 
-
-Serializing JSON
-****************
-
-What happens after a computer processes lots of information? It needs to take a
-data dump. Accordingly, the json library exposes the **dump()** method for writing
-data to files. There is also a **dumps()** method (pronounced as “dump-s”) for
-writing to a Python string.
 
 Simple Python objects are translated to JSON according to a fairly intuitive
 conversion:
@@ -55,8 +47,8 @@ None                null
 ==================  ======
 
 
-Example
-*******
+Compare to XML
+**************
 
 Here is a typical JSON data packet.
 
@@ -73,7 +65,7 @@ Here is a typical JSON data packet.
             "director": "Andrew Niccol",
             "writer": "Andrew Niccol",
             "composer": "Michael Nyman",
-            "cinematographer": "Slawomir Idziak",
+            "cinematographer": "Slawomir Idziak"
         }
     }
 
@@ -107,6 +99,56 @@ Now, compare it with the XML version:
     </root>
 
 The increased size of the XML data is largely due to the end tags repeating the
-text of the openning tags. A popular sports is debating the merits of JSON versus
+text of the openning tags. A popular sport is debating the merits of JSON versus
 XML. But instead of arguing, I recommend you learn the pros and cons of both
 formats, then choose the one which is best for your project.
+
+
+Reading JSON
+############
+
+First, let's save the sample JSON data to a text file, and then we'll use the
+context manager to open up the existing ``data_file.json`` in read mode.
+
+The **json** library provides two methods for turning JSON encoded data into
+Python objects:
+
+- the *load()* method allows to read (load) JSON data directly from a file
+- while the *loads()* methods allows to read (load) JSON data from a string.
+
+    That's why there is an extra *s* in the method name, *s* for *string*.
+
+
+Now, let's load the JSON data, from the file created earlier, using the *load()*
+method.
+
+.. code-block:: python
+
+    import json
+
+    with open("data_file.json", "rt") as data_file:
+        data = json.load(data_file)
+
+If you display the object you will see a dictionary containing all the data:
+
+    >>> print(data)
+    {'title': 'Gattaca', 'release_year': 1997, 'is_awesome': True, 'won_oscar': False, 'actors': ['Ethan Hawke', 'Uma Thurman', 'Alan Arkin', 'Loren Dean'], 'budget': None, 'credits': {'director': 'Andrew Niccol', 'writer': 'Andrew Niccol', 'composer': 'Michael Nyman', 'cinematographer': 'Slawomir Idziak'}}
+    >>> type(data)
+    <class 'dict'>
+    >>>
+
+If you look at the type, you will see it is, in fact, a dictionary. Also, notice
+how the *true*, *false* and *null* were correctly parsed into Python's *True*,
+*False* and *None*.
+
+Because this is a dictionary, you can access the data by key. We can see the
+title, the list of actors and so on:
+
+    >>> data["title"]
+    'Gattaca'
+    >>> data["actors"]
+    ['Ethan Hawke', 'Uma Thurman', 'Alan Arkin', 'Loren Dean']
+    >>> data["release_year"]
+    1997
+    >>>
+
