@@ -60,7 +60,8 @@ Example
 
 Here is a typical JSON data packet.
 
-.. code-block:: JSON
+.. code-block:: javascript
+
     {
         "title": "Gattaca",
         "release_year": 1997,
@@ -83,6 +84,7 @@ or even another JSON object.
 Now, compare it with the XML version:
 
 .. code-block:: XML
+
     <?xml version="1.0" encoding="UTF-8"?>
     <root>
     <actors>
