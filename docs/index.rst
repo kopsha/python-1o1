@@ -57,6 +57,7 @@ The plan
     functions
     dictionaries
     text_files
+    json
 
 
 
