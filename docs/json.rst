@@ -13,8 +13,49 @@ parsing and working with JSON.
 In this lesson I will show you how to use Python's built-in JSON library to send
 and receive JSON data.
 
-Format
-######
+
+A Little Vocabulary
+###################
+
+The process of encoding JSON is usually called *serialization*. This term refers
+to the transformation of data into *a series of bytes* (hence serial) to be
+stored or transmitted across a network. You may also hear the term *marshaling*,
+but that’s a whole other discussion.
+
+Naturally, *deserialization* is the reciprocal process of decoding data that has
+been stored or delivered in the JSON standard.
+
+    Yikes! That sounds pretty technical. Definitely. But in reality, all we’re
+    talking about here is *reading* and *writing*. Think of it like this:
+    encoding is for writing data to disk, while decoding is for reading data
+    into memory.
+
+
+Serializing JSON
+****************
+
+What happens after a computer processes lots of information? It needs to take a
+data dump. Accordingly, the json library exposes the **dump()** method for writing
+data to files. There is also a **dumps()** method (pronounced as “dump-s”) for
+writing to a Python string.
+
+Simple Python objects are translated to JSON according to a fairly intuitive
+conversion:
+
+======              ======
+Python	            JSON
+======              ======
+dict	            object
+list, tuple         array
+str	                string
+int, long, float	number
+True	            true
+False	            false
+None                null
+
+
+Example
+*******
 
 Here is a typical JSON data packet.
 
@@ -33,10 +74,6 @@ Here is a typical JSON data packet.
             "cinematographer": "Slawomir Idziak",
         }
     }
-
-Notice how it looks just like a Python dictionary with a few exceptions:
-* **true** and **false** are not capitalized in JSON, while in Python they are
-* instead of **None** we use JavaScript value **null**
 
 This JSON object contains examples of all possible data types. All the keys are
 *strings*, but the values can be *strings*, *numbers*, *booleans*, *list*, *null*
@@ -70,8 +107,3 @@ The increased size of the XML data is largely due to the end tags repeating the
 text of the openning tags. A popular sports is debating the merits of JSON versus
 XML. But instead of arguing, I recommend you learn the pros and cons of both
 formats, then choose the one which is best for your project.
-
-
-The JSON Module
-###############
-
