@@ -42,9 +42,9 @@ writing to a Python string.
 Simple Python objects are translated to JSON according to a fairly intuitive
 conversion:
 
-======              ======
+==================  ======
 Python	            JSON
-======              ======
+==================  ======
 dict	            object
 list, tuple         array
 str	                string
@@ -52,6 +52,7 @@ int, long, float	number
 True	            true
 False	            false
 None                null
+==================  ======
 
 
 Example
