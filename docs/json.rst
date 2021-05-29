@@ -224,12 +224,9 @@ the file second:
 
 If we open the file we see that all the data is in there, everything is properly
 formatted:
-::
-
-    {"title": "Minority Report", "director": "Steven Spielberg", "composer": "John Williams", "actors": ["Tom Cruise", "Colin Farrel", "Samantha Morton", "Max von Sydow"], "is_awesome": true, "budget": 102000000, "cinematographer": "Janus Kaminski"}%
 
 .. literalinclude:: ../examples/cool_movie.json
-    :lineos:
+    :linenos:
     :language: javascript
 
 
