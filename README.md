@@ -10,6 +10,7 @@ Read it online at
 * handling exceptions
 * network requests
 * classes, objects (maybe dataclasses)
+* python modules
 * recursion and memoization
 * monte carlo simulations
 
