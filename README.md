@@ -5,14 +5,14 @@ Read it online at
 
 ## planned chapters
 
-* lambda expressions
-* map, filter, reduce
-* handling exceptions
-* network requests
-* classes, objects (maybe dataclasses)
-* python modules
-* recursion and memoization
-* monte carlo simulations
+- [ ] lambda expressions
+- [ ] map, filter, reduce
+- [ ] handling exceptions
+- [ ] network requests
+- [ ] classes, objects (maybe dataclasses)
+- [ ] python modules
+- [ ] recursion and memoization
+- [ ] monte carlo simulations
 
 
 ### Publishing status
