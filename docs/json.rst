@@ -99,7 +99,7 @@ Now, compare it with the XML version:
     </root>
 
 
-    The increased size of the XML data is largely due to the end tags repeating the
+The increased size of the XML data is largely due to the end tags repeating the
 text of the openning tags. A popular sport is debating the merits of JSON versus
 XML. But instead of arguing, I recommend you learn the pros and cons of both
 formats, then choose the one which is best for your project.
@@ -117,7 +117,7 @@ Python objects:
 - the *load()* method allows to read (load) JSON data directly from a file
 - while the *loads()* methods allows to read (load) JSON data from a string.
 
-    That's why there is an extra *s* in the method name, *s* for *string*.
+    That's why there is an extra **s** in the method name: *s* for *string*.
 
 
 Now, let's load the JSON data, from the file created earlier, using the *load()*
@@ -153,8 +153,8 @@ title, the list of actors and so on:
     1997
     >>>
 
-Now, let's focus on the *loads()* method, which must be used if the data you need
-to process arrives in the form of a string. This is common in client-server
+Now, let's focus on the **loads()** method, which must be used if the data you
+need to process arrives in the form of a string. This is common in client-server
 applications where data is sent over the internet. As an illustration let's create
 a string with a JSON formatted value:
 
@@ -224,6 +224,8 @@ the file second:
 
 If we open the file we see that all the data is in there, everything is properly
 formatted:
+
+:: cool_movie.json
 
     {"title": "Minority Report", "director": "Steven Spielberg", "composer": "John Williams", "actors": ["Tom Cruise", "Colin Farrel", "Samantha Morton", "Max von Sydow"], "is_awesome": true, "budget": 102000000, "cinematographer": "Janus Kaminski"}%
 
