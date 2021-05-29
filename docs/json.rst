@@ -98,7 +98,8 @@ Now, compare it with the XML version:
     <won_oscar>false</won_oscar>
     </root>
 
-The increased size of the XML data is largely due to the end tags repeating the
+
+    The increased size of the XML data is largely due to the end tags repeating the
 text of the openning tags. A popular sport is debating the merits of JSON versus
 XML. But instead of arguing, I recommend you learn the pros and cons of both
 formats, then choose the one which is best for your project.
@@ -151,4 +152,114 @@ title, the list of actors and so on:
     >>> data["release_year"]
     1997
     >>>
+
+Now, let's focus on the *loads()* method, which must be used if the data you need
+to process arrives in the form of a string. This is common in client-server
+applications where data is sent over the internet. As an illustration let's create
+a string with a JSON formatted value:
+
+.. code-block:: python
+
+    encoded_value = """
+        {
+            "title": "Tron: Legacy",
+            "composer": "Daft Punk",
+            "release_year": 2010,
+            "budget": 170000000,
+            "actors": null,
+            "won_oscar": false
+        }
+    """
+    tron = json.loads(encoded_value)
+
+If you look at the result, we have a valid python dictionary with all data
+properly converted, *false* is now a Python boolean and *null* is converted to
+**None**:
+
+    >>> print(tron)
+    {'title': 'Tron: Legacy', 'composer': 'Daft Punk', 'release_year': 2010, 'budget': 170000000, 'actors': None, 'won_oscar': False}
+    >>>
+
+
+Writing JSON
+############
+
+Suppose you want to store the data about Gattaca movie in a database, or send it
+to a remote user. To convert this dictionary int a valid JSON string you use the
+**dumps()** method (read as *dump-s*):
+
+    >>> print(movie)
+    {'title': 'Gattaca', 'release_year': 1997, 'is_awesome': True, 'won_oscar': False, 'actors': ['Ethan Hawke', 'Uma Thurman', 'Alan Arkin', 'Loren Dean'], 'budget': None, 'credits': {'director': 'Andrew Niccol', 'writer': 'Andrew Niccol', 'composer': 'Michael Nyman', 'cinematographer': 'Slawomir Idziak'}}
+    >>> json.dumps(movie)
+    '{"title": "Gattaca", "release_year": 1997, "is_awesome": true, "won_oscar": false, "actors": ["Ethan Hawke", "Uma Thurman", "Alan Arkin", "Loren Dean"], "budget": null, "credits": {"director": "Andrew Niccol", "writer": "Andrew Niccol", "composer": "Michael Nyman", "cinematographer": "Slawomir Idziak"}}'
+    >>>
+
+When you call the method simply pass in the dictionary. The result is a string in
+proper JSON format. Notice that *true* and *false* are both lowercase, and that
+*None* was converted to *null*.
+
+Let's now create a new object, convert it to JSON, and write it to a file. We
+start by creating a dictionary. For this example, we will use data for the movie
+*Minority Report*, directed by Steven Spielberg, with a soundtrack by John
+Williams... This is a must-see movie for any Python programmer.
+
+    >>> cool_movie = {}
+    >>> cool_movie["title"] = "Minority Report"
+    >>> cool_movie["director"] = "Steven Spielberg"
+    >>> cool_movie["composer"] = "John Williams"
+    >>> cool_movie["actors"] = ["Tom Cruise", "Colin Farrel", "Samantha Morton", "Max von Sydow"]
+    >>> cool_movie["is_awesome"] = True
+    >>> cool_movie["budget"] = 102000000
+    >>> cool_movie["cinematographer"] = "Janus Kaminski"
+    >>>
+
+To write this object to a file in JSON format, we must first open a file. Next
+call the **dump()** method, passing in the dictionary as the first argument and
+the file second:
+
+    >>> with open("cool_movie.json", "wt") as outfile:
+    ...     json.dump(cool_movie, outfile)
+    ...
+    >>>
+
+If we open the file we see that all the data is in there, everything is properly
+formatted:
+
+    {"title": "Minority Report", "director": "Steven Spielberg", "composer": "John Williams", "actors": ["Tom Cruise", "Colin Farrel", "Samantha Morton", "Max von Sydow"], "is_awesome": true, "budget": 102000000, "cinematographer": "Janus Kaminski"}%
+
+
+Pretty printing JSON
+####################
+
+To analyze and debug JSON data, we may need to print it in a more readable
+format. This can be done by passing additional parameters **indent** and
+**sort_keys** to **json.dumps()** and **json.dump()** method.
+
+.. code-block:: python
+
+    import json
+
+    person_string = '{"name": "Bob", "languages": "English", "numbers": [2, 1.6, null]}'
+
+    # Getting dictionary
+    person_dict = json.loads(person_string)
+
+    # Pretty Printing JSON string back
+    print(json.dumps(person_dict, indent=4, sort_keys=True))
+
+This will make sure the output is indented and keys are ordered in ascending
+order. If you do not specify any of these arguments, the default value of
+**indent** is **None**, and for **sort_keys** is **False**.
+
+.. code-block:: javascript
+
+    {
+        "languages": "English",
+        "name": "Bob",
+        "numbers": [
+            2,
+            1.6,
+            null
+        ]
+    }
 
