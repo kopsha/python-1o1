@@ -226,7 +226,6 @@ If we open the file we see that all the data is in there, everything is properly
 formatted:
 
 .. literalinclude:: ../examples/cool_movie.json
-    :linenos:
     :language: javascript
 
 
