@@ -58,6 +58,7 @@ The plan
     dictionaries
     text_files
     json
+    lambda
 
 
 
