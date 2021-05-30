@@ -113,3 +113,60 @@ and uses that as the sorting criteria.
 
 The list is now in alphabetical order. These names are a pleasure to read.
 
+
+Higher order functions
+######################
+
+We must go deeper. The power of lambda is better shown when we define a function
+that makes functions.
+
+Say you have a function definition that takes one argument, and that argument
+will be multiplied with an unknown number:
+
+.. code-block:: python
+
+    def create_multiplier_function(n):
+        return lambda x: x * n
+
+Use that function definition to make a function that always *doubles* the number
+you send in. Or, use the same function definition to make a function that always
+*triples* the number you send in
+
+    >>> my_doubler = create_multiplier_function(2)
+    >>> print(my_doubler(11))
+    22
+    >>> my_tripler = create_multiplier_function(3)
+    >>> print(my_tripler(11))
+    33
+    >>>
+
+Suppose you are working with quadratic functions. Perhaps you are computing the
+trajectories of cannonballs. To do this, let's write a function called
+**make_quadratic_function**, and its inputs are the three coefficients **a**,
+**b** and **c**:
+
+.. code-block:: python
+
+    def make_quadratic_function(a, b, c):
+        """Creates a function f(x) = ax^2 + bx + c"""
+        return lambda x: a*x**2 + b*x + c
+
+And use this function definition to create a function that always doubles the
+number you send in:
+
+Let's test this by creating the function :math:`2x^2 + 3x - 5`
+
+    >>> f = make_quadratic_function(2, 3, -5)
+    >>> f(0)
+    -5
+    >>> f(1)
+    0
+    >>> f(2)
+    9
+    >>>
+
+You can see this function works correctly.
+
+Lambda expressions are quite useful when you need a short, throwaway function.
+Something simple that you will only use once. Common applications are sorting
+and filtering data.
