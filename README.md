@@ -3,6 +3,18 @@
 Read it online at
 [Python introduction for beginners](https://python-1o1-tutorial.readthedocs.io/)
 
+## planned chapters
+
+- [ ] lambda expressions
+- [ ] map, filter, reduce
+- [ ] handling exceptions
+- [ ] network requests
+- [ ] classes, objects (maybe dataclasses)
+- [ ] python modules
+- [ ] recursion and memoization
+- [ ] monte carlo simulations
+
+
 ### Publishing status
 
 [![Documentation Status](https://readthedocs.org/projects/python-1o1-tutorial/badge/?version=latest)](https://python-1o1-tutorial.readthedocs.io/?badge=latest)

@@ -4,7 +4,7 @@ Dictionaries
 
 A standard data structure in computer science is the *associative array*, which
 is also called a *map*. In Python, this structure is called a *dictionary*.
-Dictionaries are used when you have *key / value* pairs of data -- an input
+Dictionaries are used when you have *key-value* pairs of data -- an input
 which is mapped to an output, with the requirement that the keys are unique
 (within the same dictionary of course).
 
