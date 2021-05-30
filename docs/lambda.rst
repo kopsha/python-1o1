@@ -5,7 +5,11 @@ Lambda functions
 In Python, a *lambda function* refers to a small, anonymous function. We call
 the functions *anonymous* because technically it has no name, and we don’t define
 it with the standard **def** keyword that we normally use in Python. Instead,
-lambda Functions are defined as one-liners that execute a single expression.
+lambda functions are defined as one-liners that execute a single expression.
+
+    Before we get started, a quick note: throughout this lesson I will use the
+    terms *anonymous functions*, *lamda functions* or *lambda expressions*
+    interchangeably. They all mean the same thing.
 
 Although they look different, lambda functions behave in the same way as regular
 functions that are declared using the *def* keyword. They are executed in a
@@ -19,7 +23,7 @@ written as a lambda to save time and space.
 For a concrete description, lambda functions can be understood through the
 following 3 points:
 
-- A lambda Function must always execute a single expression
+- A lambda function must always execute a single expression
 - An expression is a Python code run by the lambda function, which may or may
   not return any value
 - A lambda function can take any number of input arguments and return any number
@@ -54,7 +58,7 @@ readability and cleaner code:
 
     compute_remainder = lambda x, y: x % y
 
-Our lambda Function takes on 2 arguments, ``x`` and ``y``, and then computes the
+Our lambda function takes on 2 arguments, ``x`` and ``y``, and then computes the
 remainder of those 2 using Python’s ``%`` operator via ``x % y``. To call the
 function, all we have to do is apply it like any other regular Python function
 by passing the arguments and saving the return value in a variable.
@@ -65,7 +69,7 @@ by passing the arguments and saving the return value in a variable.
     r = compute_remainder(10, 3)
     print(r)
 
-Our code using the lambda Function is simple and contained. Let us now see
+Our code using the lambda function is simple and contained. Let us now see
 another example. Suppose you are processing user data from a web registration
 form, and would like to combine the first and last names into a single string
 *full name* for displaying on the user interface.
@@ -101,10 +105,13 @@ and uses that as the sorting criteria.
 
     To access the last name, split the string into pieces wherever it has a
     space.
+
     Next, access the last piece by index **-1**
+
     And, as a final precaution, convert the string to lowercase. This way the
     sorting is not case-sensitive. Trust me, some people do not know how to use
     the shift key.
+
 
     >>> ordered_authors = sorted(scifi_authors, key=lambda name: name.split(" ")[-1].lower())
     >>> print(ordered_authors)
@@ -118,10 +125,8 @@ Higher order functions
 ######################
 
 We must go deeper. The power of lambda is better shown when we define a function
-that makes functions.
-
-Say you have a function definition that takes one argument, and that argument
-will be multiplied with an unknown number:
+that makes functions. Say you have a function definition that takes one argument,
+and that argument will be multiplied with an unknown number:
 
 .. code-block:: python
 
