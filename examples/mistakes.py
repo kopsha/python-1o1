@@ -2,7 +2,7 @@ a = 42
 b = 10
 c = 0
 try:
-    sum = (a + b) // c 
+    remainder = (a + b) // c 
 except (TypeError, NameError) as err:
     print(f"Cannot sum the variables, reason: {err}.")
 except Exception as err:

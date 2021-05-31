@@ -147,7 +147,7 @@ block. Let’s discuss them.
 
 
 Catch specific exceptions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#########################
 
 Python allows us to define which exception types we want to *catch* explictily.
 To do this, we need to specify the type to the **except** block.
@@ -214,7 +214,7 @@ exception types, however, we still want to catch and handle them all.
 
     a = 42
     b = 10
-    remainder = 0
+    c = 0
     try:
         remainder = (a + b) % c
     except (TypeError, NameError) as err:
