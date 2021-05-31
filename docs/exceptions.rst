@@ -105,7 +105,8 @@ receive another.
 
 .. tip:: Built-in exceptions
 
-    Python comes with a large collection of `built-in exceptions <https://docs.python.org/3/library/exceptions.html#exception-hierarchy>`.
+    Python comes with a large collection of `built-in exceptions
+    <https://docs.python.org/3/library/exceptions.html#exception-hierarchy>`_.
     Here you can explore them organized in a logical hierarchy.
     Notice how most of these class names end in **Error** and not in
     **Exceptions**, like in many other languages.
