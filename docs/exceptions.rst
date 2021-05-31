@@ -69,10 +69,11 @@ as expected::
     Hello, world!
 
 Let us see a few more common exceptions before we learn how to raise and handle
-them. We'll try to open the `x-files.txt` and read it. This will be exciting to
-read.
+them. We'll try to open the **"x-files.txt"** and read it. This will be exciting
+to read.
 
 .. code-block:: python
+
     with open("x-files.txt") as textfile:
         the_truth = textfile.read()
     print(the_truth)
@@ -111,4 +112,14 @@ receive another.
 Handling exceptions
 ###################
 
-The general way for handling exceptions.
+The general way for handling exceptions is the **try / except / else / finally**
+construction::
+    try:
+        ...
+    except:
+        ...
+    else:
+        ...
+    finally:
+        ...
+
