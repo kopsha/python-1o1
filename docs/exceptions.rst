@@ -78,7 +78,10 @@ to read.
         the_truth = textfile.read()
     print(the_truth)
 
-Why am I not surprised::
+Why am I not surprised:
+
+.. code-block:: console
+
     Traceback (most recent call last):
     File "/Users/python-1o1/examples/mistakes.py", line 4, in <module>
         with open("x-files.txt") as textfile:
