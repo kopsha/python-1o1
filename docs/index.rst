@@ -59,6 +59,7 @@ The plan
     text_files
     json
     lambda
+    exceptions
 
 
 

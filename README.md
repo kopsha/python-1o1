@@ -5,9 +5,8 @@ Read it online at
 
 ## planned chapters
 
-- [ ] lambda expressions
-- [ ] map, filter, reduce
-- [ ] handling exceptions
+- [x] lambda expressions
+- [x] handling exceptions
 - [ ] network requests
 - [ ] classes, objects (maybe dataclasses)
 - [ ] python modules
