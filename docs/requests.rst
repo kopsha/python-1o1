@@ -26,7 +26,7 @@ websites for you, giving you more time to [...] browse the internet.
     - Fragment: ``#Relationship_with_humans``
 
 
-The ``requests`` library is the de facto standard for making HTTP requests in
+The **requests** library is the de facto standard for making HTTP requests in
 Python. It hides the complexities of making requests behind a beautiful and
 simple API, so you can focus on interacting with services and consuming data in
 your application.
@@ -42,7 +42,7 @@ your application.
 Getting started
 ###############
 
-Let's begin by installing the ``requests`` module. To do so, run the following
+Let's begin by installing the **requests** module. To do so, run the following
 command:
 
 .. code-block:: console
@@ -62,16 +62,16 @@ begin your journey through web.
 The GET request
 ###############
 
-`HTTP methods<https://www.w3schools.com/tags/ref_httpmethods.asp>`_ such as GET
-and POST, determine what kind of action you want the web server to perform. One
-of the most common methods is **GET**. This indicates that you want to retrieve
+The `HTTP methods<https://www.w3schools.com/tags/ref_httpmethods.asp>`_ such as
+GET and POST, determine what kind of action you want the web server to perform.
+One of the most common methods is GET. This indicates that you want to retrieve
 data from a specified location (or resource). To make such a request in your
 application all you need is calling ``requests.get()`` and specifying a URL (or
 an address).
 
 To test this out, let's make a request to GitHub's root API:
 
-    >>> requests.get('https://api.github.com')
+    >>> requests.get("https://api.github.com")
     <Response [200]>
     >>>
 
@@ -87,7 +87,7 @@ A *Response* is a powerful object for inspecting the results of the request.
 Let’s make that same request again, but this time store the return value in a
 variable so that you can get a closer look at its attributes and behaviors:
 
-    >>> response = requests.get('https://api.github.com')
+    >>> response = requests.get("https://api.github.com")
     >>>
 
 Status Code
@@ -158,7 +158,7 @@ To see the response’s content in bytes, you use ``.content`` attribute:
 
 While ``.content`` gives you access to the raw bytes of the response payload,
 you will often want to convert them into a string using a character encoding
-such as **UTF-8**. ``response`` will do that for you when you access ``.text``:
+such as *UTF-8*. **response** will do that for you when you access ``.text``:
 
     >>> response.text
     '{"current_user_url":"https://api.github.com/user","current_user_authorizations_html_url":"https://github.com/settings/connections/applications{/client_id}","authorizations_url":"https://api.github.com/authorizations","code_search_url":"https://api.github.com/search/code?q={query}{&page,per_page,sort,order}","commit_search_url":"https://api.github.com/search/commits?q={query}{&page,per_page,sort,order}","emails_url":"https://api.github.com/user/emails","emojis_url":"https://api.github.com/emojis","events_url":"https://api.github.com/events","feeds_url":"https://api.github.com/feeds","followers_url":"https://api.github.com/user/followers","following_url":"https://api.github.com/user/following{/target}","gists_url":"https://api.github.com/gists{/gist_id}","hub_url":"https://api.github.com/hub","issue_search_url":"https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}","issues_url":"https://api.github.com/issues","keys_url":"https://api.github.com/user/keys","label_search_url":"https://api.github.com/search/labels?q={query}&repository_id={repository_id}{&page,per_page}","notifications_url":"https://api.github.com/notifications","organization_url":"https://api.github.com/orgs/{org}","organization_repositories_url":"https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}","organization_teams_url":"https://api.github.com/orgs/{org}/teams","public_gists_url":"https://api.github.com/gists/public","rate_limit_url":"https://api.github.com/rate_limit","repository_url":"https://api.github.com/repos/{owner}/{repo}","repository_search_url":"https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}","current_user_repositories_url":"https://api.github.com/user/repos{?type,page,per_page,sort}","starred_url":"https://api.github.com/user/starred{/owner}{/repo}","starred_gists_url":"https://api.github.com/gists/starred","user_url":"https://api.github.com/users/{user}","user_organizations_url":"https://api.github.com/user/orgs","user_repositories_url":"https://api.github.com/users/{user}/repos{?type,page,per_page,sort}","user_search_url":"https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"}'
@@ -177,7 +177,7 @@ before accessing ``.text`` attribute:
 If you take a look at the response, you’ll see that it is actually serialized
 JSON content. To get a dictionary, you could take the string you retrieved from
 ``.text`` and deserialize it using ``json.loads()``. However, a simpler way to
-accomplish this task is to use ``.json()``:
+accomplish this task is to use ``.json()`` method:
 
     >>> response.json()
     {'current_user_url': 'https://api.github.com/user', 'current_user_authorizations_html_url': 'https://github.com/settings/connections/applications{/client_id}', 'authorizations_url': 'https://api.github.com/authorizations', 'code_search_url': 'https://api.github.com/search/code?q={query}{&page,per_page,sort,order}', 'commit_search_url': 'https://api.github.com/search/commits?q={query}{&page,per_page,sort,order}', 'emails_url': 'https://api.github.com/user/emails', 'emojis_url': 'https://api.github.com/emojis', 'events_url': 'https://api.github.com/events', 'feeds_url': 'https://api.github.com/feeds', 'followers_url': 'https://api.github.com/user/followers', 'following_url': 'https://api.github.com/user/following{/target}', 'gists_url': 'https://api.github.com/gists{/gist_id}', 'hub_url': 'https://api.github.com/hub', 'issue_search_url': 'https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}', 'issues_url': 'https://api.github.com/issues', 'keys_url': 'https://api.github.com/user/keys', 'label_search_url': 'https://api.github.com/search/labels?q={query}&repository_id={repository_id}{&page,per_page}', 'notifications_url': 'https://api.github.com/notifications', 'organization_url': 'https://api.github.com/orgs/{org}', 'organization_repositories_url': 'https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}', 'organization_teams_url': 'https://api.github.com/orgs/{org}/teams', 'public_gists_url': 'https://api.github.com/gists/public', 'rate_limit_url': 'https://api.github.com/rate_limit', 'repository_url': 'https://api.github.com/repos/{owner}/{repo}', 'repository_search_url': 'https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}', 'current_user_repositories_url': 'https://api.github.com/user/repos{?type,page,per_page,sort}', 'starred_url': 'https://api.github.com/user/starred{/owner}{/repo}', 'starred_gists_url': 'https://api.github.com/gists/starred', 'user_url': 'https://api.github.com/users/{user}', 'user_organizations_url': 'https://api.github.com/user/orgs', 'user_repositories_url': 'https://api.github.com/users/{user}/repos{?type,page,per_page,sort}', 'user_search_url': 'https://api.github.com/search/users?q={query}{&page,per_page,sort,order}'}
@@ -285,7 +285,7 @@ the same way you did before:
 Headers, response bodies, status codes, and more are returned in the Response
 for each method.
 
-.. sidebar:: httpbin.org
+.. note::
 
     **httpbin.org** is a great resource created by the author of requests,
     `Kenneth Reitz<https://kenreitz.org/>`_. It’s a service that accepts test
@@ -305,7 +305,7 @@ The ``data`` argument takes a *dictionary*, a *list of tuples*, *bytes*, or a
 request to the specific needs of the service you’re interacting with.
 
 For example, if your request’s content type is
-``application/x-www-form-urlencoded``, you can send the form data as a
+**application/x-www-form-urlencoded**, you can send the form data as a
 dictionary, but also as a list of tuples:
 
     >>> requests.post('https://httpbin.org/post', data={'key':'value'})
@@ -318,10 +318,11 @@ If, however, you need to send JSON data, you can use the ``json`` parameter.
 When you pass JSON data via ``json``, requests will serialize your data and add
 the correct **Content-Type** header for you.
 
-    >>> response = requests.post('https://httpbin.org/post', json={'key':'value'})
+    >>> response = requests.post("https://httpbin.org/post", json={"key":"value"})
     >>> json_response = response.json()
-    >>> json_response['data']
+    >>> json_response["data"]
     '{"key": "value"}'
-    >>> json_response['headers']['Content-Type']
+    >>> json_response["headers"]["Content-Type"]
     'application/json'
-    >>
+    >>>
+
