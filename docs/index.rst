@@ -60,6 +60,7 @@ The plan
     json
     lambda
     exceptions
+    requests
 
 
 
