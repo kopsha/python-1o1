@@ -62,7 +62,7 @@ begin your journey through web.
 The GET request
 ###############
 
-The `HTTP methods<https://www.w3schools.com/tags/ref_httpmethods.asp>`_ such as
+The `HTTP methods <https://www.w3schools.com/tags/ref_httpmethods.asp>`_ such as
 GET and POST, determine what kind of action you want the web server to perform.
 One of the most common methods is GET. This indicates that you want to retrieve
 data from a specified location (or resource). To make such a request in your
@@ -288,7 +288,7 @@ for each method.
 .. note::
 
     **httpbin.org** is a great resource created by the author of requests,
-    `Kenneth Reitz<https://kenreitz.org/>`_. It’s a service that accepts test
+    `Kenneth Reitz <https://kenreitz.org/>`_. It’s a service that accepts test
     requests and responds with data about the requests
 
 
