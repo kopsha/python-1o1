@@ -7,11 +7,11 @@ Read it online at
 
 - [x] lambda expressions
 - [x] handling exceptions
-- [ ] network requests
-- [ ] classes, objects (maybe dataclasses)
+- [x] network requests
 - [ ] python modules
 - [ ] recursion and memoization
 - [ ] monte carlo simulations
+- [ ] classes, objects (maybe dataclasses)
 
 
 ### Publishing status
