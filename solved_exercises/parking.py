@@ -21,32 +21,30 @@ The cars above all parking spaces are unique
 """
 
 def optimize_roof(cars, coverage):
-    print(cars, coverage)
-
     parking = sorted(cars)
-    if coverage >= len(parking):
-        return parking[-1] - parking[0] + 1
+    optimal = parking[-1] - parking[0] + 1
 
-    options = []
     for start in range(len(parking) - coverage + 1):
         stop = start + coverage
-        options.append(parking[stop - 1] - parking[start] + 1)
+        roof_len = parking[stop - 1] - parking[start] + 1
+        if roof_len < optimal:
+            optimal = roof_len
 
-    return min(options)
+    return optimal
 
 def main():
     cars = [2, 10, 8, 17]
 
     roof_length = optimize_roof(cars, coverage=11)
-    print("optimal roof length", roof_length)
+    print(f"Parking: {cars} optimal covered by {roof_length}")
     assert roof_length == 16
 
     roof_length = optimize_roof(cars, coverage=3)
-    print("optimal roof length", roof_length)
+    print(f"Parking: {cars} optimal covered by {roof_length}")
     assert roof_length == 9
 
     roof_length = optimize_roof(cars, coverage=2)
-    print("optimal roof length", roof_length)
+    print(f"Parking: {cars} optimal covered by {roof_length}")
     assert roof_length == 3
 
 
