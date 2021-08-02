@@ -4,11 +4,14 @@
 #  F(n) =  F(n-1) + F(n-2)
 #  F(n) =  F(n-2) + F(n-1)
 
+
 from functools import lru_cache
 
-# memoization
+
 @lru_cache(maxsize=1000)
 def fibonacci(n):
+    """any fibonacci() call will be preceeded (read as
+    decorated) by whatever follows @, lru_cache"""
     if n == 0:
         return 0
     if n == 1:
@@ -30,6 +33,7 @@ def fibonacci_sequence_v1(n):
 
 
 def fibonacci_v2(n, memory={}):
+    """memoization"""
     if n == 0:
         return 0
     if n == 1:
@@ -42,6 +46,7 @@ def fibonacci_v2(n, memory={}):
 
 
 def fibonacci_sequence_v2(n):
+    """finite sequence generator, it can be looped over with for"""
     a = 0
     b = 1
     for i in range(n):
@@ -50,6 +55,7 @@ def fibonacci_sequence_v2(n):
 
 
 def fibonacci_sequence_inf():
+    """infinite sequence generator (use with next(gen))"""
     x = 0
     y = 1
     while True:
@@ -62,7 +68,6 @@ def main():
     print(f"The first {N} fibonacci numbers:")
 
     first_twenty_generator = fibonacci_sequence_v2(20)
-
     for x in first_twenty_generator:
         print(x)
 
