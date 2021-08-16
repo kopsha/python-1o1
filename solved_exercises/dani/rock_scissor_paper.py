@@ -40,7 +40,6 @@ def calculate_winner(player1, player2):
 def print_result(winner, player1, player2, counters):
     full_choice = {"p": "paper", "r": "rock", "s": "scissors"}
     display_winner = {PLAYER1: "player", PLAYER2: "computer", TIE: "nobody"}
-
     reasons = {
         "pr": "paper covers rock.",
         "rp": "paper covers rock.",
