@@ -8,10 +8,22 @@ Read it online at
 - [x] lambda expressions
 - [x] handling exceptions
 - [x] network requests
-- [ ] python modules
-- [ ] recursion and memoization
-- [ ] monte carlo simulations
-- [ ] classes, objects (maybe dataclasses)
+- [x] python modules
+- [x] recursion and memoization
+- [x] monte carlo simulations
+- [x] classes, objects (maybe dataclasses)
+
+## ToDO:
+
+Add exercises to every chapter
+- [ ] Numbers
+- [ ] Strings
+- [ ] Logical operations
+- [ ] Text files
+- [ ] JSON Data
+- [ ] Lambda functions
+- [ ] Exceptions
+- [ ] Requests
 
 
 ### Publishing status
