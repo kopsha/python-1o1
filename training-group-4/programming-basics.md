@@ -35,10 +35,23 @@ Here’s what a computer program composed of:
 ### Basic Data Types:
 - **None** - When there’s nothing there (like an empty box).
 - **Numeric** - Just like the numbers you use every day.
-  - _Whole numbers_ (like 1, 21, 35, 199, ...)
-  - _Decimal numbers_ (like 0.01, 2.3, 3.1415, ...)
-  - _Complex numbers_ - These are a bit tricky (like numbers with an real and
-    imaginary part).
+  - _Whole numbers_: 1, 21, 35, 199, ...
+  - _Decimal numbers_: 0.01, 2.3, 3.1415, ...
+  - _Complex numbers_: these are a special type of number that expand upon the
+    familiar real numbers used in everyday math. In mathematics, a complex
+    number is expressed in the form \( a + bi \), where \( a \) and \( b \) are
+    real numbers, and \( i \) is the imaginary unit with the property that
+    \( i^2 = -1 \). This unique property allows complex numbers to perform
+    operations that cannot be handled by real numbers alone, such as taking the
+    square root of a negative number.
+    Complex numbers are pivotal in various fields, including engineering,
+    physics, and applied mathematics, as they can represent phenomena like
+    electrical currents and waves.
+    Here are some examples of complex numbers:
+    1. \( 3 + 4i \)
+    1. \( -1 + 2i \)
+    1. \( 5 - 3i \)
+    1. \( 2i \) (This is a purely imaginary number, as the real part is 0.)
 - **Boolean** (True or False) - Like answering a yes-no question.
 - **Text** - Anything you can write in quotes.
 
