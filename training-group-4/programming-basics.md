@@ -48,10 +48,10 @@ Here’s what a computer program composed of:
     physics, and applied mathematics, as they can represent phenomena like
     electrical currents and waves.
     Here are some examples of complex numbers:
-    1. \( 3 + 4i \)
-    1. \( -1 + 2i \)
-    1. \( 5 - 3i \)
-    1. \( 2i \) (This is a purely imaginary number, as the real part is 0.)
+    1. 3 + 4j
+    1. -1 + 2j
+    1. 5 - 3j
+    1. 2j _This is a purely imaginary number, as the real part is 0._
 - **Boolean** (True or False) - Like answering a yes-no question.
 - **Text** - Anything you can write in quotes.
 
