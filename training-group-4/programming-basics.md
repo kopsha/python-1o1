@@ -43,44 +43,53 @@ Here’s what a computer program composed of:
 
 ### Compound Data Together
 
-1. **Dates and Times**
-   - **Dates** are composed of 3 numbers depicting any calendar entries
-     (e.g. `September 9, 2024`).
-   - **Times** are also 3 numbers refering to an exact moment in time
-     (e.g. `15:34:01`).
-   - **Timestamps** a single integer number, telling you the exact number of
-     seconds counting from a `January 1st, 1970`.
+#### Lists
 
-1. **Lists** - Just like your grocery list, where you can see many items in
-   order:
-   ```python
-   my_list = [apples, oranges, milk]
-   print(my_list[1])  # This shows 'oranges'
-   ```
+Just like your grocery list, where you can see many items in order:
+```python
+my_list = [apples, oranges, milk]
+print(my_list[1])  # This shows 'oranges'
+```
 
-> The items on any list can be repeated without any constraints.
+> The items on any list can be repeated without any constraints, It can contain
+> even empty places.
 
-1. **Sets** - Like a special storage box where you only keep one of each thing,
-   no duplicates are allowed:
-   ```python
-   read_books = [
-       "One Hundred Years of Solitude",
-       "The Little Prince",
-       "Crime and Punishment",
-       "The Alchemist"
-    ]
-   ```
+
+#### Sets
+
+Like a special storage box where you only keep one of each thing, no duplicates
+are allowed:
+```python
+read_books = [
+   "One Hundred Years of Solitude",
+   "The Little Prince",
+   "Crime and Punishment",
+   "The Alchemist"
+]
+```
+
 > Very useful when you want to avoid reading the same book twice.
 
-1. **Dictionaries** - These are like personal address books where you store
-   information that links a meaningless phone number with the name of your
-   friend or enemy.:
 
-   ```python
-   my_book = {
-       "name": "Alice",
-       "number": "555-1234",
-       "is_friend": True
-   }
-   ```
+#### Dictionaries
+
+These are like personal address books where you store information that links a
+meaningless phone number with the name of a person which may be friend or foe.
+
+```python
+my_book = {
+   "name": "Alice",
+   "number": "555-1234",
+   "is_friend": True
+}
+```
+
+#### Date and Times
+
+- **Dates** are composed of 3 numbers depicting any calendar entries
+  (e.g. `September 9, 2024`).
+- **Times** are also 3 numbers refering to an exact moment in time
+  (e.g. `15:34:01`).
+- **Timestamps** a single integer number, telling you the exact number of
+  seconds counting from a `January 1st, 1970`.
 
