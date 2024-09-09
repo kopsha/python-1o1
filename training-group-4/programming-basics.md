@@ -34,32 +34,48 @@ Here’s what a computer program composed of:
 
 ### Basic Data Types:
 - **None** - When there’s nothing there (like an empty box).
-- **Numbers** - Just like the numbers you use every day.
+- **Numeric** - Just like the numbers you use every day.
   - **Whole numbers** (like 1, 2, 3...)
   - **Decimal numbers** (like 0.01, 2.3...)
   - **Complex numbers** - These are a bit tricky (like numbers with an imaginary part).
-- **Yes or No** (True or False) - Like answering a yes-no question.
-- **Words or sentences** - Anything you can write in quotes.
+- **Boolean** (True or False) - Like answering a yes-no question.
+- **Text** - Anything you can write in quotes.
 
 ### Compound Data Together
 
 1. **Dates and Times**
-   - **Dates** are like calendar entries.
-   - **Times** are your clock readings.
-   - **Timestamps** tell you the exact moment something happened, counting from a special date.
+   - **Dates** are composed of 3 numbers depicting any calendar entries
+     (e.g. `September 9, 2024`).
+   - **Times** are also 3 numbers refering to an exact moment in time
+     (e.g. `15:34:01`).
+   - **Timestamps** a single integer number, telling you the exact number of
+     seconds counting from a `January 1st, 1970`.
 
-2. **Lists** - Just like your grocery list, where you can see the order:
+1. **Lists** - Just like your grocery list, where you can see many items in
+   order:
    ```python
    my_list = [apples, oranges, milk]
    print(my_list[1])  # This shows 'oranges'
    ```
 
-3. **Sets** - Like a bag where you only keep one of each thing, no duplicates:
-   ```python
-   my_bag = {apple, orange, banana}
-   ```
+> The items on any list can be repeated without any constraints.
 
-4. **Dictionaries** - These are like personal address books where you store information that comes in pairs:
+1. **Sets** - Like a special storage box where you only keep one of each thing,
+   no duplicates are allowed:
+   ```python
+   read_books = [
+       "One Hundred Years of Solitude",
+       "The Little Prince",
+       "Crime and Punishment",
+       "The Alchemist"
+    ]
+   ```
+> Very useful when you want to avoid reading the same book twice.
+
+1. **Dictionaries** - These are like personal address books where you store
+   information that links a meaningless phone number with the name of your
+   friend or enemy.:
+
    ```python
    my_book = {
        "name": "Alice",
