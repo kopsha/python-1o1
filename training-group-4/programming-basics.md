@@ -35,9 +35,10 @@ Here’s what a computer program composed of:
 ### Basic Data Types:
 - **None** - When there’s nothing there (like an empty box).
 - **Numeric** - Just like the numbers you use every day.
-  - **Whole numbers** (like 1, 2, 3...)
-  - **Decimal numbers** (like 0.01, 2.3...)
-  - **Complex numbers** - These are a bit tricky (like numbers with an imaginary part).
+  - _Whole numbers_ (like 1, 21, 35, 199, ...)
+  - _Decimal numbers_ (like 0.01, 2.3, 3.1415, ...)
+  - _Complex numbers_ - These are a bit tricky (like numbers with an real and
+    imaginary part).
 - **Boolean** (True or False) - Like answering a yes-no question.
 - **Text** - Anything you can write in quotes.
 
