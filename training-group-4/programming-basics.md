@@ -1,70 +1,70 @@
 
-# Structured Programming Basics
+# Basics of Structured Programming
 
-## Computer programming pyramid
+## Understanding the Programming Pyramid
+
+Imagine a pyramid that helps us understand how computers work. At the top, we
+have what you see and use every day on your computer or phone. As we move down,
+things get more technical, ending with the nuts and bolts of the computer that
+make everything run.
 
 ![Computer programming pyramid](./programming-pyramid.png)
 
 
 ## Programming Building Blocks
 
-> CPU can only do the following basic arithmetic operations: addition, subtraction,
-> multiplication, division and read/write operations.
+> Think of a computer as a very smart calculator that can do more than just add
+> or subtract numbers.
+> It can also remember things!
 
-Interpreting data gives it meaning. For example, an invoice might include:
-- Invoice series and number (`JIBE-000x`)
-- Invoice status (`"created" | "accepted" | "paid" | "rejected"`)
-- Numeric representations (`1` for created, `2` for accepted, etc.)
+When we give data to computers, they help us make sense of it. Let's say you
+have a list of who owes you virtual money (crypto?):
+- The list has names and amounts (like a fancy checklist).
+- It tells you who has paid and who hasn’t.
 
-1. **Data** - Represents values and their meanings.
-1. **Behavior** - Includes actions, decisions, and conditions.
-    Example:
+Here’s what a computer program composed of:
+1. **Data** - This is the information, like the names and amounts.
+2. **Behavior** - This is what the computer does with the data. For example:
     ```python
-    if some_condition:
-        perform_action()
+    if someone_has_paid:
+        say_thank_you()
     ```
 
-## Data storage
+## Storing Data
 
 ### Basic Data Types:
-- **None** (represents no value, e.g., `null`, `undefined`)
-- **Numeric** (used for numbers)
-  - **Integer** (whole numbers like -2, -1, 0, 1, 2, 123, ...)
-  - **Floats** (numbers with a decimal point like 0.01, 2.3, 3.3333)
-  - **Complex** (numbers with a real and imaginary part, e.g., `a + bj`)
-- **Boolean** (logical values, e.g., `true` or `false`)
-- **Character** (text, always enclosed in quotes, e.g., `"Hello, world!"` or `'This is also text'`)
+- **None** - When there’s nothing there (like an empty box).
+- **Numbers** - Just like the numbers you use every day.
+  - **Whole numbers** (like 1, 2, 3...)
+  - **Decimal numbers** (like 0.01, 2.3...)
+  - **Complex numbers** - These are a bit tricky (like numbers with an imaginary part).
+- **Yes or No** (True or False) - Like answering a yes-no question.
+- **Words or sentences** - Anything you can write in quotes.
 
-### Compound Data Types
+### Compound Data Together
 
-1. **DateTime** (combines date and time)
-   - **Date** (formatted as D/M/Y)
-   - **Time** (formatted as h:m:s/ms/us)
-   - **Timestamp** (seconds since January 1, 1970)
-2. **Lists** (ordered collection of items)
-   - Example:
-     ```python
-     odd_numbers = [1, 3, 5, 7, 9]
-     print(odd_numbers[2])  # Outputs: 5
-     ```
-3. **Sets** (unordered collection of unique items)
-   - Example:
-     ```python
-     unique_numbers = {1, 2, 13, 14}
-     ```
-4. **Dictionaries** (collections of key-value pairs)
-   - Example:
-     ```python
-     invoice = {
-         "date_issued": 1725893713,
-         "series": "JIBE",
-         "number": 121,
-         "items": [...],
-         "currency": "EUR",
-         "total_price": 123.9999,
-         "vat": 14.4212354,
-         "status": "accepted",
-         "paid": False
-     }
-     ```
+1. **Dates and Times**
+   - **Dates** are like calendar entries.
+   - **Times** are your clock readings.
+   - **Timestamps** tell you the exact moment something happened, counting from a special date.
+
+2. **Lists** - Just like your grocery list, where you can see the order:
+   ```python
+   my_list = [apples, oranges, milk]
+   print(my_list[1])  # This shows 'oranges'
+   ```
+
+3. **Sets** - Like a bag where you only keep one of each thing, no duplicates:
+   ```python
+   my_bag = {apple, orange, banana}
+   ```
+
+4. **Dictionaries** - These are like personal address books where you store information that comes in pairs:
+   ```python
+   my_book = {
+       "name": "Alice",
+       "number": "555-1234",
+       "is_friend": True
+   }
+   ```
 
