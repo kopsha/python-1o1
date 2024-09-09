@@ -1,77 +1,69 @@
 
-# Structured programming basics
+# Structured Programming Basics
 
-## Programming pyramid
+## Computer programming pyramid
 
-```
-# highest level -> functional & business logic (application, server,
-## frameworks (django be, react fe)
-### python / javascript / net (backend - api & db vs frontend - browser)
-#### data & behavior (non-hardware)
-##### - low level -> hardware (cpu, network, video)
-websites)
-```
-
-## Programming buiding blocks
-
-1. data (values and its meaning)
-2. behavior (actions & decisions / conditions)
-`if some question then do some action`
-
-add, substract, multiply, divide -> read/write to memory
-
---> interpretarea datelor -> information has meaning
+[Computer programming pyramid](./programming-pyramid.png)
 
 
-invoice -> nr, status -> created -> 1, accepted -> 2, rejected -> 3, paid -> 4
-JIBE-000x, "created"
-text / numeric / text
-text / numeric / numeric
+## Programming Building Blocks
 
-###. Basic data types (relies on binary 0/1)
-- none (null, undefined)
-- numeric (price, tax, interest,) -> digit 0-9 number: multiple digits
-  - integer (-2, -1, 0, 1, 2, 123.... ) Z
-  - floats (0.01, 2.3, 3.3333) Q
-  - complex (a + b * j)
-- boolean (logic) -> true / false (10 > 22)
-- character (text) -> "text is always in quotes" ('this is also text')
+1. **Data** - Represents values and their meanings.
+1. **Behavior** - Includes actions, decisions, and conditions.
+    Example:
+    ```python
+    if some_condition:
+        perform_action()
+    ```
+> CPU can only do the following basic arithmetic operations: addition, subtraction,
+> multiplication, division and read/write operations.
 
+- Interpreting data gives it meaning. For example, an invoice might include:
+  - Invoice series and number (`JIBE-000x`)
+  - Invoice status (`"created" | "accepted" | "paid" | "rejected"`)
+  - Numeric representations (`1` for created, `2` for accepted, etc.)
 
+## Data storage
 
-###. Compound data types
+### Basic Data Types:
+- **None** (represents no value, e.g., `null`, `undefined`)
+- **Numeric** (used for numbers)
+  - **Integer** (whole numbers like -2, -1, 0, 1, 2, 123, ...)
+  - **Floats** (numbers with a decimal point like 0.01, 2.3, 3.3333)
+  - **Complex** (numbers with a real and imaginary part, e.g., `a + bj`)
+- **Boolean** (logical values, e.g., `true` or `false`)
+- **Character** (text, always enclosed in quotes, e.g., `"Hello, world!"` or `'This is also text'`)
 
-1. datetime (date + time)
-  - date (D/M/Y 3 numbers, UTC)
-  - time (h:m:s/ms/us 3/4/5 numbers, UTC)
-  - timestamp (seconds since jan-01 1970)
+### Compound Data Types
 
-2. lists (array) - joining multiple data togetether
+1. **DateTime** (combines date and time)
+   - **Date** (formatted as D/M/Y)
+   - **Time** (formatted as h:m:s/ms/us)
+   - **Timestamp** (seconds since January 1, 1970)
+2. **Lists** (ordered collection of items)
+   - Example:
+     ```python
+     odd_numbers = [1, 3, 5, 7, 9]
+     print(odd_numbers[2])  # Outputs: 5
+     ```
+3. **Sets** (unordered collection of unique items)
+   - Example:
+     ```python
+     unique_numbers = {1, 2, 13, 14}
+     ```
+4. **Dictionaries** (collections of key-value pairs)
+   - Example:
+     ```python
+     invoice = {
+         "date_issued": 1725893713,
+         "series": "JIBE",
+         "number": 121,
+         "items": [...],
+         "currency": "EUR",
+         "total_price": 123.9999,
+         "vat": 14.4212354,
+         "status": "accepted",
+         "paid": False
+     }
+     ```
 
-odd_numbers = [1, 3, 5, 7, 9] -> parcurge, access prin pozitie
-               0  1  2  3  4
-odd_numbers[2]
-5 elemente odd_numbers[5-1] -> Out of bounds exception
-
-any_numbers = [1, 1, 1, 2, 2] -> parcurge, access prin pozitie
-               0  1  2  3  4
-
-3. sets       {1, 2, 13, 14}
-
-4. dictionaries (key value pairs) (struct)
-{
-    cuvant: explicatie (value),
-    cuvant: explicatie (value),
-    cuvant: [explicatie 0, 1, 2, ...]
-}
-{
-    date_issued: timestamp,
-    series: text,
-    number: number,
-    items: list,
-    currency: text,
-    total_price: 0.00000000,
-    vat: float,
-    status: text,
-    paid: true,
-}
