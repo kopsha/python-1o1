@@ -61,7 +61,9 @@ Here’s what a computer program composed of:
 
 Just like your grocery list, where you can see many items in order:
 ```python
-my_list = [apples, oranges, milk]
+healthy_fruits = [apples, oranges, berries]
+# position:        [0]      [1]      [2]
+
 print(my_list[1])  # This shows 'oranges'
 ```
 
