@@ -8,7 +8,7 @@ have what you see and use every day on your computer or phone. As we move down,
 things get more technical, ending with the nuts and bolts of the computer that
 make everything run.
 
-![Computer programming pyramid](./programming-pyramid.png)
+![Computer programming pyramid](./programming-pyramid.svg)
 
 
 ## Programming Building Blocks
