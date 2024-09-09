@@ -3,10 +3,18 @@
 
 ## Computer programming pyramid
 
-[Computer programming pyramid](./programming-pyramid.png)
+![Computer programming pyramid](./programming-pyramid.png)
 
 
 ## Programming Building Blocks
+
+> CPU can only do the following basic arithmetic operations: addition, subtraction,
+> multiplication, division and read/write operations.
+
+Interpreting data gives it meaning. For example, an invoice might include:
+- Invoice series and number (`JIBE-000x`)
+- Invoice status (`"created" | "accepted" | "paid" | "rejected"`)
+- Numeric representations (`1` for created, `2` for accepted, etc.)
 
 1. **Data** - Represents values and their meanings.
 1. **Behavior** - Includes actions, decisions, and conditions.
@@ -15,13 +23,6 @@
     if some_condition:
         perform_action()
     ```
-> CPU can only do the following basic arithmetic operations: addition, subtraction,
-> multiplication, division and read/write operations.
-
-- Interpreting data gives it meaning. For example, an invoice might include:
-  - Invoice series and number (`JIBE-000x`)
-  - Invoice status (`"created" | "accepted" | "paid" | "rejected"`)
-  - Numeric representations (`1` for created, `2` for accepted, etc.)
 
 ## Data storage
 
