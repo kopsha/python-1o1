@@ -110,18 +110,16 @@ my_book = {
   seconds counting from a `January 1st, 1970`.
 
 
-## Execution / Behavior
+## Control flow structures
 
 Structured programming is a programming paradigm aimed at improving the clarity,
 quality, and development time of a computer program by making extensive use of
 the structured control flow constructs of selection (if/then/else) and repetition
-(while and for), block structures, and subroutines (functions). 
+(while and for), block structures, and subroutines (aka functions). 
 
-### Control flow structures
+### Sequence
 
-#### Sequence / Block
-
-A plain list of statements to be executed in order.
+A list of statements (commands) to be executed in order.
 
 ```python
 a = 100
@@ -132,21 +130,18 @@ c = "world"
 print(b, c)
 ```
 
-#### Selection
+### Selection
 
-Selects which sequence is executed depending on evalution of the provided
-conditional expression.
+Selection allows a program to make choices and execute certain blocks of code based
+on specific conditions. The most common selection structures are `if`, `else`, and `elif`
+(short for "else if").
 
-A lighter flavor of selection is _assertion_ which is an assumption check, it
-let's program continue only if the asserted condidtion is true.
-
+These help the program decide which path to take based on the given input or data.
 ```python
-today = input("what day of the month is today?")
-assert today.isnumeric(), "Expected a numeric value."
-today = int(today)
-assert 1 <= today <= 31
+today = int(input("What day is today?")
+
 if 5 <= today <= 9:
-    print(4, "Salary day!")
+    print(4, "Oh, this means salary day!")
     print(5, "let's all go for a beer...")
     who_pays = input("Who pays?")
     print(6, "The lucky funding VC is", who_pays, "!")
@@ -158,7 +153,41 @@ else:
     # notice python supports pass, as a command that does nothing
 ```
 
-Please read [this related chapter](https://python-1o1-tutorial.readthedocs.io/en/latest/logical.html#falsy-values)
+
+How it works:
+1. If statement:
+   The _if_ statement checks whether a condition is _True_. If it is, the code inside
+   the _if_ block gets executed. Otherwise, if the condition is _False_, the program
+   skips that block of code.
+1. Elif statement:
+   The _elif_ block allows you to check multiple conditions. If the first if condition
+   is _False_, Python will check the next _elif_ block, and so on.
+1. Else statement:
+   The _else_ block executes if none of the if or elif conditions are true. It's like
+   a "catch-all" block that ensures some code is executed, even if the conditions
+   aren’t met.
+
+For example:
+```python
+temperature = 25
+
+if temperature > 30:
+    print("It's a hot day.")
+elif temperature > 20:
+    print("It's a warm day.")
+else:
+    print("It's a cold day.")
+```
+
+A lighter flavor of selection structure is _assertion_ which is an assumption check,
+it let's program continue only if the _asserted_ condidtion is _True_.
+
+```python
+today = input("what day of the month is today?")
+assert today.isnumeric(), "Expected a numeric value."
+```
+
+Please read [this related section](https://python-1o1-tutorial.readthedocs.io/en/latest/logical.html#falsy-values)
 for more details of these _falsy_ values.
 
 ```python
@@ -180,18 +209,31 @@ And now is a good moment to walkthrough this
 [entire lesson](https://python-1o1-tutorial.readthedocs.io/en/latest/logical.html)
 
 
-#### Iteration
+### Iteration
+
+Iteration is a way for a program to repeat certain instructions multiple times.
+The repetition can either be over a set of items (using a `for` loop) or based on a
+condition (using a `while` loop).
 
 Traversing any list is called _iteration_ and is uses the `for` keyword
 
+You can use a `for` loop when you know the number of iterations or want to repeat
+a block of code for each item in a list or sequence. The loop automatically goes through
+each element in the sequence until all elements are processed.
+
 ```
-movies = ["7", "Star Trek", "Long Lex"]
+movies = ["7even", "Star Trek", "Long Lex"]
 for movie in movies:
     print(movie)
 ```
 
-And a more bloated example:
+Inside any block you nest any kind of structures:
 ```python
+colors = ["red", "blue", "green"]
+for color in colors:
+    print(color)
+
+
 movies = [
     "Star Wars", "Ghandi", "Casablanca", "Shawshank Redemption",
     "Toy Story", "Gone with the wind", "Citizen Kane", "It's a wonderful life",
@@ -202,14 +244,19 @@ movies = [
 ]
 
 g_movies = []
+the_movies = []
 for title in movies:
-    if title.startswith("G"):
+    # you can go crazy with the nesting
+    if title.startswith("The"):
+        the_movies.append(title)
+    elif title.startswith("G"):
         g_movies.append(title)
 ```
 
-#### Repetition
+### Repetition
 
-Repeating a sequence as long as a condition is true, and it starts with the `while` keyword:
+A while loop repeats as long as a condition is true. The condition is checked before
+each iteration, and the loop will continue running until the condition becomes false.
 
 ```python
 # repeat sequence until the user enters 0
@@ -217,6 +264,21 @@ number = 1
 while number != 0:
     number = int(input('Enter a number: '))
     print(f'You entered {number}.')
+print('Let's stop now.')
 
-print('The end.')
+# countdown from 5 to 1 before yelling "Happy new year!"
+counter = 5
+while counter > 0:
+    print(counter)
+    counter -= 1
+print("Happy new year!")
 ```
+
+> Infinite Loops:
+> Be cautious with while loops! If the condition never becomes false, the loop will
+> run forever, which can cause the program to freeze or crash. For example:
+> ```python
+> while True:
+>    print("This loop will run forever!")
+> ```
+> This loop will never stop because True is always true and most likely our program will freeze.
