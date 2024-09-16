@@ -121,7 +121,7 @@ the structured control flow constructs of selection (if/then/else) and repetitio
 
 #### Sequence / Block
 
-A plain list of commands to be executed in order.
+A plain list of statements to be executed in order.
 
 ```python
 a = 100
@@ -132,22 +132,55 @@ c = "world"
 print(b, c)
 ```
 
-#### Selection / Decision
+#### Selection
 
-One of a number of statements is executed depending on the state of the program.
+Selects which sequence is executed depending on evalution of the provided
+conditional expression.
 
-This is usually expressed with keywords such as `if... then... else...`.
-
+A lighter flavor of selection is _assertion_ which is an assumption check, it
+let's program continue only if the asserted condidtion is true.
 
 ```python
-today = 5
-if today >= 5:
-    print("Salary day!")
+today = input("what day of the month is today?")
+assert today.isnumeric(), "Expected a numeric value."
+today = int(today)
+assert 1 <= today <= 31
+if 5 <= today <= 9:
+    print(4, "Salary day!")
+    print(5, "let's all go for a beer...")
+    who_pays = input("Who pays?")
+    print(6, "The lucky funding VC is", who_pays, "!")
+    total = 107
+    print(8, "total is", total)
 else:
-    print("Every other day")
+    # else is not mandatory, place it here only when you have something to do
+    pass
+    # notice python supports pass, as a command that does nothing
 ```
 
-#### Iteration / Repetition
+Please read [this related chapter](https://python-1o1-tutorial.readthedocs.io/en/latest/logical.html#falsy-values)
+for more details of these _falsy_ values.
+
+```python
+falsy_val_1 = ""
+falsy_val_2 = 0
+falsy_val_3 = []
+falsy_val_4 = {}
+falsy_val_5 = False
+falsy_val_6 = 0.0
+print(falsy_val_1, type(falsy_val_1), bool(falsy_val_1))
+print(falsy_val_2, type(falsy_val_2), bool(falsy_val_2))
+print(falsy_val_3, type(falsy_val_3), bool(falsy_val_3))
+print(falsy_val_4, type(falsy_val_4), bool(falsy_val_4))
+print(falsy_val_5, type(falsy_val_5), bool(falsy_val_5))
+print(falsy_val_6, type(falsy_val_6), bool(falsy_val_6))
+```
+
+And now is a good moment to walkthrough this
+[entire lesson](https://python-1o1-tutorial.readthedocs.io/en/latest/logical.html)
+
+
+#### Iteration
 
 Traversing any list is called _iteration_ and is uses the `for` keyword
 
@@ -157,10 +190,33 @@ for movie in movies:
     print(movie)
 ```
 
-Repeating a block as long as a condition is true uses the `while` keyword:
+And a more bloated example:
+```python
+movies = [
+    "Star Wars", "Ghandi", "Casablanca", "Shawshank Redemption",
+    "Toy Story", "Gone with the wind", "Citizen Kane", "It's a wonderful life",
+    "The Wizard of Oz", "Gattaca", "Rear Window", "Ghostbusters",
+    "To Kill a Mockingbird", "Good Will Hunting", "2001: A Space Odissey",
+    "Riders of the Lost Ark", "Groundhog Day",
+    "Close Encounters of the Third King", "Scent of a Woman",
+]
+
+g_movies = []
+for title in movies:
+    if title.startswith("G"):
+        g_movies.append(title)
+```
+
+#### Repetition
+
+Repeating a sequence as long as a condition is true, and it starts with the `while` keyword:
 
 ```python
-big_number = 0
-while big_number < 100:
-    big_number = int(input("Please enter a number larger than 100:"))
+# repeat sequence until the user enters 0
+number = 1
+while number != 0:
+    number = int(input('Enter a number: '))
+    print(f'You entered {number}.')
+
+print('The end.')
 ```
