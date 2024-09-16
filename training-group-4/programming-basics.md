@@ -109,3 +109,58 @@ my_book = {
 - **Timestamps** a single integer number, telling you the exact number of
   seconds counting from a `January 1st, 1970`.
 
+
+## Execution / Behavior
+
+Structured programming is a programming paradigm aimed at improving the clarity,
+quality, and development time of a computer program by making extensive use of
+the structured control flow constructs of selection (if/then/else) and repetition
+(while and for), block structures, and subroutines (functions). 
+
+### Control flow structures
+
+#### Sequence / Block
+
+A plain list of commands to be executed in order.
+
+```python
+a = 100
+print("hello")
+print(a)
+b = "hello"
+c = "world"
+print(b, c)
+```
+
+#### Selection / Decision
+
+One of a number of statements is executed depending on the state of the program.
+
+This is usually expressed with keywords such as `if... then... else...`.
+
+
+```python
+today = 5
+if today >= 5:
+    print("Salary day!")
+else:
+    print("Every other day")
+```
+
+#### Iteration / Repetition
+
+Traversing any list is called _iteration_ and is uses the `for` keyword
+
+```
+movies = ["7", "Star Trek", "Long Lex"]
+for movie in movies:
+    print(movie)
+```
+
+Repeating a block as long as a condition is true uses the `while` keyword:
+
+```python
+big_number = 0
+while big_number < 100:
+    big_number = int(input("Please enter a number larger than 100:"))
+```
