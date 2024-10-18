@@ -69,18 +69,21 @@ with open("cars.json") as data_file:
 
 # traverse loaded data to look for interesting cases
 for obj in data[:3]:
+    # just print all key -> values
     for key, value in obj.items():
         print(key, "=>", value)
-    # brand = obj["brand"]
-    # if "models" not in obj:
-    #     print(brand, "has no model")
-    # else:
-    #     models = obj["models"]
-    #     for model in models:
-    #         title = model["title"]
-    #         if not title.isnumeric():
-    #             print(brand, title)
-    #
+
+    # look for models that are not numeric
+    brand = obj["brand"]
+    if "models" not in obj:
+        print(brand, "has no model")
+    else:
+        models = obj["models"]
+        for model in models:
+            title = model["title"]
+            if not title.isnumeric():
+                print(brand, title)
+
 
 
 
